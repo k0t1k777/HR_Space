@@ -1,19 +1,19 @@
-import { ReactNode } from "react";
 import "./BigPicture.css";
 
 interface BigPictureProps {
   title?: string;
-  icon?: ReactNode;
+  icon?: string;
 }
 
-export default function SubmitBtn({
+export default function BigPicture({
   title,
   icon,
-}: BigPictureProps) {
+}: BigPictureProps) 
+{
   return (
     <div className="bigPicture">
-      <img>{icon}</img>
-     <p>{title}</p>
+      <img src={icon} alt="Иконка прогресса"/>
+      <p className="bigPicture__title">{title}</p>
       </div>
   );
 }
