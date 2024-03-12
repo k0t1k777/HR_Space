@@ -1,15 +1,13 @@
 .sidebar {
-  
   height: 276px;
   gap: 8px;
   display: flex;
   flex-direction: column;
-  padding: 56px 0 62px;
+  padding: 56px 96px 62px 48px;
 }
 
 .sidebar__link {
-width: 100%;
-
+  width: 100%;
 }
 
 .sidebar__button {
@@ -23,6 +21,6 @@ width: 100%;
   width: 276px;
   height: 80px;
   border-radius: 8px;
-  border: 2px solid #EEEEEE;
-  background-color: #EEEEEE;
+  border: 2px solid #eeeeee;
+  background-color: #eeeeee;
 }
