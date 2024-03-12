@@ -1,0 +1,20 @@
+.title {
+  display: flex;
+  gap: 14px;
+  justify-content: end;
+  padding-top: 44px;
+}
+
+.title__name {
+  margin: 0;
+  font-style: 'Arial';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.title__img {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+}
