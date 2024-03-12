@@ -1,24 +1,27 @@
 import "./App.css";
 import BigPictureContainer from "../BigPictureContainer/BigPictureContainer";
 import Sidebar from "../Sidebar/Sidebar";
-// import { Route, Routes } from "react-router-dom";
-// import Description from "../Description/Description";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Сandidate from "../Сandidate/Сandidate";
+import Сooperation from "../Сooperation/Сooperation";
+import Description from "../Description/Description";
+import Requirement from "../Requirement/Requirement";
 
 const AppRouter: React.FC = () => {
   return (
-    <main className="main">
-      {/* <Header /> */}
-         <BigPictureContainer />
+    <BrowserRouter>
+      <main className="main">
+        {/* <Header /> */}
+        <BigPictureContainer />
         <Sidebar />
-        {/* <>
-      </Routes>
-      
-       <Routes>
-        <Route  path={'/description'} component={Description }></Route>
-        <Route  path={'/notice'} component={Sidebar }></Route>
-         </Routes> 
-      </> */}
-    </main>
+          <Routes>
+            <Route path="/description" element={<Description />} />
+            <Route path="/equirement" element={<Requirement />} />
+            <Route path="/conditions-for-candidate" element={<Сandidate />} />
+            <Route path="/conditions-for-cooperation" element={<Сooperation />} />
+          </Routes>
+      </main>
+    </BrowserRouter>
   );
 };
 
