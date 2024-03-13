@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
 
@@ -27,6 +27,7 @@ export default function StatusBar() {
       setSelectedStatus(null);
     }
   };
+  
 
   const handleClick = (
     event: React.MouseEvent<HTMLDivElement>,
