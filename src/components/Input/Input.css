@@ -8,12 +8,14 @@
   margin: 12px 0;
   padding: 10px 16px;
   box-sizing: border-box;
+  border: 1px solid #BABDBF;
+  margin: 12px 0 0;
   }
 
 .input__container-suggestion {
   display: flex;
   gap: 4px;
-
+  margin: 17px 0 0 0;
 }
 
 .input__container-item {

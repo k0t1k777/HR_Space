@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import './Input.css';
 
+interface InputProps {
+  width?: string;
+  placeholder?: string;
+}
+
 const options = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
 
-export default function Input() {
+export default function Input({ width, placeholder }: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -30,6 +35,8 @@ export default function Input() {
         type='text'
         value={inputValue}
         onChange={handleChange}
+        placeholder = {placeholder ? placeholder : 'Выберите из списка'}
+        style={{ width: width ? width : '600px' }}
       />
       {suggestions.length > 0 && (
         <div className='input__container-suggestion'>

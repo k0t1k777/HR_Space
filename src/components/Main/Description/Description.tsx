@@ -1,21 +1,25 @@
-import { useState } from 'react';
-import Title from '../../Title/Title';
 import './Description.css';
 import Input from '../../Input/Input';
 import SubTitle from '../../Subtitle/Subtitle';
+import TextArea from '../../TextArea/TextArea';
+import Button from '../../Button/Button';
+import StatusBar from '../../StatusBar/StatusBar';
 
 export default function Description() {
-  const [newTitle, setNewTitle] = useState('Название заявки');
-  const handleSaveTitle = (title: string) => {
-    setNewTitle(title);
-  };
 
   return (
     <div className='description'>
-      <Title title={newTitle} onSave={handleSaveTitle} />
+      <StatusBar />
       <SubTitle subtitle='Специальность (необязательно)' />
       <Input />
       <SubTitle subtitle='Заработная плата сотрудника (необязательно)' />
+      <Input width='276px' placeholder={"Введите сумму"} />
+      <SubTitle subtitle='Обязанности сотрудника (необязательно)' />
+      <TextArea />
+      <div className='description__container-button'>
+        <Button buttonText={"Вернуться"}/>
+        <Button buttonText={"Продолжить"} background='#E8F4FF' color='#1785E5'/>
+      </div>
     </div>
   );
 }
