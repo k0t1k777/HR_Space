@@ -7,6 +7,7 @@ export default function Requirement() {
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
   };
+
   
   return (
     <div className='requirement'>
