@@ -1,8 +1,12 @@
-import "./Subtitle.css"
+import './Subtitle.css';
 
-export default function Subtitle() {
+interface SubtitleProps {
+  subtitle: string;
+}
+
+export default function SubTitle({ subtitle }: SubtitleProps) {
   return (
-      <p className="description">{Subtitle}
-      </p>
-  );
+    <h3 className='subtitle'>{subtitle}</h3>
+
+  )
 }

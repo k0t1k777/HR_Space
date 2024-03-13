@@ -1,7 +1,6 @@
 .title {
   display: flex;
   gap: 14px;
-  justify-content: end;
   padding-top: 44px;
 }
 
