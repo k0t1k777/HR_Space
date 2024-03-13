@@ -1,5 +1,82 @@
 .header {
+  font-family: Arial, Helvetica, sans-serif;
+  width: calc(1440px - 192px);
   height: 78px;
-  width: 1440px;
-  background-color: black;
+  padding: 0 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #222324;
+}
+
+.header__logo {
+  width: 138px;
+  height: 46px;
+}
+
+.header__list-links {
+  margin-left: 82px;
+  display: flex;
+  gap: 24px;
+}
+
+.header__link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color:  #959799;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  width: 30px;
+  height: 30px;
+  margin-right: 16px;
+  padding: 0;
+  border: none;
+  background-image: url(../../assets/white-bell.svg);
+  background-color: #222324;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header__button:hover {
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+
+.header__photo {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.header__user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header__user-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.header__user-id {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color:  #959799;
 }
