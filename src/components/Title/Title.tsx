@@ -33,20 +33,23 @@ export default function Title({ title, onSave }: TitleProps) {
 
   return (
     <div className='title'>
-      {editing ? (
-        <input
-          type='text'
-          value={newTitle}
-          onChange={handleTitleChange}
-          onBlur={handleBlur}
-          autoFocus
-        />
-      ) : (
-        <>
-          <h1 className='title__name'>{title}</h1>
-          <img className='title__img' src={Edit} onClick={handleEditClick} />
-        </>
-      )}
+      <div className='title-container'>
+        {editing ? (
+          <input
+            type='text'
+            value={newTitle}
+            onChange={handleTitleChange}
+            onBlur={handleBlur}
+            autoFocus
+          />
+        ) : (
+          <>
+            <h1 className='title__name'>{title}</h1>
+            <img className='title__img' src={Edit} onClick={handleEditClick} />
+          </>
+        )}
+      </div>
+      <button className='title__draft'>Сохранить черновик</button>
     </div>
   );
 }

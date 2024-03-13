@@ -16,9 +16,11 @@
   width: 47px;
   height: 8px;
   background-color: #eeeeee;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 .statusBar__item:hover {
-  background-color: #FF4D3A;
+  background-color: #ff4d3a;
 }
 
 .statusBar__item:first-of-type {
@@ -30,9 +32,9 @@
 }
 
 .status-bar__description {
-  margin: 0;
+  margin: 4px 0 0 0;
   font-style: 'Arial';
   font-size: 12px;
   font-weight: 400;
-  line-height: 216px;
+  line-height: 16px;
 }
