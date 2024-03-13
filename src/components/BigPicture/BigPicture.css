@@ -1,0 +1,12 @@
+.bigPicture {
+  max-width: 184px;
+  margin-top: 50px;
+}
+
+.bigPicture__title {
+  margin: 0;
+  font-style: "Arial";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}

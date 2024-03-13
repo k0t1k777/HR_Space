@@ -1,0 +1,32 @@
+.input__container {
+}
+
+.input {
+  width: 600px;
+  height: 40px;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #BABDBF;
+  margin: 12px 0 0;
+  }
+
+.input__container-suggestion {
+  display: flex;
+  gap: 4px;
+  margin: 17px 0 0 0;
+}
+
+.input__container-item {
+  border-radius: 18px;
+  padding: 8px 12px;
+  border: 1px solid #BABDBF;
+  height: 36px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  box-sizing: border-box;
+
+}

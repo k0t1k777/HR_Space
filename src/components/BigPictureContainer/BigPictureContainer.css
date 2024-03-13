@@ -1,0 +1,6 @@
+.big-picture-container__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 133px;
+}
