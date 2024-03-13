@@ -4,9 +4,10 @@ import Edit from '../../assets/edit.svg';
 
 interface TitleProps {
   title: string;
+  onSave: (newTitle: string) => void;
 }
 
-export default function Title({ title }: TitleProps) {
+export default function Title({ title, onSave }: TitleProps) {
   const [editing, setEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
 
@@ -20,7 +21,8 @@ export default function Title({ title }: TitleProps) {
 
   const handleSaveClick = () => {
     setEditing(false);
-    // Здесь вы можете добавить логику для сохранения нового заголовка
+    onSave(newTitle);
+    setNewTitle(newTitle);
   };
 
   const handleBlur = () => {
