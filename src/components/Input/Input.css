@@ -8,9 +8,9 @@
   margin: 12px 0;
   padding: 10px 16px;
   box-sizing: border-box;
-  border: 1px solid #BABDBF;
+  border: 1px solid #babdbf;
   margin: 12px 0 0;
-  }
+}
 
 .input__container-suggestion {
   display: flex;
@@ -21,12 +21,15 @@
 .input__container-item {
   border-radius: 18px;
   padding: 8px 12px;
-  border: 1px solid #BABDBF;
+  border: 1px solid #babdbf;
   height: 36px;
   margin: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   box-sizing: border-box;
-
 }
+
+/* .input__focused {
+  border: 1px solid #1785E5;
+} */

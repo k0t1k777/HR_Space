@@ -39,13 +39,6 @@ export default function StatusBar() {
     changeColor(index);
   };
 
-  // useEffect(() => {
-  //   if (clicked) {
-  //     resetColor();
-  //     setClicked(false);
-  //   }
-  // }, [clicked]);
-
   return (
     <div className='status-bar'>
       <Title title={newTitle} onSave={handleSaveTitle} />

@@ -10,6 +10,20 @@
   padding-top: 44px;
 }
 
+.title__input {
+  border-radius: 8px;
+  margin: 0;
+  max-height: 40px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #BABDBF;
+  margin: 0 0 0;
+  font-style: 'Arial';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 .title__name {
   margin: 0;
   font-style: 'Arial';

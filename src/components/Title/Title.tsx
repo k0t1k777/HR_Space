@@ -36,6 +36,7 @@ export default function Title({ title, onSave }: TitleProps) {
       <div className='title-container'>
         {editing ? (
           <input
+            className='title__input'
             type='text'
             value={newTitle}
             onChange={handleTitleChange}
