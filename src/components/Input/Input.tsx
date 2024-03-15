@@ -35,7 +35,7 @@ export default function Input({ width, placeholder }: InputProps) {
         type='text'
         value={inputValue}
         onChange={handleChange}
-        placeholder = {placeholder ? placeholder : 'Выберите из списка'}
+        placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
       {suggestions.length > 0 && (

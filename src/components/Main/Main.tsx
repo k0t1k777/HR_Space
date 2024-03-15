@@ -1,6 +1,5 @@
 import "./Main.css";
 import Sidebar from "../Main/Sidebar/Sidebar";
-// BrowserRouter moved in main.tsx
 import { Route, Routes } from "react-router-dom"; 
 import Сandidate from "../Main/Сandidate/Сandidate";
 import Сooperation from "../Main/Сooperation/Сooperation";

@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
-
-// interface StatusBarProps {
-//   index: any;
-//   onSave: (newTitle: string) => void;
-// }
+import { names } from '../utils/constants';
 
 export default function StatusBar() {
   const [newTitle, setNewTitle] = useState('Название заявки');
@@ -27,7 +23,6 @@ export default function StatusBar() {
       setSelectedStatus(null);
     }
   };
-  
 
   const handleClick = (
     event: React.MouseEvent<HTMLDivElement>,
@@ -41,26 +36,36 @@ export default function StatusBar() {
 
   return (
     <div className='status-bar'>
-      <Title title={newTitle} onSave={handleSaveTitle} />
-
-      <div className='status-bar__container-status'>
-        {[...Array(10).keys()].map((index) => (
-          <div
-            className='statusBar__item'
-            key={index}
-            style={{
-              backgroundColor:
-                selectedStatus !== null && index <= selectedStatus
-                  ? '#FF4D3A'
-                  : '',
-            }}
-            onMouseEnter={() => changeColor(index)}
-            onMouseLeave={resetColor}
-            onClick={(e) => handleClick(e, index)}
-          ></div>
-        ))}
+      <div className='status-bar__wrapper'>
+        <div className='status-bar__container-status'>
+          <div className='status-bar__container-subtitle'>
+            {names.map((name, index) => (
+              <div className='statusBar__subtitle-item' key={index}>
+                <p className='status-bar__subtitle-name'>{name}</p>
+              </div>
+            ))}
+          </div>
+          <div className='status-bar__container'>
+            {[...Array(9).keys()].map((index) => (
+              <div
+                className='statusBar__item'
+                key={index}
+                style={{
+                  backgroundColor:
+                    selectedStatus !== null && index <= selectedStatus
+                      ? '#4BB24E'
+                      : '',
+                }}
+                onMouseEnter={() => changeColor(index)}
+                onMouseLeave={resetColor}
+                onClick={(e) => handleClick(e, index)}
+              ></div>
+            ))}
+          </div>
+        </div>
+        <button className='status-bar__draft'>Сохранить черновик</button>{' '}
       </div>
-      <p className='status-bar__description'>Описание вакансии</p>
+      <Title title={newTitle} onSave={handleSaveTitle} />
     </div>
   );
 }

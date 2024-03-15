@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Title.css';
-import Edit from '../../assets/edit.svg';
+import Edit from '../../assets/edit.svg?react';
 
 interface TitleProps {
   title: string;
@@ -46,11 +46,10 @@ export default function Title({ title, onSave }: TitleProps) {
         ) : (
           <>
             <h1 className='title__name'>{title}</h1>
-            <img className='title__img' src={Edit} onClick={handleEditClick} />
+            <Edit className='title__img' onClick={handleEditClick}/>
           </>
         )}
       </div>
-      <button className='title__draft'>Сохранить черновик</button>
     </div>
   );
 }
