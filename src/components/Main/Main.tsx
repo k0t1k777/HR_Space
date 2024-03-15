@@ -1,5 +1,5 @@
 import "./Main.css";
-import Sidebar from "../Main/Sidebar/Sidebar";
+//import Sidebar from "../Main/Sidebar/Sidebar";
 // BrowserRouter moved in main.tsx
 import { Route, Routes } from "react-router-dom"; 
 import Сandidate from "../Main/Сandidate/Сandidate";
@@ -10,7 +10,6 @@ import Requirement from "../Main/Requirement/Requirement";
 export default function Main() {
   return (
     <main className="main">
-      <Sidebar />
       <Routes>
         <Route path="/description" element={<Description />} />
         <Route path="/equirement" element={<Requirement />} />
