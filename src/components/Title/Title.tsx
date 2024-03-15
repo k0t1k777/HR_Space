@@ -3,7 +3,7 @@ import './Title.css';
 import Edit from '../../assets/edit.svg?react';
 
 interface TitleProps {
-  title: string;
+  title?: string;
   onSave: (newTitle: string) => void;
 }
 

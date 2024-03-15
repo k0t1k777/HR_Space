@@ -4,7 +4,7 @@ import './StatusBar.css';
 import { names } from '../utils/constants';
 
 export default function StatusBar() {
-  const [newTitle, setNewTitle] = useState('Название заявки');
+  const [newTitle, setNewTitle] = useState('Новая заявка');
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
   };

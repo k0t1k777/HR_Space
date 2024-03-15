@@ -4,11 +4,12 @@ import './Input.css';
 interface InputProps {
   width?: string;
   placeholder?: string;
+  disableSuggestions?: boolean;
 }
 
 const options = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
 
-export default function Input({ width, placeholder }: InputProps) {
+export default function Input({ width, placeholder, disableSuggestions }: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -29,7 +30,7 @@ export default function Input({ width, placeholder }: InputProps) {
   };
 
   return (
-    <div className='input__container'>
+    <>
       <input
         className='input'
         type='text'
@@ -38,7 +39,7 @@ export default function Input({ width, placeholder }: InputProps) {
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
-      {suggestions.length > 0 && (
+      {!disableSuggestions && suggestions.length > 0 && (
         <div className='input__container-suggestion'>
           {suggestions.map((suggestion) => (
             <div
@@ -51,6 +52,6 @@ export default function Input({ width, placeholder }: InputProps) {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }
