@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'YSDisplay';
+  font-style: thin;
+  font-weight: 100;
+  font-display: swap;
+  src: url('./fonts/YandexSansDisplay-Thin.woff') format('woff'),
+    url('./fonts/YandexSansDisplay-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSDisplay';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/YandexSansDisplay-Regular.woff') format('woff'),
+    url('./fonts/YandexSansDisplay-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSDisplay';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/YS-Display-Medium.woff') format('woff'),
+    url('./fonts/YS-Display-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSDisplay';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/YandexSansDisplay-Bold.woff') format('woff'),
+    url('./fonts/DMSans-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSText';
+  font-style: thin;
+  font-weight: 100;
+  font-display: swap;
+  src: url('./fonts/YandexSansText-Thin.woff') format('woff'),
+    url('./fonts/YandexSansText-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSText';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/YandexSansText-Regular.woff') format('woff'),
+    url('./fonts/YandexSansText-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSText';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/YandexSansText-Medium.woff') format('woff'),
+    url('./fonts/YandexSansText-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'YSText';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/YandexSansText-Bold.woff') format('woff'),
+    url('./fonts/YandexSansText-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/DMSans-Bold.woff') format('woff'),
+    url('./fonts/DMSans-Bold.woff2') format('woff2');
+}

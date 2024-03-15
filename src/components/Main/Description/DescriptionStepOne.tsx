@@ -1,7 +1,7 @@
 import './Description.css';
 import Input from '../../Input/Input';
 import SubTitle from '../../Subtitle/Subtitle';
-import Button from '../../Button/Button';
+import Button from '../../ButtonNext/ButtonNext';
 import StatusBar from '../../StatusBar/StatusBar';
 import InputSalary from '../../InputSalary/InputSalary';
 import TextArea from '../../TextArea/TextArea';

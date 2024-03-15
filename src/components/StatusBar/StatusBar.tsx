@@ -1,37 +1,12 @@
 import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
-import { names } from '../utils/constants';
+import { names } from '../../utils/constants';
 
-export default function StatusBar() {
+export default function StatusBar({ currentStep }: { currentStep: number }) {
   const [newTitle, setNewTitle] = useState('Новая заявка');
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
-  };
-
-  const [selectedStatus, setSelectedStatus] = useState<number | null>(null);
-  const [clicked, setClicked] = useState(false);
-
-  const changeColor = (index: any) => {
-    if (!clicked) {
-      setSelectedStatus(index);
-    }
-  };
-
-  const resetColor = () => {
-    if (!clicked) {
-      setSelectedStatus(null);
-    }
-  };
-
-  const handleClick = (
-    event: React.MouseEvent<HTMLDivElement>,
-    index: number
-  ) => {
-    event.stopPropagation();
-    setClicked(true);
-    setSelectedStatus(null);
-    changeColor(index);
   };
 
   return (
@@ -48,17 +23,14 @@ export default function StatusBar() {
           <div className='status-bar__container'>
             {[...Array(9).keys()].map((index) => (
               <div
-                className='statusBar__item'
+                className={`statusBar__item ${
+                  currentStep === index + 1
+                    ? 'currentStep_type_active'
+                    : currentStep > index + 1
+                    ? 'currentStep_type_active'
+                    : ''
+                }`}
                 key={index}
-                style={{
-                  backgroundColor:
-                    selectedStatus !== null && index <= selectedStatus
-                      ? '#4BB24E'
-                      : '',
-                }}
-                onMouseEnter={() => changeColor(index)}
-                onMouseLeave={resetColor}
-                onClick={(e) => handleClick(e, index)}
               ></div>
             ))}
           </div>

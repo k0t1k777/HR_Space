@@ -26,7 +26,7 @@
 }
 
 .statusBar__subtitle-item {
-  width: 123px;
+  width: 124px;
   height: 16px;
   border-right: 1px solid #BABDBF;
 }
@@ -55,11 +55,10 @@
   width: 60px;
   height: 8px;
   background-color: #eeeeee;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.statusBar__item:hover {
-  background-color: #4BB24E;
+.currentStep_type_active {
+  background-color: #4BB24E
 }
 
 .statusBar__item:first-of-type {
@@ -97,4 +96,5 @@
   color: #1785e5;
   background-color: #fff;
   cursor: pointer;
+  border: none;
 }
