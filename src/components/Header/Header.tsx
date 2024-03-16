@@ -3,6 +3,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import LogoHeader from '../../assets/header.svg';
 import Photo from '../../assets/ava-user.png';
+import { linksHeader } from "../../utils/constants";
 
 
 export default function Header() {
@@ -14,11 +15,11 @@ export default function Header() {
         <img className="header__logo" src={LogoHeader} alt="логотип" />
 
         <nav className="header__list-links">
-          <NavLink className="header__link" to="#">Главная</NavLink>
-          <NavLink className="header__link" to="#">Мои заявки</NavLink>
-          <NavLink className="header__link" to="#">Поиск по рынку</NavLink>
-          <NavLink className="header__link" to="#">Счёт</NavLink>
-          <NavLink className="header__link" to="#">Помощь</NavLink>
+          {
+            linksHeader.map((item) => {
+              return <NavLink className="header__link" to="#">{item}</NavLink>
+            })
+          }
         </nav>
 
         <div className="header__container">

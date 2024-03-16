@@ -1,5 +1,5 @@
 import './Main.css';
-import Sidebar from '../Main/Sidebar/Sidebar';
+import Sidebar from '../Sidbar/Sidbar';
 import { useState } from 'react';
 import StepThree from './StepThree/StepThree';
 import StepFour from './StepFour/StepFour';
