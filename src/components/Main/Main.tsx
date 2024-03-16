@@ -8,7 +8,14 @@ import ButtonPrevious from '../ButtonPrevious/ButtonPrevious';
 import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
-//import BigPictureContainer from "../BigPictureContainer/BigPictureContainer";
+import {
+  expiriense,
+  education,
+  options,
+  towns,
+  skills,
+  langages,
+} from '../../utils/constants';
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -26,18 +33,24 @@ export default function Main() {
       <Sidebar />
       <div className='main__container'>
         <StatusBar currentStep={currentStep} />
-        {currentStep === 1 && <StepOne />}
+        {currentStep === 1 && <StepOne options={options} towns={towns} />}
         {currentStep === 2 && <StepTwo />}
-        {currentStep === 3 && <StepThree />}
-        {currentStep === 4 && <StepFour />}
+        {currentStep === 3 && (
+          <StepThree
+            expiriense={expiriense}
+            education={education}
+            skills={skills}
+          />
+        )}
+        {currentStep === 4 && <StepFour langages={langages}/>}
+        {currentStep === 5 && <StepFive />}
+
         <div className='main__button'>
           <ButtonPrevious
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          <ButtonNext
-            handleContinue={handleContinue}
-          />
+          <ButtonNext handleContinue={handleContinue} />
         </div>
       </div>
     </main>

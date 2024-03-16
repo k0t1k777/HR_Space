@@ -5,11 +5,10 @@ interface InputProps {
   width?: string;
   placeholder?: string;
   disableSuggestions?: boolean;
+  options: any;
 }
 
-const options = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
-
-export default function Input({ width, placeholder, disableSuggestions }: InputProps) {
+export default function Input({ options, width, placeholder, disableSuggestions }: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -17,7 +16,7 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
     const value = event.target.value;
     setInputValue(value);
 
-    const filteredSuggestions = options.filter((option) =>
+    const filteredSuggestions = options.filter((option: any) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
 
@@ -29,11 +28,6 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
     setSuggestions([]);
   };
 
-  // const handleBlur = () => {
-  //   setSuggestions([]);
-  // };
-
-
   return (
     <>
       <input
@@ -41,7 +35,6 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
         type='text'
         value={inputValue}
         onChange={handleChange}
-        // onBlur={handleBlur}
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />

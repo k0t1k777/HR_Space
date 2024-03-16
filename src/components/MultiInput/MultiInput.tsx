@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import './MultiInput.css';
 
-const multi: string[] = ['Инженер', 'Механик', 'Специальность', 'Профессия'];
-
-export default function MultiInput() {
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+export default function MultiInput({ multi }: any) {
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const toggleItem = (item: string): void => {
-    if (selectedItems.includes(item)) {
-      setSelectedItems(
-        selectedItems.filter((selectedItem) => selectedItem !== item)
-      );
+    if (selectedItem === item) {
+      setSelectedItem(null); // Снимаем выбор, если элемент уже выбран
     } else {
-      setSelectedItems([...selectedItems, item]);
+      setSelectedItem(item); // Устанавливаем выбранный элемент
     }
   };
 
   return (
     <div>
       <div className='multi-input__container'>
-        {multi.map((item) => (
+        {multi.map((item: any) => (
           <button
             key={item}
             className={`multi-input__container-item ${
-              selectedItems.includes(item) ? 'selected' : ''
+              selectedItem === item ? 'selected' : ''
             }`}
             onClick={() => toggleItem(item)}
           >
