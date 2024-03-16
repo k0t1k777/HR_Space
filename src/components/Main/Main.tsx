@@ -8,6 +8,7 @@ import ButtonPrevious from '../ButtonPrevious/ButtonPrevious';
 import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
+//import BigPictureContainer from "../BigPictureContainer/BigPictureContainer";
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);

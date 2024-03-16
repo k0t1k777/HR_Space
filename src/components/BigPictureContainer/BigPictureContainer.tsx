@@ -1,18 +1,20 @@
 import "./BigPictureContainer.css";
 import BigPicture from "../BigPicture/BigPicture";
-import ImageOne from "../../assets/business_deal.svg";
-import ImageTwo from "../../assets/filling_survey.svg";
-import ImageThree from "../../assets/payment_processed.svg";
+import ImgFill from "../../assets/imgFill.svg";
+import ImgPay from "../../assets/imgPay.svg";
+import ImgPublish from "../../assets/imgPublish.svg";
+import lineOne from "../../assets/line-1.svg";
+import lineTwo from "../../assets/line-2.svg"
+
 
 export default function BigPictureContainer() {
   return (
-    <div className="big-picture-container__items">
-      <BigPicture title="Заполните заявку" icon={ImageOne} />
-      <BigPicture title="Пополните счет" icon={ImageTwo} />
-      <BigPicture
-        title="Разместите заявку и выберите рекрутера"
-        icon={ImageThree}
-      />
-    </div>
+    <aside className="big-picture-container__items">
+      <BigPicture changeColor="bigPicture__title_color_black" title="Заполните заявку"  icon={ImgFill} numb="1." />
+      <img className="big-picture-container__line" src={lineOne} alt="image" />
+      <BigPicture title="Пополните счёт" icon={ImgPay} numb="2." />
+      <img className="big-picture-container__line line_position_bottom" src={lineTwo} alt="image" />
+      <BigPicture title="Опубликуйте заявку" icon={ImgPublish} numb="3." />
+    </aside>
   );
 }
