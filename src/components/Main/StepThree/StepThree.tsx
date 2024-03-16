@@ -1,6 +1,7 @@
 import './StepThree.css';
 import SubTitle from '../../Subtitle/Subtitle';
 import Input from '../../Input/Input';
+import MultiInput from '../../MultiInput/MultiInput';
 
 export default function StepThree() {
   return (
@@ -8,9 +9,9 @@ export default function StepThree() {
       <SubTitle subtitle='Ключевые навыки' />
       <Input placeholder={'Введите название'} />
       <SubTitle subtitle='Опыт работы' />
-      <p>Силект</p>
+      <MultiInput />
       <SubTitle subtitle='Образование' />
-      <p>Силект</p>
+      <MultiInput />
     </div>
   );
 }

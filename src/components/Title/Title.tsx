@@ -4,7 +4,7 @@ import Edit from '../../assets/edit.svg?react';
 
 interface TitleProps {
   title?: string | undefined;
-  onSave: (newTitle: string) => void;
+  onSave: (newTitle: string | undefined) => void;
 }
 
 export default function Title({ title, onSave }: TitleProps) {

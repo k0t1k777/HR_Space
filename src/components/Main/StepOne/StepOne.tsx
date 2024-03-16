@@ -10,7 +10,10 @@ export default function StepOne() {
       <Input placeholder={'Сантехник'} />
       <SubTitle subtitle='Город (необязательно)' />
       <Input placeholder={'Москва'} />
-      <SubTitle subtitle='Заработная плата сотрудника (необязательно)' />
+      <SubTitle
+        subtitle='Заработная плата сотрудника (необязательно)'
+        subtitleText='Средняя зарплата в выбранном регионе от 80 000 ₽'
+      />
       <InputSalary />
     </div>
   );
