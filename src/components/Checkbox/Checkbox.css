@@ -1,0 +1,42 @@
+.check__container {
+  height: 22px;
+  position: relative;
+  display: flex;
+  gap: 12px;
+
+}
+
+.check__custom {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.check__fake {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: -1;
+  border: 1px solid #959799;
+  border-radius: 4px;
+  
+}
+
+.check__custom:checked + .check__fake {
+  border: none;
+  background-image: url(../../assets/daw.svg);
+  background-position: 50% 48%;
+  background-repeat: no-repeat;
+  background-color: #1785E5;
+}
+
+.check__caption {
+  max-width: 506px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #303233;
+}

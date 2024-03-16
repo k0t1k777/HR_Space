@@ -2,7 +2,7 @@
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import LogoHeader from '../../assets/header.svg';
-import Photo from '../../assets/ava-user.png'
+import Photo from '../../assets/ava-user.png';
 
 
 export default function Header() {
