@@ -1,5 +1,5 @@
 .status-bar {
-  width: 718px;
+  width: 506px;
 }
 
 .status-bar__wrapper {
@@ -82,14 +82,16 @@
   font-weight: 400;
   line-height: 16px;
 }
-
+.status-bar__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .status-bar__draft {
   height: 32px;
   width: 146px;
   border-radius: 8px;
-  padding: 6px 12px;
-  margin: 40px 0 0 0;
-  font-style: 'Arial';
+  padding: 26px 12px 0 12px;
+  margin:0;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;

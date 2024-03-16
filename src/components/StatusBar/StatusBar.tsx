@@ -36,9 +36,11 @@ export default function StatusBar({ currentStep }: { currentStep: number }) {
             ))}
           </div>
         </div>
+      </div>
+      <div className='status-bar__title-wrapper'>
+        <Title title={newTitle} onSave={handleSaveTitle} />
         <button className='status-bar__draft'>Сохранить черновик</button>{' '}
       </div>
-      <Title title={newTitle} onSave={handleSaveTitle} />
     </div>
   );
 }

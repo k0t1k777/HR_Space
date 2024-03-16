@@ -1,8 +1,6 @@
 .header {
-  font-family: Arial, Helvetica, sans-serif;
   width: calc(1440px - 192px);
-  height: 78px;
-  padding: 0 96px;
+  padding: 16.02px 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,6 +23,11 @@
   font-weight: 400;
   line-height: 24px;
   color:  #959799;
+  text-decoration: none;
+}
+
+.header__link:first-of-type {
+  color: #FFFFFF;
 }
 
 .header__link:hover {
