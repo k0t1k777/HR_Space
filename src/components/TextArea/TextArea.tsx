@@ -1,11 +1,9 @@
 import './TextArea.css';
 
-export default function TextArea() {
-  
-  return (
-      <textarea
-        className='textArea'
-        placeholder = "Опишите чем придется заниматься на данной должности"
-      />
-    );
+interface TextAreaProps {
+  placeholder: string;
+}
+
+export default function TextArea({ placeholder }: TextAreaProps) {
+  return <textarea className='textArea' placeholder={placeholder} />;
 }

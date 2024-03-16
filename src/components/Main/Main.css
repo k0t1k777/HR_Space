@@ -1,7 +1,10 @@
 .main {
   display: flex;
-  margin: 40px 0 0 0;
+ margin: 40px 0 0 0;
+}
 
-  /* padding: 44px 0 0 96px;
-  width: 1440px; */
+.main__button {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
 }

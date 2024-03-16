@@ -1,26 +1,64 @@
 .status-bar {
-  /* display: flex;
-  gap: 14px; */
-  /* padding-top: 44px; */
   width: 718px;
+}
+
+.status-bar__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-bar__container-status {
+  width: 506px;
+  display: flex;
+  flex-direction: column;
+  height: 32px;
+  gap: 8px;
+}
+
+.status-bar__container {
+  display: flex;
+  gap: 4px;
+}
+
+.status-bar__container-subtitle {
+  display: flex;
+  gap: 4px;
+}
+
+.statusBar__subtitle-item {
+  width: 124px;
+  height: 16px;
+  border-right: 1px solid #BABDBF;
+}
+
+.statusBar__subtitle-item:last-of-type {
+  border: none;
+}
+
+.status-bar__subtitle-name {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #959799;
+  text-align: center;
 }
 
 .status-bar__container-status {
   width: 506px;
   display: flex;
   gap: 4px;
-  margin: 16px 0 0 0;
+  margin: 40px 0 0 0;
 }
 
 .statusBar__item {
-  width: 47px;
+  width: 60px;
   height: 8px;
   background-color: #eeeeee;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.statusBar__item:hover {
-  background-color: #ff4d3a;
+.currentStep_type_active {
+  background-color: #4BB24E
 }
 
 .statusBar__item:first-of-type {
@@ -31,10 +69,32 @@
   border-radius: 0 4px 4px 0;
 }
 
+.statusBar__item:nth-child(7),
+.statusBar__item:nth-child(8),
+.statusBar__item:nth-child(9) {
+  width: 39px;
+}
+
 .status-bar__description {
   margin: 4px 0 0 0;
   font-style: 'Arial';
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
+}
+
+.status-bar__draft {
+  height: 32px;
+  width: 146px;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 40px 0 0 0;
+  font-style: 'Arial';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #1785e5;
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
 }
