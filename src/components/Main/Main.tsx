@@ -24,7 +24,7 @@ export default function Main() {
   return (
     <main className='main'>
       <Sidebar />
-      <div>
+      <div className='main__container'>
         <StatusBar currentStep={currentStep} />
         {currentStep === 1 && <StepOne />}
         {currentStep === 2 && <StepTwo />}

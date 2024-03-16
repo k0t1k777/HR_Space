@@ -5,6 +5,10 @@
   margin: 40px 0 0 0;
 }
 
+.main__container {
+  width: 532px;
+}
+
 .main__button {
   margin-top: 48px;
   display: flex;
