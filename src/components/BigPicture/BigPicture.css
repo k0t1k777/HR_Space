@@ -1,12 +1,37 @@
 .bigPicture {
-  max-width: 184px;
-  margin-top: 50px;
+  width: 159px;
+  align-self: flex-end;
+  margin: 27.5px 54px 27.5px 0;
+}
+
+.bigPicture__image {
+  width: 159px;
+  height: 88px;
+}
+
+.bigPicture:first-child, .bigPicture:last-child {
+  align-self: flex-start;
+  justify-self: center;
+}
+
+.bigPicture:first-child {
+  margin: 52px 0 0 44px;
+}
+
+.bigPicture:last-child {
+  margin: 20px 0 54px 47px;
 }
 
 .bigPicture__title {
   margin: 0;
   font-style: "Arial";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 22px;
+  line-height: 19.6px;
+  text-align: center;
+  color: #888686;
+}
+
+.bigPicture__title_color_black {
+  color: #000;
 }
