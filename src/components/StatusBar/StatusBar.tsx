@@ -9,6 +9,7 @@ export default function StatusBar({ currentStep }: { currentStep: number }) {
     setNewTitle(title);
   };
 
+  
   return (
     <div className='status-bar'>
       <div className='status-bar__wrapper'>
