@@ -21,9 +21,5 @@
 
 .button-previous:disabled {
   background-color: #E8F4FF;
-}
-
-.button-previous:active {
-  background-color: #518DC2;
-  color: #FFFFFF;
+  cursor: not-allowed;
 }

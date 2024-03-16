@@ -29,6 +29,11 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
     setSuggestions([]);
   };
 
+  // const handleBlur = () => {
+  //   setSuggestions([]);
+  // };
+
+
   return (
     <>
       <input
@@ -36,19 +41,20 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
         type='text'
         value={inputValue}
         onChange={handleChange}
+        // onBlur={handleBlur}
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
       {!disableSuggestions && suggestions.length > 0 && (
         <div className='input__container-suggestion'>
           {suggestions.map((suggestion) => (
-            <div
+            <p
               className='input__container-item'
               key={suggestion}
               onClick={() => handleSuggestionClick(suggestion)}
             >
               {suggestion}
-            </div>
+            </p>
           ))}
         </div>
       )}

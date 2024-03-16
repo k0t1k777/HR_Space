@@ -17,6 +17,7 @@ export default function ButtonPrevious({
         disabled ? 'disabled' : ''
       }`}
       onClick={handleBack}
+      disabled={disabled}
     >
       Назад
     </button>

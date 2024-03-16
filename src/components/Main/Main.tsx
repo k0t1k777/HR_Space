@@ -14,17 +14,18 @@ export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const handleContinue = () => {
-    setCurrentStep(currentStep + 1);
+    setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
   };
+
   const handleBack = () => {
-    setCurrentStep(currentStep - 1);
+    setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
 
   return (
     <main className='main'>
       <Sidebar />
       <div>
-        <StatusBar currentStep={currentStep}/>
+        <StatusBar currentStep={currentStep} />
         {currentStep === 1 && <StepOne />}
         {currentStep === 2 && <StepTwo />}
         {currentStep === 3 && <StepThree />}
