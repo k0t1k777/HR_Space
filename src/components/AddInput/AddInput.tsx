@@ -6,7 +6,7 @@ interface InputProps {
   width?: string;
   placeholder?: string;
   disableSuggestions?: boolean;
-  options: any;
+  options: string[];
 }
 
 export default function AddInput({
@@ -21,19 +21,21 @@ export default function AddInput({
 
   useEffect(() => {
     const handleFocusOut = (event: FocusEvent) => {
-      if (!event.relatedTarget || !(event.relatedTarget as HTMLElement).classList.contains('add-input__container-item')) {
+      if (
+        !event.relatedTarget ||
+        !(event.relatedTarget as HTMLElement).classList.contains(
+          'add-input__container-item'
+        )
+      ) {
         setSuggestions([]);
         setInputValue('');
       }
     };
-
     document.addEventListener('focusout', handleFocusOut);
-
     return () => {
       document.removeEventListener('focusout', handleFocusOut);
     };
   }, []);
-
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;

@@ -1,6 +1,6 @@
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../InputSelect/InputSelect';
 import AddInput from '../../AddInput/AddInput';
+import InputSelect from '../../InputSelect/InputSelect';
 
 export default function StepThree({ expiriense, education, skills }:any) {
   return (
@@ -8,9 +8,9 @@ export default function StepThree({ expiriense, education, skills }:any) {
       <SubTitle subtitle='Ключевые навыки' />
       <AddInput placeholder={'Введите название'} options={skills}/>
       <SubTitle subtitle='Опыт работы' />
-      <MultiInput multi={expiriense}/>
+      <InputSelect multi={expiriense}/>
       <SubTitle subtitle='Образование' />
-      <MultiInput multi={education}/>
+      <InputSelect multi={education}/>
     </div>
   );
 }
