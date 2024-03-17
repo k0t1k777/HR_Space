@@ -50,10 +50,7 @@ export const education: string[] = [
   'Высшее',
 ];
 
-export const towns: string[] = [
-  'Москва',
-  'Санкт-Петербург',
-];
+export const towns: string[] = ['Москва', 'Санкт-Петербург'];
 
 export const skills: string[] = [
   'JTBD',
@@ -64,8 +61,32 @@ export const skills: string[] = [
   'Исследования',
 ];
 
-export const langages: string[] = [
-  'Русский',
-  'Английский',
-  'Немецкий',
+export const langages: string[] = ['Русский', 'Английский', 'Немецкий'];
+
+export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
+
+export const occupation: string[] = [
+  'Полная занятость',
+  'Частичная занятость',
+  'Проектная работа',
+  'Стажировка',
+  'Волонтерство',
+];
+
+export const timetable: string[] = [
+  'Полный день',
+  'Удалённая работа',
+  'Гибкий график',
+  'Сменный график',
+  'Вахтовый метод',
+];
+
+export const mission: string[] = [
+  'Да',
+  'Нет',
+];
+
+export const bonus: string[] = [
+  'Да',
+  'Нет',
 ];

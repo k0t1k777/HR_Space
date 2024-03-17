@@ -44,10 +44,10 @@ export default function Title({ title, onSave }: TitleProps) {
             autoFocus
           />
         ) : (
-          <>
+          <div className='title-container-edit'>
             <h1 className='title__name'>{title}</h1>
             <Edit className='title__img' onClick={handleEditClick}/>
-          </>
+          </div>
         )}
       </div>
     </div>

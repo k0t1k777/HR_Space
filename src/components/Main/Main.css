@@ -6,11 +6,12 @@
 }
 
 .main__container {
-  width: 532px;
+  width: 506px;
 }
 
 .main__button {
   margin-top: 48px;
   display: flex;
   justify-content: space-between;
+  align-self: flex-end;
 }

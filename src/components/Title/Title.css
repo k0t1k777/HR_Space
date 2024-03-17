@@ -30,7 +30,13 @@
   font-style: 'Arial';
   font-size: 24px;
   font-weight: 700;
-  line-height: 28px;
+  line-height: 27.84px;
+}
+
+.title-container-edit {
+  display: flex;
+  height: 32px;
+  gap: 16px;
 }
 
 .title__img {

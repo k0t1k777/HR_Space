@@ -6,9 +6,9 @@ export default function MultiInput({ multi }: any) {
 
   const toggleItem = (item: string): void => {
     if (selectedItem === item) {
-      setSelectedItem(null); // Снимаем выбор, если элемент уже выбран
+      setSelectedItem(null);
     } else {
-      setSelectedItem(item); // Устанавливаем выбранный элемент
+      setSelectedItem(item);
     }
   };
 
