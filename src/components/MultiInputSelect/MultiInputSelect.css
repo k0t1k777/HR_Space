@@ -1,11 +1,11 @@
-.multi-input__container {
+.multi-input-select__container {
   gap: 8px;
   display: flex;
   flex-wrap: wrap;
   margin: 12px 0 0;
 }
 
-.multi-input__container-item {
+.multi-input-select__container-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,9 +20,10 @@
   cursor: pointer;
   background-color: white;
   text-align: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.selected {
+.multi-input-select__selected {
   border: none;
   background-color: #EEEEEE;
 }

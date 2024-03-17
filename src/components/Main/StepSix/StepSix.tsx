@@ -1,5 +1,5 @@
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../MultiInput/MultiInput';
+import MultiInput from '../../InputSelect/InputSelect';
 
 export default function StepSix({ mission, bonus }: any ) {
   return (

@@ -9,7 +9,7 @@ import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
 import StepFive from './StepFive/StepFive';
-import StepSix from './StepFive copy/StepSix';
+import StepSix from './StepSix/StepSix';
 import {
   expiriense,
   education,

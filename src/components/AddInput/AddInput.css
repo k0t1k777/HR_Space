@@ -49,9 +49,10 @@
 .add-input__trash {
   margin: 0 0 0 12px;
   cursor: pointer;
-  padding: 8px 12px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
   line-height: 19.6px;
+  width: 16px;
+  height: 16px;
 }

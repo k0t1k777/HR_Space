@@ -1,5 +1,6 @@
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../MultiInput/MultiInput';
+import MultiInput from '../../InputSelect/InputSelect';
+import MultiInputSelect from '../../MultiInputSelect/MultiInputSelect';
 
 export default function StepFive({ decoration, occupation, timetable }: any) {
   return (
@@ -7,9 +8,9 @@ export default function StepFive({ decoration, occupation, timetable }: any) {
       <SubTitle subtitle='Оформление' />
       <MultiInput placeholder={'Английский'} multi={decoration} />
       <SubTitle subtitle='Тип занятости' />
-      <MultiInput placeholder={'Английский'} multi={occupation} />{' '}
+      <MultiInputSelect placeholder={'Английский'} multi={occupation} />{' '}
       <SubTitle subtitle='График работы' />
-      <MultiInput placeholder={'Английский'} multi={timetable} />
+      <MultiInputSelect placeholder={'Английский'} multi={timetable} />
     </div>
   );
 }

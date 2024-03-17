@@ -1,5 +1,5 @@
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../MultiInput/MultiInput';
+import MultiInput from '../../InputSelect/InputSelect';
 import AddInput from '../../AddInput/AddInput';
 
 export default function StepThree({ expiriense, education, skills }:any) {
