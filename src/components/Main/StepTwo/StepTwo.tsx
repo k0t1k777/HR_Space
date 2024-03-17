@@ -1,4 +1,3 @@
-import './StepTwo.css';
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
 

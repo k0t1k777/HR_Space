@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Input.css';
+import './AddInput.css';
+import Trash from '../../assets/trash.svg?react'
 
 interface InputProps {
   width?: string;
@@ -8,7 +9,7 @@ interface InputProps {
   options: any;
 }
 
-export default function Input({
+export default function AddInput({
   options,
   width,
   placeholder,
@@ -16,27 +17,45 @@ export default function Input({
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [added, setAdded] = useState<string[]>([]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
-
     const filteredSuggestions = options.filter((option: any) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
-
     setSuggestions(filteredSuggestions);
   };
 
   const handleSuggestionClick = (suggestion: string) => {
     setInputValue(suggestion);
     setSuggestions([]);
+    setAdded([...added, suggestion]);
+    setInputValue('');
   };
 
-  return (
+  const handleAddDelete = (itemToDelete: string) => {
+    const updatedAdded = added.filter((item) => item !== itemToDelete);
+    setAdded(updatedAdded);
+  };
+
+  return (  
     <>
+      <div className='add-input__container-added'>
+        {added.map((item: any) => (
+          <button
+            key={item}
+            className='add-input__container-item'
+          >
+            {item}
+            <Trash className='add-input__trash'
+            onClick={() => handleAddDelete(item)}/>
+          </button>
+        ))}
+      </div>
       <input
-        className='input'
+        className='add-input'
         type='text'
         value={inputValue}
         onChange={handleChange}
@@ -44,15 +63,17 @@ export default function Input({
         style={{ width: width ? width : '600px' }}
       />
       {!disableSuggestions && suggestions.length > 0 && (
-        <div className='input__container-suggestion'>
+        <div className='add-input__container-suggestion'>
           {suggestions.map((suggestion) => (
+            !added.includes(suggestion) && (
             <button
-              className='input__container-item'
+              className='add-input__container-item'
               key={suggestion}
               onClick={() => handleSuggestionClick(suggestion)}
             >
               {suggestion}
             </button>
+            )
           ))}
         </div>
       )}

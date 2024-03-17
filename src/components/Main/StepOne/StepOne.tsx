@@ -1,4 +1,3 @@
-import './StepOne.css';
 import Input from '../../Input/Input';
 import SubTitle from '../../Subtitle/Subtitle';
 import InputSalary from '../../InputSalary/InputSalary';

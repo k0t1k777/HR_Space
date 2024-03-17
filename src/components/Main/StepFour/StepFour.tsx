@@ -1,4 +1,3 @@
-import './StepFour.css';
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
 import Input from '../../Input/Input';

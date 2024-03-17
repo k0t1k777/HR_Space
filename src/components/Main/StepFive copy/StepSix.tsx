@@ -1,4 +1,3 @@
-import './StepSix.css';
 import SubTitle from '../../Subtitle/Subtitle';
 import MultiInput from '../../MultiInput/MultiInput';
 
