@@ -1,8 +1,20 @@
+.input-wtith-select__container {
+  display: flex;
+  max-width: 506px
+}
+
+.input-wtith-select__container-line {
+  /* max-width: 506px; */
+  width: 100%;
+  /* display: flex; */
+}
+
 .input-wtith-select {
+  width: 100%;
+  max-width: 506px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 506px;
   height: 40px;
   border-radius: 8px;
   margin: 12px 0;
@@ -14,6 +26,7 @@
   font-weight: 400;
   line-height: 19.6px;
   color: #303233;
+  /* flex: 1; */
 }
 
 .input-wtith-select__container-suggestion {
@@ -37,4 +50,19 @@
   box-sizing: border-box;
   cursor: pointer;
   background-color: white;
+}
+
+.input-wtith-select__select {
+  min-width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #babdbf;
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #959799;
 }

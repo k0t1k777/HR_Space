@@ -61,7 +61,15 @@ export const skills: string[] = [
   'Исследования',
 ];
 
-export const langages: string[] = ['Русский', 'Английский', 'Немецкий'];
+
+export const languages: string[] = ['Русский', 'Английский', 'Немецкий'];
+
+
+// export const languages: { [key: string]: string[] } = {
+//   Русский: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
+//   Английский: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
+//   Немецкий: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
+// };
 
 export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
 

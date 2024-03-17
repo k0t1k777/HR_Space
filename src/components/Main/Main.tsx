@@ -16,7 +16,7 @@ import {
   options,
   towns,
   skills,
-  langages,
+  languages,
   decoration,
   occupation,
   timetable,
@@ -50,7 +50,7 @@ export default function Main() {
               skills={skills}
             />
           )}
-          {currentStep === 4 && <StepFour langages={langages} />}
+          {currentStep === 4 && <StepFour languages={languages} />}
           {currentStep === 5 && (
             <StepFive
               decoration={decoration}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './InputWthithSelect.css';
 
 interface InputWthithSelectProps {
@@ -18,29 +18,16 @@ export default function InputWthithSelect({
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>('');
 
-  useEffect(() => {
-    const handleFocusOut = (event: FocusEvent) => {
-      if (
-        !event.relatedTarget 
-      ) {
-        setSuggestions([]);
-        setInputValue('');
-      }
-    };
-    document.addEventListener('focusout', handleFocusOut);
-    return () => {
-      document.removeEventListener('focusout', handleFocusOut);
-    };
-  }, []);
-
+  console.log('options: ', options);
+  console.log('Object: ', Object.values(options));
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
 
-    const filteredSuggestions = options.filter((option: any) =>
+    const optionsArray = Object.values(options).flat();
+    const filteredSuggestions = optionsArray.filter((option: string) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
-
     setSuggestions(filteredSuggestions);
   };
 
@@ -51,7 +38,8 @@ export default function InputWthithSelect({
   };
 
   return (
-    <>
+    <div className='input-wtith-select__container'>
+      <div className='input-wtith-select__container-line'>
       <input
         className='input-wtith-select'
         type='text'
@@ -60,11 +48,8 @@ export default function InputWthithSelect({
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
-        {selectedValue && (
-          <div className="selected-value">{selectedValue}</div>
-        )}
-      {!disableSuggestions && suggestions.length > 0 && (
-        <div className='iinput-wtith-select__container-suggestion'>
+       {!disableSuggestions && suggestions.length > 0 && (
+        <div className='input-wtith-select__container-suggestion'>
           {suggestions.map((suggestion) => (
             <button
               className='input-wtith-select__container-item'
@@ -76,6 +61,14 @@ export default function InputWthithSelect({
           ))}
         </div>
       )}
-    </>
+      </div>
+          {selectedValue && (
+        <div className='selected-value'>
+          <select className='input-wtith-select__select'>
+            <option value={selectedValue}>{selectedValue}</option>
+          </select>
+        </div>
+      )}
+    </div>
   );
 }
