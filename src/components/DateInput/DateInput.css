@@ -1,0 +1,44 @@
+.date-input {
+  margin: 50px 100px;
+  width: 274px;
+  height: 40px;
+  padding:0 16px;
+  position: relative;
+  display: flex;
+}
+
+.date-input__item {
+  width: 91%;
+  height: 104%;
+  padding: 0 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #959799;
+  border-radius: 8px;
+  border: 1px solid #BABDBF;
+}
+
+.date-input__item::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  z-index: 4;
+}
+
+.date-input__fake {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  position: relative;
+  top: 13px;
+  left: 261px;
+  border: none;
+  background-image: url(../../assets/date.svg);
+  background-color: #FFFFFF;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
