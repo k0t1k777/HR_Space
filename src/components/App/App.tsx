@@ -6,17 +6,15 @@ import { useEffect } from 'react';
 
 export default function App() {
 
-
-  // useEffect(() => {
-  //   Promise.all([Api.getContent()])
-  //     .then((data) => {
-  //       setContent(data);
-  //       console.log('Успешно app');
-  //     })
-  //     .catch((err) => {
-  //       console.log('Ошибка app:', err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    Api.getContent()
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <>
