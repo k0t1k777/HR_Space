@@ -16,9 +16,8 @@ export default function Input({
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
     const filteredSuggestions = options.filter((option) =>
@@ -28,8 +27,8 @@ export default function Input({
   };
 
   const handleSuggestionClick = (suggestion: string) => {
-    setInputValue(suggestion);
     setSuggestions([]);
+    setInputValue(suggestion);
   };
 
   return (

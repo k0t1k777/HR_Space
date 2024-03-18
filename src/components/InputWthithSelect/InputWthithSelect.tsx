@@ -46,7 +46,7 @@ export default function InputWthithSelect({
             value={inputValue}
             onChange={handleChange}
             placeholder={placeholder ? placeholder : 'Выберите из списка'}
-            />
+          />
           {!disableSuggestions && suggestions.length > 0 && (
             <div className='input-whith-select__container-suggestion'>
               {suggestions.map((suggestion) => (

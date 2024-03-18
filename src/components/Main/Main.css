@@ -10,7 +10,6 @@
 }
 
 .main__button {
-  margin-top: 48px;
   display: flex;
   justify-content: space-between;
   align-self: flex-end;
