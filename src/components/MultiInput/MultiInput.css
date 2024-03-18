@@ -1,0 +1,23 @@
+.multi-input__container {
+  gap: 8px;
+  display: flex;
+}
+
+.multi-input__container-item {
+  border-radius: 18px;
+  padding: 8px 12px;
+  border: 1px solid #babdbf;
+  height: 36px;
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: white;
+}
+
+.selected {
+  border: none;
+  background-color: #EEEEEE;
+}

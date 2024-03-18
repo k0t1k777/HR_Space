@@ -1,5 +1,5 @@
 .input {
-  width: 600px;
+  width: 506px;
   height: 40px;
   border-radius: 8px;
   margin: 12px 0;
@@ -25,6 +25,7 @@
   font-weight: 400;
   line-height: 20px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 

@@ -9,22 +9,22 @@
   height: 88px;
 }
 
-.bigPicture:first-child, .bigPicture:last-child {
+.bigPicture:first-of-type, .bigPicture:last-of-type {
   align-self: flex-start;
   justify-self: center;
 }
 
-.bigPicture:first-child {
+.bigPicture:first-of-type {
   margin: 52px 0 0 44px;
+  
 }
 
-.bigPicture:last-child {
+.bigPicture:last-of-type {
   margin: 20px 0 54px 47px;
 }
 
 .bigPicture__title {
   margin: 0;
-  font-style: "Arial";
   font-size: 14px;
   font-weight: 700;
   line-height: 19.6px;
@@ -32,6 +32,6 @@
   color: #888686;
 }
 
-.bigPicture__title_color_black {
-  color: #000;
+.bigPicture:first-of-type > .bigPicture__title  {
+  color: #252525;
 }

@@ -1,6 +1,12 @@
 .main {
   display: flex;
- margin: 40px 0 0 0;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px 0 0 0;
+}
+
+.main__container {
+  width: 506px;
 }
 
 .main__button {
