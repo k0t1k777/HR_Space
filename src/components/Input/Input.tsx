@@ -29,7 +29,7 @@ export default function Input({
 
   const handleSuggestionClick = (suggestion: string) => {
     setInputValue(suggestion);
-    // setSuggestions([]);
+    setSuggestions([]);
   };
 
   return (

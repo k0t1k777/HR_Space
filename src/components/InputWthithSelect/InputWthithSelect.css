@@ -1,17 +1,18 @@
-.input-wtith-select__container {
+.input-whith-select__container {
   display: flex;
-  max-width: 506px
-}
-
-.input-wtith-select__container-line {
-  /* max-width: 506px; */
-  width: 100%;
-  /* display: flex; */
-}
-
-.input-wtith-select {
-  width: 100%;
   max-width: 506px;
+  gap: 12px;
+}
+
+.input-whith-select__container-line {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-whith-select {
+  width: 100%;
+  min-width: 294px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,16 +27,26 @@
   font-weight: 400;
   line-height: 19.6px;
   color: #303233;
-  /* flex: 1; */
+  flex: 1;
 }
 
-.input-wtith-select__container-suggestion {
+.input-whith-select:hover {
+  border: 1px solid #959799;
+}
+
+.input-whith-select:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
+
+.input-whith-select__container-suggestion {
   display: flex;
   gap: 4px;
   margin: 17px 0 0 0;
 }
 
-.input-wtith-select__container-item {
+.input-whith-select__container-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,14 +58,19 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 19.6px;
-  box-sizing: border-box;
   cursor: pointer;
   background-color: white;
 }
 
-.input-wtith-select__select {
+.selected-value {
   min-width: 200px;
+  display: flex;
+}
+
+.input-whith-select__select {
+  box-sizing: border-box;
   height: 40px;
+  width: 100%;
   border-radius: 8px;
   margin: 12px 0;
   padding: 10px 16px;
@@ -65,4 +81,5 @@
   font-weight: 400;
   line-height: 19.6px;
   color: #959799;
+  cursor: pointer;
 }

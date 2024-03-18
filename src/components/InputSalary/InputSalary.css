@@ -16,6 +16,15 @@
   line-height: 20px;
 }
 
+.input-salary:hover {
+  border: 1px solid #959799;
+}
+
+.input-salary:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
 .input-salary__wrapper {
   position: relative;
 }

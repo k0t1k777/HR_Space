@@ -15,6 +15,15 @@
   line-height: 19.6px;
 }
 
+.add-input:hover {
+  border: 1px solid #959799;
+}
+
+.add-input:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
 .add-input__container-suggestion {
   display: flex;
   border-radius: 8px;

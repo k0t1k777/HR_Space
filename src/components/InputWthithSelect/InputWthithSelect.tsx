@@ -10,7 +10,6 @@ interface InputWthithSelectProps {
 
 export default function InputWthithSelect({
   options,
-  width,
   placeholder,
   disableSuggestions,
 }: InputWthithSelectProps) {
@@ -38,33 +37,35 @@ export default function InputWthithSelect({
   };
 
   return (
-    <div className='input-wtith-select__container'>
-      <div className='input-wtith-select__container-line'>
-      <input
-        className='input-wtith-select'
-        type='text'
-        value={inputValue}
-        onChange={handleChange}
-        placeholder={placeholder ? placeholder : 'Выберите из списка'}
-        style={{ width: width ? width : '600px' }}
-      />
-       {!disableSuggestions && suggestions.length > 0 && (
-        <div className='input-wtith-select__container-suggestion'>
-          {suggestions.map((suggestion) => (
-            <button
-              className='input-wtith-select__container-item'
-              key={suggestion}
-              onClick={() => handleSuggestionClick(suggestion)}
-            >
-              {suggestion}
-            </button>
-          ))}
+    <div className='input-whith-select__container'>
+      <div className='input-whith-select__container-line'>
+        <div>
+          <input
+            className='input-whith-select'
+            type='text'
+            value={inputValue}
+            onChange={handleChange}
+            placeholder={placeholder ? placeholder : 'Выберите из списка'}
+            />
+          {!disableSuggestions && suggestions.length > 0 && (
+            <div className='input-whith-select__container-suggestion'>
+              {suggestions.map((suggestion) => (
+                <button
+                  className='input-whith-select__container-item'
+                  key={suggestion}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      )}
       </div>
-          {selectedValue && (
+
+      {selectedValue && (
         <div className='selected-value'>
-          <select className='input-wtith-select__select'>
+          <select className='input-whith-select__select'>
             <option value={selectedValue}>{selectedValue}</option>
           </select>
         </div>
