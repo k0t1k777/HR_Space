@@ -24,10 +24,10 @@ export default function InputWthithSelect({
     const value = event.target.value;
     setInputValue(value);
 
-    const optionsArray = Object.values(options).flat();
-    const filteredSuggestions = optionsArray.filter((option: string) =>
+    const filteredSuggestions = options.filter((option: string) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
+
     setSuggestions(filteredSuggestions);
   };
 
