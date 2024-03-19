@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Input.css';
 
 interface InputProps {
   width?: string;
   placeholder?: string;
   disableSuggestions?: boolean;
+  options: string[];
 }
 
-const options = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
-
-export default function Input({ width, placeholder, disableSuggestions }: InputProps) {
+export default function Input({
+  options,
+  width,
+  placeholder,
+  disableSuggestions,
+}: InputProps) {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
-
     const filteredSuggestions = options.filter((option) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
-
     setSuggestions(filteredSuggestions);
   };
 
   const handleSuggestionClick = (suggestion: string) => {
-    setInputValue(suggestion);
     setSuggestions([]);
+    setInputValue(suggestion);
   };
 
-  // const handleBlur = () => {
-  //   setSuggestions([]);
-  // };
-
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        !((event.target as Element).closest('.input__container-item')) &&
+        !((event.target as Element).closest('.input'))
+      ) {
+        setInputValue('');
+        setSuggestions([]);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -41,20 +54,19 @@ export default function Input({ width, placeholder, disableSuggestions }: InputP
         type='text'
         value={inputValue}
         onChange={handleChange}
-        // onBlur={handleBlur}
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
       {!disableSuggestions && suggestions.length > 0 && (
         <div className='input__container-suggestion'>
           {suggestions.map((suggestion) => (
-            <p
+            <button
               className='input__container-item'
               key={suggestion}
               onClick={() => handleSuggestionClick(suggestion)}
             >
               {suggestion}
-            </p>
+            </button>
           ))}
         </div>
       )}

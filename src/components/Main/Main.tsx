@@ -8,11 +8,25 @@ import ButtonPrevious from '../ButtonPrevious/ButtonPrevious';
 import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
+import StepFive from './StepFive/StepFive';
 import StepSix from './StepSix/StepSix';
+import {
+  expiriense,
+  education,
+  options,
+  towns,
+  skills,
+  languages,
+  decoration,
+  occupation,
+  timetable,
+  mission,
+  bonus,
+} from '../../utils/constants';
 import StepSeven from './StepSeven/StepSeven';
 import StepEight from './StepEight/StepEight';
 import StepNine from './StepNine/StepNine';
-//import BigPictureContainer from "../BigPictureContainer/BigPictureContainer";
+
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -29,23 +43,44 @@ export default function Main() {
     <main className='main'>
       <Sidebar />
       <div className='main__container'>
+        <div style={{ height: '484px' }}>
+          <StatusBar currentStep={currentStep} />
+          {currentStep === 1 && <StepOne options={options} towns={towns} />}
+          {currentStep === 2 && <StepTwo />}
+          {currentStep === 3 && (
+            <StepThree
+              expiriense={expiriense}
+              education={education}
+              skills={skills}
+            />
+          )}
+          {currentStep === 4 && <StepFour languages={languages} />}
+          {currentStep === 5 && (
+            <StepFive
+              decoration={decoration}
+              occupation={occupation}
+              timetable={timetable}
+            />
+          )}
+          {currentStep === 6 && <StepSix mission={mission} bonus={bonus} />}
+           {currentStep === 7 && <StepSeven />}
+           {currentStep === 8 && <StepEight />}
+            {currentStep === 9 && <StepNine />}
+        </div>
+
         <StatusBar currentStep={currentStep} />
         {currentStep === 1 && <StepOne />}
         {currentStep === 2 && <StepTwo />}
         {currentStep === 3 && <StepThree />}
         {currentStep === 4 && <StepFour />}
         {currentStep === 6 && <StepSix />}
-        {currentStep === 7 && <StepSeven />}
-        {currentStep === 8 && <StepEight />}
-        {currentStep === 9 && <StepNine />}
+       
         <div className='main__button'>
           <ButtonPrevious
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          <ButtonNext
-            handleContinue={handleContinue}
-          />
+          <ButtonNext handleContinue={handleContinue} />
         </div>
       </div>
     </main>

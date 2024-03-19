@@ -1,15 +1,17 @@
-import './StepFour.css';
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
-import Input from '../../Input/Input';
+import InputWthithSelect from '../../InputWthithSelect/InputWthithSelect';
 
-export default function StepFour() {
+export default function StepFour({ languages }: any) {
+  // console.log('languages: ', languages);
   return (
     <div>
       <SubTitle subtitle='Иностранный язык (необязательно)' />
-      <Input placeholder={'Английский'} />
-      <SubTitle subtitle='Дополнительные требования (необязательно)' />
+      <InputWthithSelect placeholder={'Английский'} options={languages} />
+       <SubTitle subtitle='Дополнительные требования (необязательно)' />
       <TextArea placeholder={'Наличие водительский прав, мёд. книжки и др.'} />
     </div>
   );
 }
+
+// options={languages}

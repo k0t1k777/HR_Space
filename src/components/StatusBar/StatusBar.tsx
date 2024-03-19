@@ -1,15 +1,26 @@
 import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
-import { names } from '../../utils/constants';
+import { names, statusBarData } from '../../utils/constants';
 
 export default function StatusBar({ currentStep }: { currentStep: number }) {
+  
   const [newTitle, setNewTitle] = useState('Новая заявка');
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
   };
 
-  
+  const handleSaveDraft = () => {
+    localStorage.setItem('draftTitle', newTitle);
+    alert('Данные сохранены в черновик');
+  };
+
+  // const [newTitle, setNewTitle] = useState(() => {
+  //   return localStorage.getItem('draftTitle') || 'Новая заявка';
+  // });  useEffect(() => {
+  //   localStorage.setItem('draftTitle', newTitle);
+  // }, [newTitle]);
+
   return (
     <div className='status-bar'>
       <div className='status-bar__wrapper'>
@@ -39,7 +50,9 @@ export default function StatusBar({ currentStep }: { currentStep: number }) {
       </div>
       <div className='status-bar__title-wrapper'>
         <Title title={newTitle} onSave={handleSaveTitle} />
-        <button className='status-bar__draft'>Сохранить черновик</button>{' '}
+        <button className='status-bar__draft' onClick={handleSaveDraft}>
+          {statusBarData.button}
+        </button>{' '}
       </div>
     </div>
   );

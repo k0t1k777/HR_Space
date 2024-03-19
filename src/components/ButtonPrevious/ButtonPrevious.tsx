@@ -1,4 +1,5 @@
 import './ButtonPrevious.css';
+import { buttonsData } from '../../utils/constants';
 
 interface ButtonPreviousTextProps {
   pressed?: boolean;
@@ -19,7 +20,7 @@ export default function ButtonPrevious({
       onClick={handleBack}
       disabled={disabled}
     >
-      Назад
+      {buttonsData.back}
     </button>
   );
 }

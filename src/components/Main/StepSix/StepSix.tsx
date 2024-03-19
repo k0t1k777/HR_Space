@@ -1,14 +1,13 @@
-import './StepSix.css';
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../MultiInput/MultiInput';
+import MultiInput from '../../InputSelect/InputSelect';
 
-export default function StepSix() {
+export default function StepSix({ mission, bonus }: any ) {
   return (
-    <div className="step-six">
-      <SubTitle subtitle='Командировки (необязательно)' />
-      <MultiInput />
-      <SubTitle subtitle='Бонусы от работадателя (необязательно)' />
-      <MultiInput />
+    <div>
+      <SubTitle subtitle='Оформление' />
+      <MultiInput placeholder={'Английский'} multi={mission} />
+      <SubTitle subtitle='Тип занятости' />
+      <MultiInput placeholder={'Английский'} multi={bonus} />{' '}
     </div>
-  )
+  );
 }

@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import './MultiInput.css';
+import './MultiInputSelect.css';
 
-const multi: string[] = ['Инженер', 'Механик', 'Специальность', 'Профессия'];
-
-export default function MultiInput() {
+export default function MultiInputSelect({ multi }: any) {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const toggleItem = (item: string): void => {
@@ -18,12 +16,12 @@ export default function MultiInput() {
 
   return (
     <div>
-      <div className='multi-input__container'>
-        {multi.map((item) => (
+      <div className='multi-input-select__container'>
+        {multi.map((item: any) => (
           <button
             key={item}
-            className={`multi-input__container-item ${
-              selectedItems.includes(item) ? 'selected' : ''
+            className={`multi-input-select__container-item ${
+              selectedItems.includes(item) ? 'multi-input-select__selected' : ''
             }`}
             onClick={() => toggleItem(item)}
           >

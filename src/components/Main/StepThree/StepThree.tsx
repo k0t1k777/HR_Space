@@ -1,17 +1,16 @@
-import './StepThree.css';
 import SubTitle from '../../Subtitle/Subtitle';
-import Input from '../../Input/Input';
-import MultiInput from '../../MultiInput/MultiInput';
+import AddInput from '../../AddInput/AddInput';
+import InputSelect from '../../InputSelect/InputSelect';
 
-export default function StepThree() {
+export default function StepThree({ expiriense, education, skills }:any) {
   return (
     <div>
       <SubTitle subtitle='Ключевые навыки' />
-      <Input placeholder={'Введите название'} />
+      <AddInput placeholder={'Введите название'} options={skills}/>
       <SubTitle subtitle='Опыт работы' />
-      <MultiInput />
+      <InputSelect multi={expiriense}/>
       <SubTitle subtitle='Образование' />
-      <MultiInput />
+      <InputSelect multi={education}/>
     </div>
   );
 }

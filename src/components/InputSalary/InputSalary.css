@@ -4,7 +4,6 @@
 }
 
 .input-salary {
-  width: 600px;
   height: 40px;
   border-radius: 8px;
   margin: 12px 0 0;
@@ -14,6 +13,15 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+
+.input-salary:hover {
+  border: 1px solid #959799;
+}
+
+.input-salary:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
 }
 
 .input-salary__wrapper {

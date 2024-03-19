@@ -15,6 +15,7 @@
   gap: 8px;
 }
 
+
 .status-bar__container {
   display: flex;
   gap: 4px;
@@ -44,6 +45,7 @@
   text-align: center;
 }
 
+// проверить
 .status-bar__container-status {
   width: 506px;
   display: flex;

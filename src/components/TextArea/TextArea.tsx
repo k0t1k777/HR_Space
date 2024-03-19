@@ -5,5 +5,5 @@ interface TextAreaProps {
 }
 
 export default function TextArea({ placeholder }: TextAreaProps) {
-  return <textarea className='textArea' placeholder={placeholder} />;
+  return <textarea className='text-area' placeholder={placeholder} />;
 }
