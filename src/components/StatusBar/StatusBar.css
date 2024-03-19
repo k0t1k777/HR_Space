@@ -48,7 +48,7 @@
   width: 506px;
   display: flex;
   gap: 4px;
-  margin: 40px 0 0 0;
+  margin: 0;
 }
 
 .statusBar__item {

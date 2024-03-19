@@ -16,8 +16,8 @@ export default function Header() {
 
         <nav className="header__list-links">
           {
-            linksHeader.map((item) => {
-              return <NavLink className="header__link" to="#">{item}</NavLink>
+            linksHeader.map((item, index) => {
+              return <NavLink key={index} className="header__link" to="#">{item}</NavLink>
             })
           }
         </nav>

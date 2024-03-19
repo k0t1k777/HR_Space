@@ -8,6 +8,10 @@ import ButtonPrevious from '../ButtonPrevious/ButtonPrevious';
 import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
+import StepSix from './StepSix/StepSix';
+import StepSeven from './StepSeven/StepSeven';
+import StepEight from './StepEight/StepEight';
+import StepNine from './StepNine/StepNine';
 //import BigPictureContainer from "../BigPictureContainer/BigPictureContainer";
 
 export default function Main() {
@@ -30,6 +34,10 @@ export default function Main() {
         {currentStep === 2 && <StepTwo />}
         {currentStep === 3 && <StepThree />}
         {currentStep === 4 && <StepFour />}
+        {currentStep === 6 && <StepSix />}
+        {currentStep === 7 && <StepSeven />}
+        {currentStep === 8 && <StepEight />}
+        {currentStep === 9 && <StepNine />}
         <div className='main__button'>
           <ButtonPrevious
             handleBack={handleBack}

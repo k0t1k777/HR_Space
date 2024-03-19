@@ -9,8 +9,8 @@ export default function Sidbar() {
   return (
     <aside className="big-picture-container__items">
       {
-        asideText.map((item) => {
-          return <BigPicture title={item.title} icon={item.image}  />
+        asideText.map((item, index) => {
+          return <BigPicture key={index} title={item.title} icon={item.image}  />
         })
       }
       <img className="big-picture-container__line" src={lineOne} alt="image" />

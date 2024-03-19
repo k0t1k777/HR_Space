@@ -1,5 +1,5 @@
 .check__container {
-  height: 22px;
+  height: 18px;
   position: relative;
   display: flex;
   gap: 12px;
@@ -7,16 +7,16 @@
 }
 
 .check__custom {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   margin: 0;
   position: absolute;
   opacity: 0;
 }
 
 .check__fake {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   position: relative;
   z-index: -1;
   border: 1px solid #959799;
