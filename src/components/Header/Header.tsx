@@ -8,10 +8,6 @@ import { userData } from '../../utils/constants';
 
 export default function Header() {
   return (
-    <header className='header'>
-      <img className='header__logo' src={LogoHeader} alt='логотип' />
-
-
       <header className="header">
 
         <img className="header__logo" src={LogoHeader} alt="логотип" />

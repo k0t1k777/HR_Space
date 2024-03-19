@@ -1,5 +1,5 @@
 import DateInput from '../../DateInput/DateInput';
-import MultiInput from '../../MultiInput/MultiInput';
+import InputSelect from '../../InputSelect/InputSelect';
 import Range from '../../Range/Range';
 import SubTitle from '../../Subtitle/Subtitle';
 import './StepEight.css';
@@ -12,7 +12,7 @@ export default function StepEight() {
       <SubTitle subtitle='Дата выхода сотрудника' />
       <DateInput />
       <SubTitle subtitle='Количество рекрутеров' />
-      <MultiInput />
+      {/* <InputSelect /> */}
     </div>
   )
 }
