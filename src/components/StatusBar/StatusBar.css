@@ -45,6 +45,14 @@
   text-align: center;
 }
 
+// проверить
+.status-bar__container-status {
+  width: 506px;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+}
+
 .statusBar__item {
   width: 60px;
   height: 8px;

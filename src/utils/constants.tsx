@@ -1,8 +1,7 @@
-// imports
 import ImgFill from '../assets/imgFill.svg';
 import ImgPay from '../assets/imgPay.svg';
 import ImgPublish from '../assets/imgPublish.svg';
-// links for header
+
 export const linksHeader = [
   'Главная',
   'Мои заявки',
@@ -10,7 +9,7 @@ export const linksHeader = [
   'Счёт',
   'Помощь',
 ];
-// data for sidebar
+
 export const asideText = [
   {
     title: '1. Заполните заявку',
@@ -25,7 +24,7 @@ export const asideText = [
     image: ImgPublish,
   },
 ];
-// points for status bar
+
 export const names = [
   'Описание вакансии',
   'Требования',
@@ -34,6 +33,16 @@ export const names = [
 ];
 
 export const options: string[] = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
+
+export const checkCaption = [
+  "Найдёт и предоставит релевантное резюме",
+  "Проведёт с кандидатом интервью",
+  "Организует собеседование с заказчиком",
+  "Запросит рекомендации с предыдущих мест работы",
+  "Отправит кандидату тестовое задание",
+  "Отправит кандидату анкету службы безопасности",
+  "Отправит финалисту приглашение на работу",
+]
 
 export const expiriense: string[] = [
   '1–3 года',

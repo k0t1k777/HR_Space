@@ -23,6 +23,10 @@ import {
   mission,
   bonus,
 } from '../../utils/constants';
+import StepSeven from './StepSeven/StepSeven';
+import StepEight from './StepEight/StepEight';
+import StepNine from './StepNine/StepNine';
+
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -59,7 +63,18 @@ export default function Main() {
             />
           )}
           {currentStep === 6 && <StepSix mission={mission} bonus={bonus} />}
+           {currentStep === 7 && <StepSeven />}
+           {currentStep === 8 && <StepEight />}
+            {currentStep === 9 && <StepNine />}
         </div>
+
+        <StatusBar currentStep={currentStep} />
+        {currentStep === 1 && <StepOne />}
+        {currentStep === 2 && <StepTwo />}
+        {currentStep === 3 && <StepThree />}
+        {currentStep === 4 && <StepFour />}
+        {currentStep === 6 && <StepSix />}
+       
         <div className='main__button'>
           <ButtonPrevious
             handleBack={handleBack}
