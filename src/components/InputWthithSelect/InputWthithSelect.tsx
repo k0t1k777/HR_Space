@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './InputWthithSelect.css';
 
 interface InputWthithSelectProps {
@@ -35,6 +35,22 @@ export default function InputWthithSelect({
     setSuggestions([]);
     setSelectedValue(suggestion);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        !((event.target as Element).closest('.input-whith-select__container-item')) &&
+        !((event.target as Element).closest('.input-whith-select'))
+      ) {
+        setInputValue('');
+        setSuggestions([]);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className='input-whith-select__container'>

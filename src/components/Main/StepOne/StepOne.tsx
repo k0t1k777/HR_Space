@@ -5,7 +5,7 @@ import InputSalary from '../../InputSalary/InputSalary';
 export default function StepOne({ options, towns }: any) {
   return (
     <div>
-      <SubTitle subtitle='Специальность' />
+      <SubTitle subtitle='Специальность' paddingTop = '32px'/>
       <Input placeholder={'Сантехник'} options={options}/>
       <SubTitle subtitle='Город (необязательно)' />
       <Input placeholder={'Москва'} options={towns}/>

@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8000/'
+export const BASE_URL = 'http://localhost:8000'
 export const TOKEN = 'bd728ac88514039c8c5e7cde0a062a744445b19a';
 
 const headers = {

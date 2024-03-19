@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Input.css';
 
 interface InputProps {
@@ -30,6 +30,22 @@ export default function Input({
     setSuggestions([]);
     setInputValue(suggestion);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        !((event.target as Element).closest('.input__container-item')) &&
+        !((event.target as Element).closest('.input'))
+      ) {
+        setInputValue('');
+        setSuggestions([]);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
