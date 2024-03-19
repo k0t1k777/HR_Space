@@ -1,17 +1,20 @@
  .range {
-  margin: 50px 50px;
   width: 249px;
-}
+  height: 58px;
+  margin-top: 12px;
+
+ }
 
 .range__input {
-  width: 100%;
+  width: 96.8%;
+  margin-top: 48px;
   height: 4px;
   padding: 0 4px;
   appearance: none;
   border: none;
   border-radius: 10px;
   background-color: rgba(238, 238, 238, 1);
-  accent-color: linear-gradient(90deg, rgba(238, 238, 238, 1) 60%, rgba(238, 238, 238, 1) 60%);
+  /* accent-color: linear-gradient(90deg, rgba(238, 238, 238, 1) 60%, rgba(238, 238, 238, 1) 60%); */
   
 }
 

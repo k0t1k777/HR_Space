@@ -1,7 +1,7 @@
 .date-input {
-  margin: 50px 100px;
   width: 274px;
   height: 40px;
+  margin-top: 12px;
   padding:0 16px;
   position: relative;
   display: flex;
