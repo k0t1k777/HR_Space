@@ -113,3 +113,11 @@ export const userData = {
 export const statusBarData = {
   button: 'Сохранить черновик',
 };
+
+export const numbers = [1, 2, 3];
+
+export const dataStepNine = [
+  '100% после выхода сотрудника',
+  '50/50 после выхода сотрудника после гарантийного срока',
+  '100% после гарантийного срока'
+];

@@ -11,9 +11,9 @@ export default function BigPicture({
 }: BigPictureProps) 
 {
   return (
-    <div className="bigPicture">
-      <img className="bigPicture__image" src={icon} alt="Иконка прогресса"/>
-      <p className={`bigPicture__title`}>{title}</p>
+    <div className="big-picture">
+      <img className="big-picture__image" src={icon} alt="Иконка прогресса"/>
+      <p className={`big-picture__title`}>{title}</p>
       </div>
   );
 }

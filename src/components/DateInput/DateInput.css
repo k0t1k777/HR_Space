@@ -22,6 +22,11 @@
   border: 1px solid #BABDBF;
 }
 
+.date-input__item:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
 .date-input__item::-webkit-calendar-picker-indicator {
   opacity: 0;
   z-index: 4;

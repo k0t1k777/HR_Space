@@ -27,3 +27,7 @@
   border: none;
   background-color: #eeeeee;
 }
+
+.input-select__stylize {
+  flex-wrap: nowrap;
+}
