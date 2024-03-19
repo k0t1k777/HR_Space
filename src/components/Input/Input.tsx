@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
 
@@ -10,6 +10,7 @@ interface InputProps {
   inputValue: string;
   setInputValue: any;
   isRequired?: boolean;
+  isValid: boolean;
 }
 
 export default function Input({
@@ -19,15 +20,16 @@ export default function Input({
   width,
   placeholder,
   disableSuggestions,
+  isValid,
 }: InputProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [isValid, setIsValid] = useState(true);
-  const [errorText, setErrorText] = useState('');
+  const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
     handleValidation(value);
+    setErrorText('');
     const filteredSuggestions = options.filter((option) =>
       option.toLowerCase().includes(value.toLowerCase())
     );
@@ -37,25 +39,31 @@ export default function Input({
   const handleSuggestionClick = (suggestion: string) => {
     setSuggestions([]);
     setInputValue(suggestion);
+    setErrorText('');
   };
-
-
 
   const schema = Yup.object().shape({
     inputValue: Yup.string().required('Поле обязательно для заполнения'),
   });
 
   const handleValidation = (value: string) => {
-    schema.validate({ inputValue: value }, { abortEarly: false })
-      .then(() => {
-        setIsValid(true);
-        setErrorText('');
-      })
-      .catch((error) => {
-        setIsValid(false);
-        setErrorText(error.errors[0]);
-      });
+    if (!isValid) {
+      setErrorText('Поле обязательно для заполнения');
+    } else {
+      schema
+        .validate({ inputValue: value }, { abortEarly: false })
+        .then(() => {
+          setErrorText('');
+        })
+        .catch((error) => {
+          setErrorText(error.errors[0]);
+        });
+    }
   };
+
+  useEffect(() => {
+    handleValidation(inputValue);
+  }, [isValid]);
 
   return (
     <>

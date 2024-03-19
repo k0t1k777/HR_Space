@@ -7,9 +7,9 @@ export default function StepOne({
   towns,
   inputValueCity,
   setInputValueCity,
-  setInputValueSpecialty,
   inputValueSpecialty,
-  isRequired,
+  setInputValueSpecialty,
+  isValid,
 }: any) {
   return (
     <div>
@@ -19,15 +19,15 @@ export default function StepOne({
         options={options}
         inputValue={inputValueSpecialty}
         setInputValue={setInputValueSpecialty}
-        isRequired={isRequired}
+        isValid={isValid}
       />
       <SubTitle subtitle='Город (необязательно)' />
       <Input
         placeholder={'Москва'}
         options={towns}
-        isRequired={false}
         inputValue={inputValueCity}
         setInputValue={setInputValueCity}
+        isValid={true}
       />
       <SubTitle
         subtitle='Заработная плата сотрудника'

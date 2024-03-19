@@ -31,12 +31,15 @@ export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
+  const [isValid, setIsValid] = useState(true); 
   const isRequired = true;
 
   const handleContinue = () => {
     if (!isRequired || inputValueSpecialty.trim() !== '') {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+      setIsValid(true);
     } else {
+      setIsValid(false);
       console.error('Поле input не заполнено');
     }
   };
@@ -60,6 +63,7 @@ export default function Main() {
               setInputValueSpecialty={setInputValueSpecialty}
               setInputValueCity={setInputValueCity}
               isRequired={isRequired}
+              isValid={isValid}
             />
           )}
           {currentStep === 2 && <StepTwo />}
