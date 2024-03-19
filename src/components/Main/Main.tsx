@@ -29,9 +29,16 @@ import StepNine from './StepNine/StepNine';
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [inputValueSpecialty, setInputValueSpecialty] = useState('');
+  const [inputValueCity, setInputValueCity] = useState('');
+  const isRequired = true;
 
   const handleContinue = () => {
-    setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    if (!isRequired || inputValueSpecialty.trim() !== '') {
+      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    } else {
+      console.error('Поле input не заполнено');
+    }
   };
 
   const handleBack = () => {
@@ -44,7 +51,17 @@ export default function Main() {
       <div className='main__container'>
         <div style={{ height: '484px' }}>
           <StatusBar currentStep={currentStep} />
-          {currentStep === 1 && <StepOne options={options} towns={towns} />}
+          {currentStep === 1 && (
+            <StepOne
+              options={options}
+              towns={towns}
+              inputValueSpecialty={inputValueSpecialty}
+              inputValueCity={inputValueCity}
+              setInputValueSpecialty={setInputValueSpecialty}
+              setInputValueCity={setInputValueCity}
+              isRequired={isRequired}
+            />
+          )}
           {currentStep === 2 && <StepTwo />}
           {currentStep === 3 && (
             <StepThree
