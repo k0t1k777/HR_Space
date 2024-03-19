@@ -33,7 +33,7 @@ export const names = [
   'Сотрудничество',
 ];
 
-export const options = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
+export const options: string[] = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
 
 export const expiriense: string[] = [
   '1–3 года',
@@ -61,9 +61,7 @@ export const skills: string[] = [
   'Исследования',
 ];
 
-
 export const languages: string[] = ['Русский', 'Английский', 'Немецкий'];
-
 
 // export const languages: { [key: string]: string[] } = {
 //   Русский: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
@@ -89,12 +87,20 @@ export const timetable: string[] = [
   'Вахтовый метод',
 ];
 
-export const mission: string[] = [
-  'Да',
-  'Нет',
-];
+export const mission: string[] = ['Да', 'Нет'];
 
-export const bonus: string[] = [
-  'Да',
-  'Нет',
-];
+export const bonus: string[] = ['Да', 'Нет'];
+
+export const buttonsData = {
+  next: 'Продолжить',
+  back: 'Назад',
+};
+
+export const userData = {
+  name: 'Виталий Крымов',
+  id: '#45732',
+};
+
+export const statusBarData = {
+  button: 'Сохранить черновик',
+};

@@ -1,9 +1,10 @@
-// imports
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import LogoHeader from '../../assets/header.svg';
 import Photo from '../../assets/ava-user.png';
 import { linksHeader } from '../../utils/constants';
+import { userData } from '../../utils/constants';
+
 
 export default function Header() {
   return (
@@ -24,8 +25,8 @@ export default function Header() {
         <button className='header__button'></button>
         <img className='header__photo' src={Photo} alt='фото' />
         <div className='header__user-data'>
-          <p className='header__user-name'>Виталий Крымов</p>
-          <span className='header__user-id'>#45732</span>
+          <p className='header__user-name'>{userData.name}</p>
+          <span className='header__user-id'>{userData.id}</span>
         </div>
       </div>
     </header>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
-import { names } from '../../utils/constants';
+import { names, statusBarData } from '../../utils/constants';
 
 export default function StatusBar({ currentStep }: { currentStep: number }) {
   
@@ -51,7 +51,7 @@ export default function StatusBar({ currentStep }: { currentStep: number }) {
       <div className='status-bar__title-wrapper'>
         <Title title={newTitle} onSave={handleSaveTitle} />
         <button className='status-bar__draft' onClick={handleSaveDraft}>
-          Сохранить черновик
+          {statusBarData.button}
         </button>{' '}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import './ButtonNext.css';
+import { buttonsData } from '../../utils/constants';
 
 interface ButtonNextTextProps {
   pressed?: boolean;
@@ -14,7 +15,7 @@ export default function ButtonNext({
       className='button-next'
       onClick={handleContinue}
     >
-      Продолжить
+      {buttonsData.next}
     </button>
   );
 }
