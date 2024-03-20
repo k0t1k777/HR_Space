@@ -23,7 +23,14 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
       setInputValueSalaryMin(value);
       handleValidation(value);
       setErrorText('');
-     
+      const inputElement = event.target;
+    if (value.trim() !== '') {
+      inputElement.classList.add('input__valid');
+      inputElement.classList.remove('input__invalid');
+    } else {
+      inputElement.classList.remove('input__valid');
+      inputElement.classList.add('input__invalid');
+    }
     };
 
     const schema = Yup.object().shape({
@@ -49,7 +56,7 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
       <div className='input-salary__wrapper'>
         <input
           className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
-          type='text'
+          type='number'
           value={inputValueSalaryMin}
           onChange={handleChange}
           placeholder={placeholder ? placeholder : '30000'}

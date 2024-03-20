@@ -1,7 +1,5 @@
 # Frontend для HR Space приложения
 
-![Project Logo](./src/assets/Icon.svg)
-
 ## Описание проекта
 
 
@@ -10,7 +8,6 @@
 
 - TS [TypeScript](https://www.typescriptlang.org/)
 - ⚛️[React](https://ru.reactjs.org/)
-<!-- - ⚙️[Material-UI](https://material-ui.com/) -->
 
 ## Сведения о команде:
 
@@ -32,7 +29,6 @@
 1. mui/x-date-pickers-pro
 4. @hookform/resolvers
 5. yup
-6. react-hook-form
 
 ## Ключевые точки для медиа min,max-width: 1440px
 

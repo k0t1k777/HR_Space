@@ -82,7 +82,7 @@ export default function InputSalary({
         />
       </div>
       </div>
-      {!isValid && <div className='input__error'>{errorText}</div>}
+      {isValid && <div className='input__error'>{errorText}</div>}
     </div>
   );
 }

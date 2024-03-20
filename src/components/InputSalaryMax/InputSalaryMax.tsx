@@ -57,7 +57,7 @@ export default function InputSalaryMax({
       >
         <input
           className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
-          type='text'
+          type='number'
           value={inputValueSalaryMax}
           onChange={handleChange}
           placeholder={placeholder ? placeholder : '40000'}
