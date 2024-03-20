@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './InputSalary.css';
+import './InputSalaryMax.css';
 import * as Yup from 'yup';
 
 interface InputSalaryProps {
@@ -8,32 +8,21 @@ interface InputSalaryProps {
   step?: string;
   wrap?: string;
   pad?: string;
-  inputValueSalaryMin: any;
-  setInputValueSalaryMin: any;
   inputValueSalaryMax: any;
   setInputValueSalaryMax: any;
   isValid: any;
 }
 
-export default function InputSalary({
+export default function InputSalaryMax({
   width,
   placeholder,
+  step,
   inputValueSalaryMax,
   setInputValueSalaryMax,
-  inputValueSalaryMin,
-  setInputValueSalaryMin,
   isValid,
 }: InputSalaryProps) {
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
-
-  const handleChangeMin = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setInputValueSalaryMin(value);
-    handleValidation(value);
-    setErrorText('');
-  };
-
-  const handleChangeMax = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValueSalaryMax(value);
     handleValidation(value);
@@ -58,31 +47,24 @@ export default function InputSalary({
         });
     }
   };
+
   return (
     <div className='input-salary__container'>
-      <div style={{ display: 'flex', }}>
-      <div className='input-salary__wrapper'>
-        <input
-          className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
-          type='text'
-          value={inputValueSalaryMin}
-          onChange={handleChangeMin}
-          placeholder={placeholder ? placeholder : '30000'}
-          style={{ width: width ? width : '247px' }}
-        />
-      </div>
-      <div className='input-salary__wrapper'>
+      <div
+        className={`input-salary__wrapper input-salary__wrapper_type_before ${
+          step ? step : ''
+        }`}
+      >
         <input
           className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
           type='text'
           value={inputValueSalaryMax}
-          onChange={handleChangeMax}
+          onChange={handleChange}
           placeholder={placeholder ? placeholder : '40000'}
           style={{ width: width ? width : '247px' }}
         />
+        {!isValid && <div className='input__error'>{errorText}</div>}
       </div>
-      </div>
-      {!isValid && <div className='input__error'>{errorText}</div>}
     </div>
   );
 }

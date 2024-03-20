@@ -31,11 +31,28 @@ export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
-  const [isValid, setIsValid] = useState(true); 
+  const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
+  const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
+  const [isValid, setIsValid] = useState(true);
   const isRequired = true;
 
+  // const handleContinue = () => {
+  //   if (!isRequired || inputValueSpecialty.trim() !== '') {
+  //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+  //     setIsValid(true);
+  //   } else {
+  //     setIsValid(false);
+  //     console.error('Поле input не заполнено');
+  //   }
+  // };
+
   const handleContinue = () => {
-    if (!isRequired || inputValueSpecialty.trim() !== '') {
+    if (
+      !isRequired ||
+      (inputValueSpecialty.trim() !== '' &&
+        inputValueSalaryMin.trim() !== '' &&
+        inputValueSalaryMax.trim() !== '')
+    ) {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
     } else {
@@ -62,6 +79,10 @@ export default function Main() {
               inputValueCity={inputValueCity}
               setInputValueSpecialty={setInputValueSpecialty}
               setInputValueCity={setInputValueCity}
+              inputValueSalaryMin={inputValueSalaryMin}
+              setInputValueSalaryMin={setInputValueSalaryMin}
+              inputValueSalaryMax={inputValueSalaryMax}
+              setInputValueSalaryMax={setInputValueSalaryMax}
               isRequired={isRequired}
               isValid={isValid}
             />

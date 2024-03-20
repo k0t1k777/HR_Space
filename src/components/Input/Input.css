@@ -47,7 +47,7 @@
   background-color: white;
 }
 
-.input__invalid {
+.error {
   border: 1px solid #D92121;
 }
 
