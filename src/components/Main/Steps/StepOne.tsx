@@ -1,7 +1,7 @@
 import Input from '../../Input/Input';
 import SubTitle from '../../Subtitle/Subtitle';
-import InputSalaryMin from '../../InputSalaryMin/InputSalaryMin';
-import InputSalaryMax from '../../InputSalaryMax/InputSalaryMax';
+import InputSalaryMin from '../../InputSalary/InputSalaryMin';
+import InputSalaryMax from '../../InputSalary/InputSalaryMax';
 // import InputSalary from '../../InputSalary/InputSalary';
 import { stepOneData } from '../../../utils/constants'
 

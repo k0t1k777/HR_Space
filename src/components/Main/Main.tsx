@@ -1,14 +1,14 @@
 import './Main.css';
 import Sidebar from '../Sidbar/Sidbar';
 import { useState } from 'react';
-import StepThree from './StepThree/StepThree';
-import StepFour from './StepFour/StepFour';
+import StepThree from './Steps/StepThree';
+import StepFour from './Steps/StepFour';
 import ButtonNext from '../ButtonNext/ButtonNext';
 import ButtonPrevious from '../ButtonPrevious/ButtonPrevious';
 import StatusBar from '../StatusBar/StatusBar';
-import StepOne from './StepOne/StepOne';
-import StepTwo from './StepTwo/StepTwo';
-import StepFive from './StepFive/StepFive';
+import StepOne from './Steps/StepOne';
+import StepTwo from './Steps/StepTwo';
+import StepFive from './Steps/StepFive';
 import StepSix from './StepSix/StepSix';
 import {
   expiriense,

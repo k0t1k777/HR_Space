@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './InputSalaryMin.css';
+import './InputSalary.css';
 import * as Yup from 'yup';
 
 interface InputSalaryProps {
@@ -25,11 +25,11 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
       setErrorText('');
       const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('input__valid');
-      inputElement.classList.remove('input__invalid');
+      inputElement.classList.add('input-salary__valid');
+      inputElement.classList.remove('input-salary__invalid');
     } else {
-      inputElement.classList.remove('input__valid');
-      inputElement.classList.add('input__invalid');
+      inputElement.classList.remove('input-salary__valid');
+      inputElement.classList.add('input-salary__invalid');
     }
     };
 

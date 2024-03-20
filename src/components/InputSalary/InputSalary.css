@@ -1,7 +1,6 @@
 .input-salary__container {
   display: flex;
   gap: 12px;
-  flex-direction: column;
 }
 
 .input-salary {
@@ -76,6 +75,10 @@
 
 .input-salary__invalid {
   border: 1px solid #D92121;
+}
+
+.input-salary__valid {
+  border: 1px solid #1785E5;
 }
 
 .input__error {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './InputSalaryMax.css';
+import './InputSalary.css';
 import * as Yup from 'yup';
 
 interface InputSalaryProps {
@@ -27,6 +27,14 @@ export default function InputSalaryMax({
     setInputValueSalaryMax(value);
     handleValidation(value);
     setErrorText('');
+    const inputElement = event.target;
+    if (value.trim() !== '') {
+      inputElement.classList.add('input-salary__valid');
+      inputElement.classList.remove('input-salary__invalid');
+    } else {
+      inputElement.classList.remove('input-salary__valid');
+      inputElement.classList.add('input-salary__invalid');
+    }
   };
 
   const schema = Yup.object().shape({

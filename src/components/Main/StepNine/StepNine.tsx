@@ -1,5 +1,5 @@
 import { dataStepNine } from "../../../utils/constants";
-import InputSalary from "../../InputSalaryMin/InputSalaryMin";
+import InputSalary from "../../InputSalary/InputSalaryMin";
 import InputSelect from "../../InputSelect/InputSelect";
 import SubTitle from "../../Subtitle/Subtitle";
 import "./StepNine.css";
