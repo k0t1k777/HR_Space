@@ -2,7 +2,8 @@ import Input from '../../Input/Input';
 import SubTitle from '../../Subtitle/Subtitle';
 import InputSalaryMin from '../../InputSalaryMin/InputSalaryMin';
 import InputSalaryMax from '../../InputSalaryMax/InputSalaryMax';
-import InputSalary from '../../InputSalary/InputSalary';
+// import InputSalary from '../../InputSalary/InputSalary';
+import { stepOneData } from '../../../utils/constants'
 
 export default function StepOne({
   options,
@@ -19,25 +20,25 @@ export default function StepOne({
 }: any) {
   return (
     <div>
-      <SubTitle subtitle='Специальность' paddingTop='32px' />
+      <SubTitle subtitle={stepOneData.subTitleSpeciality} paddingTop='32px' />
       <Input
-        placeholder={'Сантехник'}
+        placeholder={stepOneData.subTitleSpeciality}
         options={options}
         inputValue={inputValueSpecialty}
         setInputValue={setInputValueSpecialty}
         isValid={isValid}
       />
-      <SubTitle subtitle='Город (необязательно)' />
+      <SubTitle subtitle={stepOneData.subTitleTown} />
       <Input
-        placeholder={'Москва'}
+        placeholder={stepOneData.placeholderTown}
         options={towns}
         inputValue={inputValueCity}
         setInputValue={setInputValueCity}
         isValid={true}
       />
       <SubTitle
-        subtitle='Заработная плата сотрудника'
-        subtitleText='Средняя зарплата в выбранном регионе от 80 000 ₽'
+        subtitle={stepOneData.subTitleSalary}
+        subtitleText={stepOneData.placeholderSalary}
       />
       {/* <InputSalary inputValueSalaryMin={inputValueSalaryMin}
           setInputValueSalaryMin={setInputValueSalaryMin}

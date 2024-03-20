@@ -1,12 +1,13 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
+import { StepTwoData } from '../../../utils/constants'
 
 export default function StepTwo() {
   return (
     <div>
-      <SubTitle subtitle='Обязанности сотрудника' />
+      <SubTitle subtitle={StepTwoData.subTitleSpeciality} />
       <TextArea
-        placeholder={'Опишите чем придется заниматься на данной должности'}
+        placeholder={StepTwoData.placeholderSpeciality}
       />
     </div>
   );

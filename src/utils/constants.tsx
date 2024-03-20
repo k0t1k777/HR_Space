@@ -121,3 +121,51 @@ export const dataStepNine = [
   '50/50 после выхода сотрудника после гарантийного срока',
   '100% после гарантийного срока'
 ];
+
+export const stepOneData = {
+  subTitleSpeciality: 'Специальность',
+  placeholderSpeciality: 'Сантехник',
+  subTitleTown: 'Город (необязательно)',
+  placeholderTown: 'Москва',
+  subTitleSalary: 'Заработная плата сотрудника',
+  placeholderSalary: 'Средняя зарплата в выбранном регионе от 80 000 ₽',
+};
+
+export const StepTwoData = {
+  subTitleSpeciality: 'Обязанности сотрудника',
+  placeholderSpeciality: 'Опишите чем придется заниматься на данной должности',
+  
+};
+
+export const StepThreeData = {
+  subTitleSkills: 'Ключевые навыки',
+  placeholderName: 'Введите название',
+  subTitleExperiense: 'Опыт работы',
+  placeholderTown: 'Образование',
+  subTitleEducation: 'Заработная плата сотрудника',
+};
+
+export const StepFourData = {
+  subTitleLanguages: 'Иностранный язык (необязательно)',
+  placeholderLanguages: 'Английский',
+  subTitleExtra: 'Дополнительные требования (необязательно)',
+  placeholderExtra: 'Наличие водительский прав, мёд. книжки и др.',
+ };
+
+export const StepFiveData = {
+  subTitleDecoration: 'Оформление',
+  placeholderDecoration: 'Английский',
+  subTitleOccupation: 'Тип занятости',
+  placeholderOccupation: 'Английский',
+  subTitlTimetable: 'График работы',
+  placeholderTimetable: 'Английский',
+};
+
+// export const stepOneData = {
+//   subTitleSpeciality: 'Специальность',
+//   placeholderSpeciality: 'Сантехник',
+//   subTitleTown: 'Город (необязательно)',
+//   placeholderTown: 'Москва',
+//   subTitleSalary: 'Заработная плата сотрудника',
+//   placeholderSalary: 'Средняя зарплата в выбранном регионе от 80 000 ₽',
+// };

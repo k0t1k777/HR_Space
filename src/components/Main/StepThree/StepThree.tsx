@@ -1,15 +1,16 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import AddInput from '../../AddInput/AddInput';
 import InputSelect from '../../InputSelect/InputSelect';
+import { StepThreeData } from '../../../utils/constants'
 
 export default function StepThree({ expiriense, education, skills }:any) {
   return (
     <div>
-      <SubTitle subtitle='Ключевые навыки' />
-      <AddInput placeholder={'Введите название'} options={skills}/>
-      <SubTitle subtitle='Опыт работы' />
+      <SubTitle subtitle={StepThreeData.subTitleSkills} />
+      <AddInput placeholder={StepThreeData.placeholderName} options={skills}/>
+      <SubTitle subtitle={StepThreeData.subTitleExperiense} />
       <InputSelect multi={expiriense}/>
-      <SubTitle subtitle='Образование' />
+      <SubTitle subtitle={StepThreeData.subTitleEducation} />
       <InputSelect multi={education}/>
     </div>
   );
