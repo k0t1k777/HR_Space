@@ -18,8 +18,8 @@ export default function StepTwo({
       <SubTitle subtitle={StepTwoData.subTitleSpeciality} />
       <TextArea
         placeholder={StepTwoData.placeholderSpeciality}
-        inputValuesDuties={inputValuesDuties}
-        setInputValuesDuties={setInputValuesDuties}
+        inputValues={inputValuesDuties}
+        setInputValues={setInputValuesDuties}
         isValid={isValid}
       />
     </div>

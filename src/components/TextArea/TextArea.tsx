@@ -4,22 +4,22 @@ import * as Yup from 'yup';
 
 interface TextAreaProps {
   placeholder: string;
-  inputValuesDuties: string;
-  setInputValuesDuties: (value: string) => void;
-  isValid: boolean;
+  inputValues: string;
+  setInputValues: (value: string) => void;
+  isValid?: boolean;
 }
 
 export default function TextArea({
   placeholder,
-  inputValuesDuties,
-  setInputValuesDuties,
+  inputValues,
+  setInputValues,
   isValid,
 }: TextAreaProps) {
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>)  => {
     const value = event.target.value;
-    setInputValuesDuties(value);
+    setInputValues(value);
     handleValidation(value);
     setErrorText('');
   };
@@ -48,7 +48,7 @@ export default function TextArea({
       <textarea
         className={`text-area ${isValid ? '' : 'text-area__invalid'}`}
         placeholder={placeholder}
-        value={inputValuesDuties}
+        value={inputValues}
         onChange={handleChange}
       />
       {!isValid && <div className='input__error'>{errorText}</div>}

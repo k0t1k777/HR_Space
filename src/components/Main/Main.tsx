@@ -34,6 +34,9 @@ export default function Main() {
   const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
+  // const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  // const [selectedValue, setSelectedValue] = useState<string[]>([]);
+
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
@@ -57,6 +60,14 @@ export default function Main() {
         setIsValid(false);
         console.error('Поле обязательно для заполнения');
       }
+      // } else if (currentStep === 3) {
+      //   if (selectedValue.length !== 0) {
+      //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+      //     setIsValid(true);
+      //   } else {
+      //     setIsValid(false);
+      //     console.error('Поле обязательно для заполнения');
+      //   }
     } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
@@ -99,9 +110,17 @@ export default function Main() {
               expiriense={expiriense}
               education={education}
               skills={skills}
+              // inputValuesLanguage={inputValuesLanguage}
+              // setInputValuesLanguage={setInputValuesLanguage}
+              // isValid={isValid}
+              // selectedValue={selectedValue}
+              // setSelectedValue={setSelectedValue}
+              // setIsValid={setIsValid}
             />
           )}
-          {currentStep === 4 && <StepFour languages={languages} />}
+          {currentStep === 4 && (
+            <StepFour languages={languages} isValid={isValid} />
+          )}
           {currentStep === 5 && (
             <StepFive
               decoration={decoration}

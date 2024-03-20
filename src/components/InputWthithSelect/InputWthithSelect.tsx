@@ -17,8 +17,8 @@ export default function InputWthithSelect({
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>('');
 
-  console.log('options: ', options);
-  console.log('Object: ', Object.values(options));
+  // console.log('options: ', options);
+  // console.log('Object: ', Object.values(options));
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);

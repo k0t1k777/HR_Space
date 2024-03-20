@@ -51,6 +51,7 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
           });
       }
     };
+    
   return (
     <div className='input-salary__container'>
       <div className='input-salary__wrapper'>
