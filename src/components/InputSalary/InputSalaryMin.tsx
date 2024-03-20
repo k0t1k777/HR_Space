@@ -8,9 +8,9 @@ interface InputSalaryProps {
   step?: string;
   wrap?: string;
   pad?: string;
-  inputValueSalaryMin: any;
-  setInputValueSalaryMin: any;
-  isValid: any;
+  inputValueSalaryMin: string;
+  setInputValueSalaryMin: (value: string) => void;
+  isValid: boolean;
 }
 
 export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin,

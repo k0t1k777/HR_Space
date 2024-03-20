@@ -1,11 +1,11 @@
 export const BASE_URL = 'http://localhost:8000'
-// export const TOKEN = 'bd728ac88514039c8c5e7cde0a062a744445b19a';
+export const TOKEN = 'bd728ac88514039c8c5e7cde0a062a744445b19a';
 
-// const headers = {
-//   authorization: `Token ${TOKEN}`,
-//   Accept: 'application/json',
-//   'Content-Type': 'application/json',
-// };
+const headers = {
+  authorization: `Token ${TOKEN}`,
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
 
 const getResponseData = (res: Response) => {
   if (!res.ok) {
@@ -17,14 +17,14 @@ const getResponseData = (res: Response) => {
 export const getContent = () => {
   return fetch(`${BASE_URL}/api/v1/spaces/`, {
     method: 'GET',
-    // headers,
+    headers,
   }).then(getResponseData);
 };
 
 export const addNewContent = (content: object) => {
   return fetch(`${BASE_URL}/api/v1/spaces/`, {
     method: 'POST',
-    // headers,
+    headers,
     body: JSON.stringify(content),
   }).then(getResponseData);
 };

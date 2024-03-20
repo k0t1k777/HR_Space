@@ -8,7 +8,7 @@ interface InputProps {
   disableSuggestions?: boolean;
   options: string[];
   inputValue: string;
-  setInputValue: any;
+  setInputValue: (value: string) => void;
   isRequired?: boolean;
   isValid: boolean;
 }

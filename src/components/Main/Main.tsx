@@ -33,34 +33,35 @@ export default function Main() {
   const [inputValueCity, setInputValueCity] = useState('');
   const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
+  const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [isValid, setIsValid] = useState(true);
-  const isRequired = true;
-
-  // const handleContinue = () => {
-  //   if (!isRequired || inputValueSpecialty.trim() !== '') {
-  //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-  //     setIsValid(true);
-  //   } else {
-  //     setIsValid(false);
-  //     console.error('Поле input не заполнено');
-  //   }
-  // };
 
   const handleContinue = () => {
-    if (
-      !isRequired ||
-      (inputValueSpecialty.trim() !== '' &&
+    if (currentStep === 1) {
+      if (
+        inputValueSpecialty.trim() !== '' &&
         inputValueSalaryMin.trim() !== '' &&
-        inputValueSalaryMax.trim() !== '')
-    ) {
+        inputValueSalaryMax.trim() !== ''
+      ) {
+        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+        setIsValid(true);
+      } else {
+        setIsValid(false);
+        console.error('Поля обязательны для заполнения');
+      }
+    } else if (currentStep === 2) {
+      if (inputValuesDuties.trim() !== '') {
+        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+        setIsValid(true);
+      } else {
+        setIsValid(false);
+        console.error('Поле обязательно для заполнения');
+      }
+    } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
-    } else {
-      setIsValid(false);
-      console.error('Поле input не заполнено');
     }
   };
-
   const handleBack = () => {
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
@@ -83,11 +84,16 @@ export default function Main() {
               setInputValueSalaryMin={setInputValueSalaryMin}
               inputValueSalaryMax={inputValueSalaryMax}
               setInputValueSalaryMax={setInputValueSalaryMax}
-              isRequired={isRequired}
               isValid={isValid}
             />
           )}
-          {currentStep === 2 && <StepTwo />}
+          {currentStep === 2 && (
+            <StepTwo
+              inputValuesDuties={inputValuesDuties}
+              setInputValuesDuties={setInputValuesDuties}
+              isValid={isValid}
+            />
+          )}
           {currentStep === 3 && (
             <StepThree
               expiriense={expiriense}

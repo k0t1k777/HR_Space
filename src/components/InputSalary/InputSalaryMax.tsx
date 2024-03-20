@@ -8,9 +8,9 @@ interface InputSalaryProps {
   step?: string;
   wrap?: string;
   pad?: string;
-  inputValueSalaryMax: any;
-  setInputValueSalaryMax: any;
-  isValid: any;
+  inputValueSalaryMax: string;
+  setInputValueSalaryMax: (value: string) => void;
+  isValid: boolean;
 }
 
 export default function InputSalaryMax({
