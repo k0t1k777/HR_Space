@@ -10,7 +10,7 @@ export default function StepNine() {
       <SubTitle subtitle="Выплата" />
       <InputSelect multi={dataStepNine} height='100px' stylize='input-select__stylize' />
       <SubTitle subtitle="Вознаграждение за сотрудника" />
-      <InputSalary width="294px" step="input-step__display" wrap="input-salary__before_none" pad="input-salary__padding" />
+      <InputSalary width="294px" />
     </div>
   );
 }

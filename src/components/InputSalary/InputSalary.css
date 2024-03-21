@@ -61,14 +61,3 @@
   line-height: 20px;
 }
 
-.input-step__display {
-  display: none;
-}
-
-.input-salary__padding {
-  padding-left: 16px;
-}
-
-.input-salary__before_none::before {
-  display: none;
-}
