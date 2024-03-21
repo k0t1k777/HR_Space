@@ -7,23 +7,26 @@ interface StepThreeProps {
   expiriense: string[];
   education: string[];
   skills: string[];
-  // inputValuesLanguage: string;
-  // setInputValuesLanguage: (value: string) => void;
-  // isValid: boolean;
-  // selectedValue: any;
-  // setSelectedValue: any;
+  added: string[];
+  setAdded: (value: string[]) => void;
+  valuesExperiense: string;
+  setValuesExperiense: (value: string ) => void;
+  valuesSalary: string;
+  setValuesSalary: (value: string ) => void;
+  isValid: boolean;
 }
 
 export default function StepThree({
   expiriense,
   education,
   skills,
-  // inputValuesLanguage,
-  // isValid,
-  // setIsValid,
-  // selectedValue,
-  // setSelectedValue,
-  // setInputValuesLanguage,
+  added,
+  setAdded,
+  valuesExperiense,
+  setValuesExperiense,
+  valuesSalary,
+  setValuesSalary,
+  isValid,
 }: StepThreeProps) {
   return (
     <div>
@@ -31,17 +34,22 @@ export default function StepThree({
       <AddInput
         placeholder={StepThreeData.placeholderName}
         options={skills}
-        // inputValue={inputValuesLanguage}
-        // setInputValue={setInputValuesLanguage}
-        // isValid={isValid}
-        // setIsValid={setIsValid}
-        // selectedValue={selectedValue}
-        //       setSelectedValue={setSelectedValue}
+        added={added}
+        setAdded={setAdded}
+        isValid={isValid}
       />
       <SubTitle subtitle={StepThreeData.subTitleExperiense} />
-      <InputSelect multi={expiriense} />
+      <InputSelect
+        multi={expiriense}
+        selectedItem={valuesExperiense}
+        setSelectedItem={setValuesExperiense}
+      />
       <SubTitle subtitle={StepThreeData.subTitleEducation} />
-      <InputSelect multi={education} />
+      <InputSelect
+        multi={education}
+        selectedItem={valuesSalary}
+        setSelectedItem={setValuesSalary}
+      />
     </div>
   );
 }

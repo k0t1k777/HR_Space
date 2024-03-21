@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './InputWthithSelect.css';
 import * as Yup from 'yup';
 
@@ -71,24 +71,23 @@ export default function InputWthithSelect({
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        !(event.target as Element).closest(
-          '.input-whith-select__container-item'
-        ) &&
-        !(event.target as Element).closest('.input-whith-select')
-      ) {
-        setInputValue('');
-        setSuggestions([]);
-      }
-    };
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
-
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       !(event.target as Element).closest(
+  //         '.input-whith-select__container-item'
+  //       ) &&
+  //       !(event.target as Element).closest('.input-whith-select')
+  //     ) {
+  //       setInputValue('');
+  //       setSuggestions([]);
+  //     }
+  //   };
+  //   document.addEventListener('click', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside);
+  //   };
+  // }, []);
 
   return (
     <div className='input-whith-select__container'>

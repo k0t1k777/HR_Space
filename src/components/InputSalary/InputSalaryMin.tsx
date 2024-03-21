@@ -17,7 +17,6 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
   setInputValueSalaryMin, isValid }: InputSalaryProps) {
     const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setInputValueSalaryMin(value);

@@ -35,9 +35,10 @@ export default function Main() {
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
-  // const [selectedValue, setSelectedValue] = useState<string[]>([]);
+  const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
-
+  const [valuesExperiense, setValuesExperiense] = useState<string>('');
+  const [valuesSalary, setValuesSalary] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
@@ -61,14 +62,15 @@ export default function Main() {
         setIsValid(false);
         console.error('Поле обязательно для заполнения');
       }
-      // } else if (currentStep === 3) {
-      //   if (selectedValue.length !== 0) {
-      //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-      //     setIsValid(true);
-      //   } else {
-      //     setIsValid(false);
-      //     console.error('Поле обязательно для заполнения');
-      //   }
+      } else if (currentStep === 3) {
+        if (added.length !== 0) {
+          setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+          setIsValid(true);
+        } else {
+          setIsValid(false);
+          console.error('Поле обязательно для заполнения');
+        }
+
     } else if (currentStep === 4) {
       if (inputValuesLanguage.trim() !== '') {
         setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
@@ -121,11 +123,13 @@ export default function Main() {
               expiriense={expiriense}
               education={education}
               skills={skills}
-             
-              // isValid={isValid}
-              // selectedValue={selectedValue}
-              // setSelectedValue={setSelectedValue}
-              // setIsValid={setIsValid}
+              added={added}
+              setAdded={setAdded}
+              valuesExperiense={valuesExperiense}
+              setValuesExperiense={setValuesExperiense}
+              valuesSalary={valuesSalary}
+              setValuesSalary={setValuesSalary}
+              isValid={isValid}
             />
           )}
           {currentStep === 4 && (
