@@ -39,51 +39,58 @@ export default function Main() {
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
   const [valuesExperiense, setValuesExperiense] = useState<string>('');
   const [valuesSalary, setValuesSalary] = useState<string>('');
+  const [valuesDecoration, setValuesDecoration] = useState<string>('');
+  const [valuesOccupation, setValuesOccupation] = useState<string[]>([]);
+  const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
+  const [valuesMission, setValuesMission] = useState<string>('');
+  const [valuesBonus, setValuesBonus] = useState<string>('');
+  const [valueInputBonus, setInputValuesBonus] = useState<string>('');
+  // const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
-    if (currentStep === 1) {
-      if (
-        inputValueSpecialty.trim() !== '' &&
-        inputValueSalaryMin.trim() !== '' &&
-        inputValueSalaryMax.trim() !== ''
-      ) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поля обязательны для заполнения');
-      }
-    } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-      } else if (currentStep === 3) {
-        if (added.length !== 0) {
-          setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-          setIsValid(true);
-        } else {
-          setIsValid(false);
-          console.error('Поле обязательно для заполнения');
-        }
+    // if (currentStep === 1) {
+    //   if (
+    //     inputValueSpecialty.trim() !== '' &&
+    //     inputValueSalaryMin.trim() !== '' &&
+    //     inputValueSalaryMax.trim() !== ''
+    //   ) {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поля обязательны для заполнения');
+    //   }
+    // } else if (currentStep === 2) {
+    //   if (inputValuesDuties.trim() !== '') {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    //   } else if (currentStep === 3) {
+    //     if (added.length !== 0) {
+    //       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //       setIsValid(true);
+    //     } else {
+    //       setIsValid(false);
+    //       console.error('Поле обязательно для заполнения');
+    //     }
 
-    } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
+    // } else if (currentStep === 4) {
+    //   if (inputValuesLanguage.trim() !== '') {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поле обязательно для заполнения');
+    //   }
 
-    } else {
-      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-      setIsValid(true);
-    }
+    // } else {
+    setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    setIsValid(true);
+    // }
   };
 
   const handleBack = () => {
@@ -147,9 +154,26 @@ export default function Main() {
               decoration={decoration}
               occupation={occupation}
               timetable={timetable}
+              valuesDecoration={valuesDecoration}
+              setValuesDecoration={setValuesDecoration}
+              valuesOccupation={valuesOccupation}
+              setValuesOccupation={setValuesOccupation}
+              valuesTimetable={valuesTimetable}
+              setValuesTimetable={setValuesTimetable}
             />
           )}
-          {currentStep === 6 && <StepSix mission={mission} bonus={bonus} />}
+          {currentStep === 6 && (
+            <StepSix
+              mission={mission}
+              bonus={bonus}
+              valuesMission={valuesMission}
+              setValuesMission={setValuesMission}
+              valuesBonus={valuesBonus}
+              setValuesBonus={setValuesBonus}
+              valueInputBonus={valueInputBonus}
+              setInputValuesBonus={setInputValuesBonus}
+            />
+          )}
           {currentStep === 7 && <StepSeven />}
           {currentStep === 8 && <StepEight />}
           {currentStep === 9 && <StepNine />}

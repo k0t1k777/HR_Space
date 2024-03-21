@@ -158,11 +158,8 @@ export const StepFourData = {
 
 export const StepFiveData = {
   subTitleDecoration: 'Оформление',
-  placeholderDecoration: 'Английский',
   subTitleOccupation: 'Тип занятости',
-  placeholderOccupation: 'Английский',
   subTitlTimetable: 'График работы',
-  placeholderTimetable: 'Английский',
 };
 
 export const StepSixData = {

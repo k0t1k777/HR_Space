@@ -1,17 +1,51 @@
 import SubTitle from '../../Subtitle/Subtitle';
-import MultiInput from '../../InputSelect/InputSelect';
 import MultiInputSelect from '../../MultiInputSelect/MultiInputSelect';
 import { StepFiveData } from '../../../utils/constants';
+import InputSelect from '../../InputSelect/InputSelect';
 
-export default function StepFive({ decoration, occupation, timetable }: any) {
+interface StepFiveProps {
+  decoration: string[];
+  occupation: string[];
+  timetable: string[];
+  valuesDecoration: string;
+  setValuesDecoration: (value: string) => void;
+  valuesOccupation: string[];
+  setValuesOccupation: (value: string[]) => void;
+  valuesTimetable: string[];
+  setValuesTimetable: (value: string[]) => void;
+}
+
+export default function StepFive({
+  decoration,
+  occupation,
+  timetable,
+  valuesDecoration,
+  setValuesDecoration,
+  valuesOccupation,
+  setValuesOccupation,
+  valuesTimetable,
+  setValuesTimetable,
+}: StepFiveProps) {
   return (
     <div>
       <SubTitle subtitle={StepFiveData.subTitleDecoration} />
-      <MultiInput placeholder={StepFiveData.placeholderDecoration} multi={decoration} />
+      <InputSelect
+        multi={decoration}
+        selectedItem={valuesDecoration}
+        setSelectedItem={setValuesDecoration}
+      />
       <SubTitle subtitle={StepFiveData.subTitleOccupation} />
-      <MultiInputSelect placeholder={StepFiveData.placeholderOccupation} multi={occupation} />{' '}
+      <MultiInputSelect
+        multi={occupation}
+        selectedItems={valuesOccupation}
+        setSelectedItems={setValuesOccupation}
+      />{' '}
       <SubTitle subtitle={StepFiveData.subTitlTimetable} />
-      <MultiInputSelect placeholder={StepFiveData.placeholderTimetable} multi={timetable} />
+      <MultiInputSelect
+        multi={timetable}
+        selectedItems={valuesTimetable}
+        setSelectedItems={setValuesTimetable}
+      />
     </div>
   );
 }

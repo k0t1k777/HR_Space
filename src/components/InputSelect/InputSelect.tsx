@@ -5,9 +5,14 @@ interface InputSelectProps {
   multi: string[] | undefined;
   width?: string;
   height?: string;
-  stylize?: string
+  stylize?: string;
   selectedItem: string;
-  setSelectedItem: (value: string ) => void;
+  setSelectedItem: (value: string) => void;
+}
+
+interface Item {
+  caption: string;
+  text: string;
 }
 
 export default function InputSelect({
@@ -19,6 +24,7 @@ export default function InputSelect({
   selectedItem,
   setSelectedItem,
 }: InputSelectProps) {
+  
   const toggleItem = (item: string): void => {
     if (selectedItem === item) {
       setSelectedItem('');
@@ -33,26 +39,31 @@ export default function InputSelect({
   return (
     <div>
       <div className={`input-select__container ${stylize ? stylize : ''}`}>
-        {multi && multi.map((item) => (
-          <button
-            key={item}
-            className={`input-select__container-item ${
-              selectedItem === item ? 'input-select__selected' : ''
-            }`}
-            onClick={() => toggleItem(item)}
-            style={{
-              width: width ? width : '',
-              height: height ? height : '',
-            }}
-          >
-            { 
-              item instanceof Object ? <p className='input-select__caption'>
-                <span className='input-select__caption-text'>{item.caption}</span>
-                {item.text}
-              </p> : item
-            }
-          </button>
-        ))}
+        {multi &&
+          multi.map((item) => (
+            <button
+              key={item}
+              className={`input-select__container-item ${
+                selectedItem === item ? 'input-select__selected' : ''
+              }`}
+              onClick={() => toggleItem(item)}
+              style={{
+                width: width ? width : '',
+                height: height ? height : '',
+              }}
+            >
+              {typeof item === 'object' ? (
+                <p className='input-select__caption'>
+                  <span className='input-select__caption-text'>
+                    {(item as Item).caption}
+                  </span>
+                  {(item as Item).text}
+                </p>
+              ) : (
+                item
+              )}
+            </button>
+          ))}
       </div>
     </div>
   );

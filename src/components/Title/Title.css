@@ -1,5 +1,5 @@
 .title {
-  width: 253px;
+  max-width: 253px;
   display: flex;
   justify-content: space-between;
 }
@@ -29,6 +29,10 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 27.84px;
+  max-width: 253px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title-container-edit {
