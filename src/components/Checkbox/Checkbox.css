@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   gap: 12px;
-
+  margin-top: 12px;
 }
 
 .check__custom {
@@ -21,7 +21,6 @@
   z-index: -1;
   border: 1px solid #959799;
   border-radius: 4px;
-  
 }
 
 .check__custom:checked + .check__fake {
@@ -29,7 +28,7 @@
   background-image: url(../../assets/daw.svg);
   background-position: 50% 48%;
   background-repeat: no-repeat;
-  background-color: #1785E5;
+  background-color: #1785e5;
 }
 
 .check__caption {

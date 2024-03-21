@@ -45,50 +45,50 @@ export default function Main() {
   const [valuesMission, setValuesMission] = useState<string>('');
   const [valuesBonus, setValuesBonus] = useState<string>('');
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
-  // const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
+  const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
-    if (currentStep === 1) {
-      if (
-        inputValueSpecialty.trim() !== '' &&
-        inputValueSalaryMin.trim() !== '' &&
-        inputValueSalaryMax.trim() !== ''
-      ) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поля обязательны для заполнения');
-      }
-    } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-    } else if (currentStep === 3) {
-      if (added.length !== 0) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-    } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-    } else {
+    // if (currentStep === 1) {
+    //   if (
+    //     inputValueSpecialty.trim() !== '' &&
+    //     inputValueSalaryMin.trim() !== '' &&
+    //     inputValueSalaryMax.trim() !== ''
+    //   ) {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поля обязательны для заполнения');
+    //   }
+    // } else if (currentStep === 2) {
+    //   if (inputValuesDuties.trim() !== '') {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 3) {
+    //   if (added.length !== 0) {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 4) {
+    //   if (inputValuesLanguage.trim() !== '') {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     setIsValid(true);
+    //   } else {
+    //     setIsValid(false);
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
-    }
+    // }
   };
 
   const handleBack = () => {
@@ -172,7 +172,12 @@ export default function Main() {
               setInputValuesBonus={setInputValuesBonus}
             />
           )}
-          {currentStep === 7 && <StepSeven />}
+          {currentStep === 7 && (
+            <StepSeven
+              valuesExpectations={valuesExpectations}
+              setValuesExpectations={setValuesExpectations}
+            />
+          )}
           {currentStep === 8 && <StepEight />}
           {currentStep === 9 && <StepNine />}
         </div>
