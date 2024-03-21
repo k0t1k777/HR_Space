@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
 
@@ -68,6 +68,26 @@ export default function Input({
         });
     }
   };
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       !(event.target as Element).closest(
+  //         '.input__container-item'
+  //       ) &&
+  //       !(event.target as Element).closest('.input')
+  //       &&
+  //       !(event.target as Element).closest('.button-next')
+  //     ) {
+  //       setInputValue('');
+  //       setSuggestions([]);
+  //     }
+  //   };
+  //   document.addEventListener('click', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside);
+  //   };
+  // }, []);
 
   return (
     <>

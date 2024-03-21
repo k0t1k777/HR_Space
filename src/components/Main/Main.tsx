@@ -34,8 +34,9 @@ export default function Main() {
   const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
-  // const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  const [inputValuesLanguage, setInputValuesLanguage] = useState('');
   // const [selectedValue, setSelectedValue] = useState<string[]>([]);
+  const [inputValuesRequirements, setInputValuesRequirements] = useState('');
 
   const [isValid, setIsValid] = useState(true);
 
@@ -68,11 +69,21 @@ export default function Main() {
       //     setIsValid(false);
       //     console.error('Поле обязательно для заполнения');
       //   }
+    } else if (currentStep === 4) {
+      if (inputValuesLanguage.trim() !== '') {
+        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+        setIsValid(true);
+      } else {
+        setIsValid(false);
+        console.error('Поле обязательно для заполнения');
+      }
+
     } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
     }
   };
+
   const handleBack = () => {
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
@@ -110,8 +121,7 @@ export default function Main() {
               expiriense={expiriense}
               education={education}
               skills={skills}
-              // inputValuesLanguage={inputValuesLanguage}
-              // setInputValuesLanguage={setInputValuesLanguage}
+             
               // isValid={isValid}
               // selectedValue={selectedValue}
               // setSelectedValue={setSelectedValue}
@@ -119,7 +129,14 @@ export default function Main() {
             />
           )}
           {currentStep === 4 && (
-            <StepFour languages={languages} isValid={isValid} />
+            <StepFour
+              languages={languages}
+              isValid={isValid}
+              inputValuesLanguage={inputValuesLanguage}
+              setInputValuesLanguage={setInputValuesLanguage}
+              inputValuesRequirements={inputValuesRequirements}
+              setInputValuesRequirements={setInputValuesRequirements}
+            />
           )}
           {currentStep === 5 && (
             <StepFive
