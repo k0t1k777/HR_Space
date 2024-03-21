@@ -122,7 +122,6 @@ export const statusBarData = {
 export const numbers = [1, 2, 3];
 
 export const dataStepNine = [
-<<<<<<< HEAD
   '100% после выхода сотрудника',
   '50/50 после выхода сотрудника после гарантийного срока',
   '100% после гарантийного срока',
@@ -172,7 +171,8 @@ export const StepSixData = {
   textAreaBonus: 'Перечислите какие бонусы предоставляет ваша компания',
   placeholderBonus: 'ДМС, транспорт, спортзал и тд.',
 };
-=======
+
+export const DataStepNine = [
   {
     text: 'после выхода сотрудника',
     caption: '100%',
@@ -186,4 +186,3 @@ export const StepSixData = {
     caption: '100%',
   },
 ];
->>>>>>> b3c0cd949f225caff22f7e288d91bdf1c32eb25d

@@ -40,6 +40,7 @@
   align-items: center;
 }
 
-.input-select__container-item:first-of-type > .input-select__caption, .input-select__container-item:last-of-type > .input-select__caption {
+.input-select__container-item:first-of-type > .input-select__caption,
+.input-select__container-item:last-of-type > .input-select__caption {
   min-width: 140px;
 }
