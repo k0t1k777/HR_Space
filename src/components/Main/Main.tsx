@@ -39,8 +39,15 @@ export default function Main() {
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
   const [valuesExperiense, setValuesExperiense] = useState<string>('');
   const [valuesSalary, setValuesSalary] = useState<string>('');
+  const [valuesDecoration, setValuesDecoration] = useState<string>('');
+  const [valuesOccupation, setValuesOccupation] = useState<string[]>([]);
+  const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
+  const [valuesMission, setValuesMission] = useState<string>('');
+  const [valuesBonus, setValuesBonus] = useState<string>('');
+  const [valueInputBonus, setInputValuesBonus] = useState<string>('');
+  // const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
-  const [valuePay, setValuePay] =useState('');
+  const [valuePay, setValuePay] = useState('');
 
   const handleContinue = () => {
     // if (currentStep === 1) {
@@ -148,9 +155,26 @@ export default function Main() {
               decoration={decoration}
               occupation={occupation}
               timetable={timetable}
+              valuesDecoration={valuesDecoration}
+              setValuesDecoration={setValuesDecoration}
+              valuesOccupation={valuesOccupation}
+              setValuesOccupation={setValuesOccupation}
+              valuesTimetable={valuesTimetable}
+              setValuesTimetable={setValuesTimetable}
             />
           )}
-          {currentStep === 6 && <StepSix mission={mission} bonus={bonus} />}
+          {currentStep === 6 && (
+            <StepSix
+              mission={mission}
+              bonus={bonus}
+              valuesMission={valuesMission}
+              setValuesMission={setValuesMission}
+              valuesBonus={valuesBonus}
+              setValuesBonus={setValuesBonus}
+              valueInputBonus={valueInputBonus}
+              setInputValuesBonus={setInputValuesBonus}
+            />
+          )}
           {currentStep === 7 && <StepSeven />}
           {currentStep === 8 && <StepEight />}
           {currentStep === 9 && <StepNine valuePay={valuePay} setValuePay={setValuePay} />}

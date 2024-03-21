@@ -1,7 +1,6 @@
 import { dataStepNine } from "../../../utils/constants";
 import InputSelect from "../../InputSelect/InputSelect";
 import SubTitle from "../../Subtitle/Subtitle";
-import "./StepNine.css";
 
 interface StepNineProps {
   valuePay: string;
@@ -18,7 +17,7 @@ export default function StepNine({
       <InputSelect 
         multi={dataStepNine} 
         height='100px' 
-        stylize='input-select__stylize' 
+        stylize='input-select__type_wrap' 
         selectedItem={valuePay} 
         setSelectedItem={setValuePay} 
       />
