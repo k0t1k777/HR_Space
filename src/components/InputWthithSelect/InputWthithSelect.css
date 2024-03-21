@@ -96,3 +96,19 @@
   outline: #1785E5;
   border: 1px solid #1785E5;
 }
+
+.input-whith-select__invalid {
+  border: 1px solid #D92121;
+}
+
+.input-whith-select__valid {
+  border: 1px solid #1785E5;
+}
+
+.input__error {
+  margin: 8px 0 0 0;
+  color: #D92121;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+}

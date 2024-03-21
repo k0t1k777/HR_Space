@@ -32,17 +32,22 @@ export const names = [
   'Сотрудничество',
 ];
 
-export const options: string[] = ['Инженер', 'Механник', 'Специальность', 'Профессия'];
+export const options: string[] = [
+  'Инженер',
+  'Механник',
+  'Специальность',
+  'Профессия',
+];
 
 export const checkCaption = [
-  "Найдёт и предоставит релевантное резюме",
-  "Проведёт с кандидатом интервью",
-  "Организует собеседование с заказчиком",
-  "Запросит рекомендации с предыдущих мест работы",
-  "Отправит кандидату тестовое задание",
-  "Отправит кандидату анкету службы безопасности",
-  "Отправит финалисту приглашение на работу",
-]
+  'Найдёт и предоставит релевантное резюме',
+  'Проведёт с кандидатом интервью',
+  'Организует собеседование с заказчиком',
+  'Запросит рекомендации с предыдущих мест работы',
+  'Отправит кандидату тестовое задание',
+  'Отправит кандидату анкету службы безопасности',
+  'Отправит финалисту приглашение на работу',
+];
 
 export const expiriense: string[] = [
   '1–3 года',
@@ -117,6 +122,57 @@ export const statusBarData = {
 export const numbers = [1, 2, 3];
 
 export const dataStepNine = [
+<<<<<<< HEAD
+  '100% после выхода сотрудника',
+  '50/50 после выхода сотрудника после гарантийного срока',
+  '100% после гарантийного срока',
+];
+
+export const stepOneData = {
+  subTitleSpeciality: 'Специальность',
+  placeholderSpeciality: 'Сантехник',
+  subTitleTown: 'Город (необязательно)',
+  placeholderTown: 'Москва',
+  subTitleSalary: 'Заработная плата сотрудника',
+  placeholderSalary: 'Средняя зарплата в выбранном регионе от 80 000 ₽',
+};
+
+export const StepTwoData = {
+  subTitleSpeciality: 'Обязанности сотрудника',
+  placeholderSpeciality: 'Опишите чем придется заниматься на данной должности',
+};
+
+export const StepThreeData = {
+  subTitleSkills: 'Ключевые навыки',
+  placeholderName: 'Введите название',
+  subTitleExperiense: 'Опыт работы',
+  placeholderTown: 'Образование',
+  subTitleEducation: 'Заработная плата сотрудника',
+};
+
+export const StepFourData = {
+  subTitleLanguages: 'Иностранный язык (необязательно)',
+  placeholderLanguages: 'Английский',
+  subTitleExtra: 'Дополнительные требования (необязательно)',
+  placeholderExtra: 'Наличие водительский прав, мёд. книжки и др.',
+};
+
+export const StepFiveData = {
+  subTitleDecoration: 'Оформление',
+  placeholderDecoration: 'Английский',
+  subTitleOccupation: 'Тип занятости',
+  placeholderOccupation: 'Английский',
+  subTitlTimetable: 'График работы',
+  placeholderTimetable: 'Английский',
+};
+
+export const StepSixData = {
+  subTitleMission: 'Командировки',
+  subTitleBonus: 'Бонусы от работадателя (необязательно)',
+  textAreaBonus: 'Перечислите какие бонусы предоставляет ваша компания',
+  placeholderBonus: 'ДМС, транспорт, спортзал и тд.',
+};
+=======
   {
     text: 'после выхода сотрудника',
     caption: '100%',
@@ -130,3 +186,4 @@ export const dataStepNine = [
     caption: '100%',
   },
 ];
+>>>>>>> b3c0cd949f225caff22f7e288d91bdf1c32eb25d

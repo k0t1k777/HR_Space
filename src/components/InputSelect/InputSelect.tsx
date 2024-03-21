@@ -1,22 +1,39 @@
-import { useState } from 'react';
 import './InputSelect.css';
 
-export default function InputSelect({ click, setClick, multi, width, height, stylize}: any) {
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+interface InputSelectProps {
+  setClick?: (value: boolean) => void;
+  multi: string[] | undefined;
+  width?: string;
+  height?: string;
+  stylize?: string
+  selectedItem: string;
+  setSelectedItem: (value: string ) => void;
+}
 
+export default function InputSelect({
+  setClick,
+  multi,
+  width,
+  height,
+  stylize,
+  selectedItem,
+  setSelectedItem,
+}: InputSelectProps) {
   const toggleItem = (item: string): void => {
     if (selectedItem === item) {
-      setSelectedItem(null);
+      setSelectedItem('');
     } else {
       setSelectedItem(item);
-      setClick(!click)
+      if (setClick) {
+        setClick(true);
+      }
     }
   };
 
   return (
     <div>
       <div className={`input-select__container ${stylize ? stylize : ''}`}>
-        {multi.map((item: any) => (
+        {multi && multi.map((item) => (
           <button
             key={item}
             className={`input-select__container-item ${
@@ -25,7 +42,7 @@ export default function InputSelect({ click, setClick, multi, width, height, sty
             onClick={() => toggleItem(item)}
             style={{
               width: width ? width : '',
-              height: height ? height : ''
+              height: height ? height : '',
             }}
           >
             { 

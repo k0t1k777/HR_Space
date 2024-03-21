@@ -5,20 +5,20 @@ import Photo from '../../assets/ava-user.png';
 import { linksHeader } from '../../utils/constants';
 import { userData } from '../../utils/constants';
 
-
 export default function Header() {
   return (
-      <header className="header">
+    <header className='header'>
+      <img className='header__logo' src={LogoHeader} alt='логотип' />
 
-        <img className="header__logo" src={LogoHeader} alt="логотип" />
-
-        <nav className="header__list-links">
-          {
-            linksHeader.map((item, index) => {
-              return <NavLink key={index} className="header__link" to="#">{item}</NavLink>
-            })
-          }
-        </nav>
+      <nav className='header__list-links'>
+        {linksHeader.map((item, index) => {
+          return (
+            <NavLink key={index} className='header__link' to='#'>
+              {item}
+            </NavLink>
+          );
+        })}
+      </nav>
 
       <div className='header__container'>
         <button className='header__button'></button>
