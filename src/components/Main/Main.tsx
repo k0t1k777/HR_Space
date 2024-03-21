@@ -23,7 +23,7 @@ import {
   mission,
   bonus,
 } from '../../utils/constants';
-import StepSeven from './StepSeven/StepSeven';
+import StepSeven from './Steps/StepSeven';
 import StepEight from './StepEight/StepEight';
 import StepNine from './StepNine/StepNine';
 
@@ -45,7 +45,7 @@ export default function Main() {
   const [valuesMission, setValuesMission] = useState<string>('');
   const [valuesBonus, setValuesBonus] = useState<string>('');
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
-  // const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
+  const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
@@ -174,8 +174,8 @@ export default function Main() {
           )}
           {currentStep === 7 && (
             <StepSeven
-              // valuesExpectations={valuesExpectations}
-              // setValuesExpectations={setValuesExpectations}
+              valuesExpectations={valuesExpectations}
+              setValuesExpectations={setValuesExpectations}
             />
           )}
           {currentStep === 8 && <StepEight />}

@@ -1,3 +1,8 @@
+.heck__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .check__container {
   height: 18px;
   position: relative;
