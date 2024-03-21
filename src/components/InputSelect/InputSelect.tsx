@@ -28,7 +28,12 @@ export default function InputSelect({ click, setClick, multi, width, height, sty
               height: height ? height : ''
             }}
           >
-            {item}
+            { 
+              item instanceof Object ? <p className='input-select__caption'>
+                <span className='input-select__caption-text'>{item.caption}</span>
+                {item.text}
+              </p> : item
+            }
           </button>
         ))}
       </div>
