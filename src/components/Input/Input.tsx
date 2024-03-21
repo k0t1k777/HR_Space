@@ -89,6 +89,9 @@ export default function Input({
   //   };
   // }, []);
 
+  console.log('value: ', inputValue);
+
+
   return (
     <>
       <input
