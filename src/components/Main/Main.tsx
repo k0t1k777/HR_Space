@@ -22,6 +22,7 @@ import {
   timetable,
   mission,
   bonus,
+  LanguageOption,
 } from '../../utils/constants';
 import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
@@ -35,6 +36,8 @@ export default function Main() {
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
+  const [selectedValue, setSelectedValue] = useState<string>('');
   const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
@@ -174,6 +177,10 @@ export default function Main() {
               setInputValuesLanguage={setInputValuesLanguage}
               inputValuesRequirements={inputValuesRequirements}
               setInputValuesRequirements={setInputValuesRequirements}
+              selectedValue={selectedValue}
+              setSelectedValue={setSelectedValue}
+              suggestions={suggestions}
+              setSuggestions={setSuggestions}
             />
           )}
           {currentStep === 5 && (

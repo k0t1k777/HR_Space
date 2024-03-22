@@ -2,6 +2,12 @@ import ImgFill from '../assets/imgFill.svg';
 import ImgPay from '../assets/imgPay.svg';
 import ImgPublish from '../assets/imgPublish.svg';
 
+export interface LanguageOption {
+  id: number;
+  name: string;
+  level: string;
+}
+
 export const linksHeader = [
   'Главная',
   'Мои заявки',
@@ -75,31 +81,23 @@ export const skills: string[] = [
   'Исследования',
 ];
 
-export const languages: string[] = ['Русский', 'Английский', 'Немецкий'];
-
-// export const languages: { [key: string]: string[] } = {
-//   Русский: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
-//   Английский: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
-//   Немецкий: ['B1-Легкий', 'B1-Средний', 'B1-Тяжелый'],
-// };
-
-// export const languages = [
-//   {
-//     id: 3,
-//     name: 'Русский',
-//     level: 'A1',
-//   },
-//   {
-//     id: 3,
-//     name: 'Английский',
-//     level: 'B1',
-//   },
-//   {
-//     id: 3,
-//     name: 'Немецкий',
-//     level: 'B2',
-//   },
-// ];
+export const languages: LanguageOption[] = [
+  {
+    id: 1,
+    name: 'Русский',
+    level: 'A1',
+  },
+  {
+    id: 2,
+    name: 'Английский',
+    level: 'B1',
+  },
+  {
+    id: 3,
+    name: 'Немецкий',
+    level: 'B2',
+  },
+];
 
 export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
 
