@@ -7,7 +7,7 @@ import './StepEight.css';
 
 export default function StepEight() {
   return (
-    <div className="step-eight">
+    <div className='step-eight'>
       <SubTitle subtitle='Количество кандидатов для поиска' />
       <Range />
       <SubTitle subtitle='Дата выхода сотрудника' />
@@ -15,5 +15,5 @@ export default function StepEight() {
       <SubTitle subtitle='Количество рекрутеров' />
       <InputSelect multi={numbers} width='41px' />
     </div>
-  )
+  );
 }

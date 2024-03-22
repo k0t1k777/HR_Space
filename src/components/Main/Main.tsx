@@ -49,39 +49,39 @@ export default function Main() {
   const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
 
-  const handleContinue = () => {
-      let isValidStep = true; 
-  
-      if (currentStep === 1) {
-        if (
-          inputValueSpecialty.trim() === '' ||
-          inputValueSalaryMin.trim() === '' ||
-          inputValueSalaryMax.trim() === ''
-        ) {
-          isValidStep = false;
-          console.error('Поля обязательны для заполнения');
-        }
-      } else if (currentStep === 2) {
-        if (inputValuesDuties.trim() === '') {
-          isValidStep = false;
-          console.error('Поле обязательно для заполнения');
-        }
-      } else if (currentStep === 3) {
-        if (added.length === 0 && inputValueSkill.trim() === '') {
-          isValidStep = false;
-          console.error('Поле обязательно для заполнения');
-        }
-      } else if (currentStep === 4) {
-        if (inputValuesLanguage.trim() === '') {
-          isValidStep = false;
-          console.error('Поле обязательно для заполнения');
-        }
-      }
-  
-      setIsValid(isValidStep); 
-      if (isValidStep) {
-        setIsValid(true);
-        localStorage.setItem(`step${currentStep}`, JSON.stringify({
+  const handleContinue = (isValid: boolean) => {
+    // if (currentStep === 1) {
+    //   if (
+    //     inputValueSpecialty.trim() === '' ||
+    //     inputValueSalaryMin.trim() === '' ||
+    //     inputValueSalaryMax.trim() === ''
+    //   ) {
+    //     isValid = false;
+    //     console.error('Поля обязательны для заполнения');
+    //   }
+    // } else if (currentStep === 2) {
+    //   if (inputValuesDuties.trim() === '') {
+    //     console.log('inputValuesDuties: ', inputValuesDuties);
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 3) {
+    //   if (added.length === 0 && inputValueSkill.trim() === '') {
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 4) {
+    //   if (inputValuesLanguage.trim() === '') {
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // }
+    setIsValid(isValid);
+    if (isValid) {
+      setIsValid(true);
+      localStorage.setItem(
+        `step${currentStep}`,
+        JSON.stringify({
           inputValueSpecialty,
           inputValueCity,
           inputValueSalaryMin,
@@ -98,12 +98,12 @@ export default function Main() {
           valuesMission,
           valuesBonus,
           valueInputBonus,
-          valuesExpectations
-        }));
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-      }
-    };
-  
+          valuesExpectations,
+        })
+      );
+      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    }
+  };
 
   const handleBack = () => {
     setIsValid(true);

@@ -101,10 +101,6 @@
   border: 1px solid #D92121;
 }
 
-.input-whith-select__valid {
-  border: 1px solid #1785E5;
-}
-
 .input__error {
   margin: 8px 0 0 0;
   color: #D92121;

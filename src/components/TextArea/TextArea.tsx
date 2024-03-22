@@ -24,10 +24,8 @@ export default function TextArea({
     setErrorText('');
     const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('text-area__valid');
       inputElement.classList.remove('text-area__invalid');
     } else {
-      inputElement.classList.remove('text-area__valid');
       inputElement.classList.add('text-area__invalid');
     }
   };

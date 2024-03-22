@@ -24,10 +24,8 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
       setErrorText('');
       const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('input-salary__valid');
       inputElement.classList.remove('input-salary__invalid');
     } else {
-      inputElement.classList.remove('input-salary__valid');
       inputElement.classList.add('input-salary__invalid');
     }
     };

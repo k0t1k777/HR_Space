@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
 
@@ -36,10 +36,8 @@ export default function Input({
     setSuggestions(filteredSuggestions);
     const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('input__valid');
       inputElement.classList.remove('input__invalid');
     } else {
-      inputElement.classList.remove('input__valid');
       inputElement.classList.add('input__invalid');
     }
   };
