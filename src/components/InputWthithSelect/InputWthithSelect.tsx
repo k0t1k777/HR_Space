@@ -12,6 +12,24 @@ interface InputWthithSelectProps {
   isValid: boolean;
 }
 
+// export const options = [
+//   {
+//     id: 3,
+//     name: 'Русский',
+//     level: 'A1',
+//   },
+//   {
+//     id: 3,
+//     name: 'Английский',
+//     level: 'B1',
+//   },
+//   {
+//     id: 3,
+//     name: 'Немецкий',
+//     level: 'B2',
+//   },
+// ];
+
 export default function InputWthithSelect({
   options,
   placeholder,
@@ -20,7 +38,8 @@ export default function InputWthithSelect({
   setInputValue,
   isValid,
 }: InputWthithSelectProps) {
-  // const [inputValue, setInputValue] = useState('');
+  // console.log('languages: ', options);
+
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
@@ -38,10 +57,8 @@ export default function InputWthithSelect({
     setSuggestions(filteredSuggestions);
     const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('input-whith-select__valid');
       inputElement.classList.remove('input-whith-select__invalid');
     } else {
-      inputElement.classList.remove('input-whith-select__valid');
       inputElement.classList.add('input-whith-select__invalid');
     }
   };

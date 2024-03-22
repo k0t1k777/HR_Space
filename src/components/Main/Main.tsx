@@ -35,6 +35,7 @@ export default function Main() {
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
   const [valuesExperiense, setValuesExperiense] = useState<string>('');
@@ -45,7 +46,7 @@ export default function Main() {
   const [valuesMission, setValuesMission] = useState<string>('');
   const [valuesBonus, setValuesBonus] = useState<string>('');
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
-  // const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
+  const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
   const [valuePay, setValuePay] = useState('');
   const [reward, setReward] = useState('');
@@ -53,42 +54,30 @@ export default function Main() {
   const [valueDate, setValueDate] = useState('');
   const [valueRecruters, setValueRecruters] = useState<string>('');
 
-  const handleContinue = () => {
+  const handleContinue = (isValid: boolean) => {
     if (currentStep === 1) {
       if (
-        inputValueSpecialty.trim() !== '' &&
-        inputValueSalaryMin.trim() !== '' &&
-        inputValueSalaryMax.trim() !== ''
+        inputValueSpecialty.trim() === '' ||
+        inputValueSalaryMin.trim() === '' ||
+        inputValueSalaryMax.trim() === ''
       ) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
+        isValid = false;
         console.error('Поля обязательны для заполнения');
       }
     } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
+      if (inputValuesDuties.trim() === '') {
+        console.log('inputValuesDuties: ', inputValuesDuties);
+        isValid = false;
         console.error('Поле обязательно для заполнения');
       }
-      } else if (currentStep === 3) {
-        if (added.length !== 0) {
-          setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-          setIsValid(true);
-        } else {
-          setIsValid(false);
-          console.error('Поле обязательно для заполнения');
-        }
-
+    } else if (currentStep === 3) {
+      if (added.length === 0 && inputValueSkill.trim() === '') {
+        isValid = false;
+        console.error('Поле обязательно для заполнения');
+      }
     } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
+      if (inputValuesLanguage.trim() === '') {
+        isValid = false;
         console.error('Поле обязательно для заполнения');
       }
     } else if (currentStep === 9) {
@@ -103,10 +92,34 @@ export default function Main() {
     } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
+      localStorage.setItem(
+        `step${currentStep}`,
+        JSON.stringify({
+          inputValueSpecialty,
+          inputValueCity,
+          inputValueSalaryMin,
+          inputValueSalaryMax,
+          inputValuesDuties,
+          inputValueSkill,
+          added,
+          inputValuesRequirements,
+          valuesExperiense,
+          valuesSalary,
+          valuesDecoration,
+          valuesOccupation,
+          valuesTimetable,
+          valuesMission,
+          valuesBonus,
+          valueInputBonus,
+          valuesExpectations,
+        })
+      );
+      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
     }
   };
 
   const handleBack = () => {
+    setIsValid(true);
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
 
@@ -144,6 +157,8 @@ export default function Main() {
               education={education}
               skills={skills}
               added={added}
+              inputValueSkill={inputValueSkill}
+              setInputValueSkill={setInputValueSkill}
               setAdded={setAdded}
               valuesExperiense={valuesExperiense}
               setValuesExperiense={setValuesExperiense}
@@ -186,7 +201,10 @@ export default function Main() {
               valueInputBonus={valueInputBonus}
               setInputValuesBonus={setInputValuesBonus} />
           )}
-          {currentStep === 7 && <StepSeven />}
+                    {currentStep === 7 && (
+            <StepSeven
+              valuesExpectations={valuesExpectations}
+              setValuesExpectations={setValuesExpectations}
           {currentStep === 8 && (
             <StepEight
               valueDate={valueDate}
@@ -197,6 +215,7 @@ export default function Main() {
               setValueCandidats={setValueCandidates} 
             />
           )}
+
           {currentStep === 9 && (
             <StepNine 
               valuePay={valuePay} 

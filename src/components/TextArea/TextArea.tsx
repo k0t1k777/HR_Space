@@ -22,6 +22,12 @@ export default function TextArea({
     setInputValues(value);
     handleValidation(value);
     setErrorText('');
+    const inputElement = event.target;
+    if (value.trim() !== '') {
+      inputElement.classList.remove('text-area__invalid');
+    } else {
+      inputElement.classList.add('text-area__invalid');
+    }
   };
 
   const schema = Yup.object().shape({

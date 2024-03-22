@@ -28,10 +28,6 @@
   line-height: 19.6px;
 }
 
-.text-area__valid {
-  border: 1px solid #1785E5;
-}
-
 .text-area__invalid {
   border: 1px solid #D92121;
 }

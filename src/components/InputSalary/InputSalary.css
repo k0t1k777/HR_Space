@@ -69,3 +69,6 @@
   line-height: 20px;
 }
 
+.input-salary__invalid {
+  border: 1px solid #D92121;
+}

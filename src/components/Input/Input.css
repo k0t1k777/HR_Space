@@ -55,10 +55,6 @@
   line-height: 19.6px;
 }
 
-.input__valid {
-  border: 1px solid #1785E5;
-}
-
 .input__invalid {
   border: 1px solid #D92121;
 }

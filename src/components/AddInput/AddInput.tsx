@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FocusEvent, useState } from 'react';
 import './AddInput.css';
 import Trash from '../../assets/trash.svg?react';
 import * as Yup from 'yup';
@@ -10,6 +10,8 @@ interface InputProps {
   options: string[];
   added: string[];
   setAdded: (value: string[]) => void;
+  inputValue: string;
+  setInputValue: (value: string ) => void;
   isValid: boolean;
 }
 
@@ -20,30 +22,25 @@ export default function AddInput({
   disableSuggestions,
   added,
   setAdded,
+  inputValue,
+  setInputValue,
   isValid,
 }: InputProps) {
-  const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
-
-  useEffect(() => {
-    const handleFocusOut = (event: FocusEvent) => {
-      if (
-        !event.relatedTarget ||
-        !(event.relatedTarget as HTMLElement).classList.contains(
-          'add-input__container-item'
-        )
-      ) {
-        setSuggestions([]);
+  const handleFocusOut = (event: FocusEvent<HTMLInputElement>) => {
+    if (
+      !event.relatedTarget ||
+      !(event.relatedTarget as HTMLElement).classList.contains('add-input__container-item')
+    ) {
+      if (inputValue.trim() !== '') {
+        setAdded([...added, inputValue]);
         setInputValue('');
       }
-    };
-    document.addEventListener('focusout', handleFocusOut);
-    return () => {
-      document.removeEventListener('focusout', handleFocusOut);
-    };
-  }, []);
+      setSuggestions([]);
+    }
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -56,10 +53,8 @@ export default function AddInput({
     setSuggestions(filteredSuggestions);
     const inputElement = event.target;
     if (value.trim() !== '') {
-      inputElement.classList.add('add-input__valid');
       inputElement.classList.remove('add-input__invalid');
     } else {
-      inputElement.classList.remove('add-nput__valid');
       inputElement.classList.add('add-input__invalid');
     }
   };
@@ -70,7 +65,6 @@ export default function AddInput({
     setAdded([...added, suggestion]);
     setInputValue('');
   };
-  console.log('added: ', added);
 
   const handleAddDelete = (itemToDelete: string) => {
     const updatedAdded = added.filter((item) => item !== itemToDelete);
@@ -99,8 +93,8 @@ export default function AddInput({
   return (
     <>
       <div className='add-input__container-added'>
-        {added.map((item: string) => (
-          <button key={item} className='add-input__container-item'>
+        {added.map((item, index) => (
+          <button key={index} className='add-input__container-item'>
             {item}
             <Trash
               className='add-input__trash'
@@ -114,6 +108,7 @@ export default function AddInput({
         type='text'
         value={inputValue}
         onChange={handleChange}
+        onBlur={handleFocusOut}
         placeholder={placeholder ? placeholder : 'Выберите из списка'}
         style={{ width: width ? width : '600px' }}
       />
