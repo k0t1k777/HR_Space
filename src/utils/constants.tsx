@@ -139,12 +139,6 @@ export const statusBarData = {
 
 export const numbers = [1, 2, 3];
 
-export const dataStepNine = [
-  '100% после выхода сотрудника',
-  '50/50 после выхода сотрудника после гарантийного срока',
-  '100% после гарантийного срока',
-];
-
 export const stepOneData = {
   subTitleSpeciality: 'Специальность',
   placeholderSpeciality: 'Сантехник',
@@ -187,7 +181,7 @@ export const StepSixData = {
   placeholderBonus: 'ДМС, транспорт, спортзал и тд.',
 };
 
-export const DataStepNine = [
+export const dataStepNine = [
   {
     text: 'после выхода сотрудника',
     caption: '100%',

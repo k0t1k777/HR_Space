@@ -57,8 +57,7 @@ export default function StepOne({
         <InputSalaryMin
           inputValueSalaryMin={inputValueSalaryMin}
           setInputValueSalaryMin={setInputValueSalaryMin}
-          isValid={isValid}
-        />
+          isValid={isValid} name={''} inputName={''}        />
         <InputSalaryMax
           inputValueSalaryMax={inputValueSalaryMax}
           setInputValueSalaryMax={setInputValueSalaryMax}
