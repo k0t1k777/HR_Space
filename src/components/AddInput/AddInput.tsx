@@ -10,6 +10,8 @@ interface InputProps {
   options: string[];
   added: string[];
   setAdded: (value: string[]) => void;
+  inputValue: string;
+  setInputValue: (value: string ) => void;
   isValid: boolean;
 }
 
@@ -20,12 +22,12 @@ export default function AddInput({
   disableSuggestions,
   added,
   setAdded,
+  inputValue,
+  setInputValue,
   isValid,
 }: InputProps) {
-  const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
-
 
   useEffect(() => {
     const handleFocusOut = (event: FocusEvent) => {
@@ -70,7 +72,7 @@ export default function AddInput({
     setAdded([...added, suggestion]);
     setInputValue('');
   };
-  console.log('added: ', added);
+  // console.log('added: ', added);
 
   const handleAddDelete = (itemToDelete: string) => {
     const updatedAdded = added.filter((item) => item !== itemToDelete);

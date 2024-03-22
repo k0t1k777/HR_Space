@@ -13,6 +13,8 @@ interface StepThreeProps {
   setValuesExperiense: (value: string ) => void;
   valuesSalary: string;
   setValuesSalary: (value: string ) => void;
+  inputValueSkill: string;
+  setInputValueSkill: (value: string ) => void;
   isValid: boolean;
 }
 
@@ -26,6 +28,8 @@ export default function StepThree({
   setValuesExperiense,
   valuesSalary,
   setValuesSalary,
+  inputValueSkill,
+  setInputValueSkill,
   isValid,
 }: StepThreeProps) {
   return (
@@ -36,6 +40,8 @@ export default function StepThree({
         options={skills}
         added={added}
         setAdded={setAdded}
+        inputValue={inputValueSkill}
+        setInputValue={setInputValueSkill}
         isValid={isValid}
       />
       <SubTitle subtitle={StepThreeData.subTitleExperiense} />

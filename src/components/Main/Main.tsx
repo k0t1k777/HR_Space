@@ -35,6 +35,7 @@ export default function Main() {
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
   const [valuesExperiense, setValuesExperiense] = useState<string>('');
@@ -49,49 +50,63 @@ export default function Main() {
   const [isValid, setIsValid] = useState(true);
 
   const handleContinue = () => {
-    if (currentStep === 1) {
-      if (
-        inputValueSpecialty.trim() !== '' &&
-        inputValueSalaryMin.trim() !== '' &&
-        inputValueSalaryMax.trim() !== ''
-      ) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поля обязательны для заполнения');
+      let isValidStep = true; 
+  
+      if (currentStep === 1) {
+        if (
+          inputValueSpecialty.trim() === '' ||
+          inputValueSalaryMin.trim() === '' ||
+          inputValueSalaryMax.trim() === ''
+        ) {
+          isValidStep = false;
+          console.error('Поля обязательны для заполнения');
+        }
+      } else if (currentStep === 2) {
+        if (inputValuesDuties.trim() === '') {
+          isValidStep = false;
+          console.error('Поле обязательно для заполнения');
+        }
+      } else if (currentStep === 3) {
+        if (added.length === 0 && inputValueSkill.trim() === '') {
+          isValidStep = false;
+          console.error('Поле обязательно для заполнения');
+        }
+      } else if (currentStep === 4) {
+        if (inputValuesLanguage.trim() === '') {
+          isValidStep = false;
+          console.error('Поле обязательно для заполнения');
+        }
       }
-    } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+  
+      setIsValid(isValidStep); 
+      if (isValidStep) {
         setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-    } else if (currentStep === 3) {
-      if (added.length !== 0) {
+        localStorage.setItem(`step${currentStep}`, JSON.stringify({
+          inputValueSpecialty,
+          inputValueCity,
+          inputValueSalaryMin,
+          inputValueSalaryMax,
+          inputValuesDuties,
+          inputValueSkill,
+          added,
+          inputValuesRequirements,
+          valuesExperiense,
+          valuesSalary,
+          valuesDecoration,
+          valuesOccupation,
+          valuesTimetable,
+          valuesMission,
+          valuesBonus,
+          valueInputBonus,
+          valuesExpectations
+        }));
         setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
       }
-    } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
-    } else {
-      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-      setIsValid(true);
-    }
-  };
+    };
+  
 
   const handleBack = () => {
+    setIsValid(true);
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
   };
 
@@ -129,6 +144,8 @@ export default function Main() {
               education={education}
               skills={skills}
               added={added}
+              inputValueSkill={inputValueSkill}
+              setInputValueSkill={setInputValueSkill}
               setAdded={setAdded}
               valuesExperiense={valuesExperiense}
               setValuesExperiense={setValuesExperiense}
