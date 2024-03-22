@@ -6,7 +6,7 @@ interface Item  {
 }
 
 interface InputSelectProps {
-  multi: string[] | undefined;
+  multi: string[] | { text: string; caption: string; }[] | undefined;
   width?: string;
   height?: string;
   stylize?: string;

@@ -1,7 +1,7 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
 import { useState, useEffect } from 'react';
-import './StepSix.css';
+import './Step.css';
 import { StepSixData } from '../../../utils/constants';
 import InputSelect from '../../InputSelect/InputSelect';
 
@@ -12,8 +12,8 @@ interface StepSixProps {
   setValuesMission: (value: string) => void;
   valuesBonus: string;
   setValuesBonus: (value: string) => void;
-  valuesTimetable: string;
-  setValuesTimetable: (value: string) => void;
+  valuesTimetable?: string;
+  setValuesTimetable?: (value: string) => void;
   valueInputBonus: string;
   setInputValuesBonus: (value: string) => void;
 }
@@ -33,7 +33,7 @@ export default function StepSix({
   console.log(showBlock)
 
   useEffect(() => {
-    if (valuesMission === 'Да' || valuesBonus === 'Да') {
+    if (valuesBonus === 'Да') {
       setShowBlock(true);
     } else {
       setShowBlock(false);

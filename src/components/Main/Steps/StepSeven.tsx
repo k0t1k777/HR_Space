@@ -1,4 +1,3 @@
-import './StepSeven.css'
 import SubTitle from '../../Subtitle/Subtitle'
 import Checkbox from '../../Checkbox/Checkbox'
 import { checkCaption } from '../../../utils/constants'

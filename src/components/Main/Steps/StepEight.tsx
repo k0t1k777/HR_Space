@@ -9,18 +9,22 @@ interface StepEightProps {
   setValueDate: (value: string ) => void;
   valueRecruters: string;
   setValueRecruters: (value: string) => void;
+  valueCandidats: number;
+  setValueCandidats: (value: number) => void;
 }
 
 export default function StepEight({
   valueDate,
   setValueDate,
   valueRecruters,
-  setValueRecruters
+  setValueRecruters,
+  valueCandidats,
+  setValueCandidats
 }: StepEightProps) {
   return (
     <div className="step-eight">
       <SubTitle subtitle='Количество кандидатов для поиска' />
-      <Range />
+      <Range selectedItem={valueCandidats} setSelectedItem={setValueCandidats} />
       <SubTitle subtitle='Дата выхода сотрудника' />
       <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
       <SubTitle subtitle='Количество рекрутеров' />
