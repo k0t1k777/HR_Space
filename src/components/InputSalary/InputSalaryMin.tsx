@@ -5,16 +5,15 @@ import * as Yup from 'yup';
 interface InputSalaryProps {
   width?: string;
   placeholder?: string;
-  step?: string;
-  wrap?: string;
-  pad?: string;
   inputValueSalaryMin: string;
   setInputValueSalaryMin: (value: string) => void;
   isValid: boolean;
+  name: string;
+  inputName: string;
 }
 
 export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin,
-  setInputValueSalaryMin, isValid }: InputSalaryProps) {
+  setInputValueSalaryMin, isValid, name, inputName }: InputSalaryProps) {
     const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,9 +52,9 @@ export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin
     
   return (
     <div className='input-salary__container'>
-      <div className='input-salary__wrapper'>
+      <div className={`input-salary__wrapper ${name ? name : ''}`}>
         <input
-          className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
+          className={`input-salary ${isValid ? '' : 'input-salary__invalid'} ${inputName ? inputName : ''}`}
           type='number'
           value={inputValueSalaryMin}
           onChange={handleChange}

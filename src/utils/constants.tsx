@@ -177,5 +177,3 @@ export const dataStepNine = [
     caption: '100%',
   },
 ];
-
-console.log(typeof dataStepNine[0])

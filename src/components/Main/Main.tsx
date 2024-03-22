@@ -48,6 +48,7 @@ export default function Main() {
   // const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
   const [valuePay, setValuePay] = useState('');
+  const [reward, setReward] = useState('');
 
   const handleContinue = () => {
     // if (currentStep === 1) {
@@ -172,12 +173,17 @@ export default function Main() {
               valuesBonus={valuesBonus}
               setValuesBonus={setValuesBonus}
               valueInputBonus={valueInputBonus}
-              setInputValuesBonus={setInputValuesBonus}
-            />
+              setInputValuesBonus={setInputValuesBonus} />
           )}
           {currentStep === 7 && <StepSeven />}
           {currentStep === 8 && <StepEight />}
-          {currentStep === 9 && <StepNine valuePay={valuePay} setValuePay={setValuePay} />}
+          {currentStep === 9 && <StepNine 
+            valuePay={valuePay} 
+            setValuePay={setValuePay}
+            reward={reward}
+            setReward={setReward}
+            isValid={isValid}
+          />}
         </div>
         <div className='main__button'>
           <ButtonPrevious
