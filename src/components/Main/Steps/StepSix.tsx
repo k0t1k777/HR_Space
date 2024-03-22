@@ -1,6 +1,6 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './StepSix.css';
 import { StepSixData } from '../../../utils/constants';
 import InputSelect from '../../InputSelect/InputSelect';
@@ -28,7 +28,18 @@ export default function StepSix({
   valueInputBonus,
   setInputValuesBonus,
 }: StepSixProps) {
+
   const [showBlock, setShowBlock] = useState(false);
+  console.log(showBlock)
+
+  useEffect(() => {
+    if (valuesMission === 'Да' || valuesBonus === 'Да') {
+      setShowBlock(true);
+    } else {
+      setShowBlock(false);
+    }
+  }, [valuesMission, valuesBonus]);
+  
   return (
     <div className='step-six'>
       <SubTitle subtitle={StepSixData.subTitleMission} />
@@ -40,8 +51,6 @@ export default function StepSix({
       <SubTitle subtitle={StepSixData.subTitleBonus} />
       <InputSelect
         multi={bonus}
-        click={showBlock}
-        setClick={setShowBlock}
         selectedItem={valuesBonus}
         setSelectedItem={setValuesBonus}
       />

@@ -9,7 +9,7 @@ import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './Steps/StepOne';
 import StepTwo from './Steps/StepTwo';
 import StepFive from './Steps/StepFive';
-import StepSix from './StepSix/StepSix';
+import StepSix from './Steps/StepSix';
 import {
   expiriense,
   education,
@@ -23,9 +23,9 @@ import {
   mission,
   bonus,
 } from '../../utils/constants';
-import StepSeven from './StepSeven/StepSeven';
-import StepEight from './StepEight/StepEight';
-import StepNine from './StepNine/StepNine';
+import StepSeven from './Steps/StepSeven';
+import StepEight from './Steps/StepEight';
+import StepNine from './Steps/StepNine';
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -49,6 +49,8 @@ export default function Main() {
   const [isValid, setIsValid] = useState(true);
   const [valuePay, setValuePay] = useState('');
   const [reward, setReward] = useState('');
+  const [valueDate, setValueDate] = useState('');
+  const [valueRecruters, setValueRecruters] = useState('');
 
   const handleContinue = () => {
     // if (currentStep === 1) {
@@ -176,14 +178,23 @@ export default function Main() {
               setInputValuesBonus={setInputValuesBonus} />
           )}
           {currentStep === 7 && <StepSeven />}
-          {currentStep === 8 && <StepEight />}
-          {currentStep === 9 && <StepNine 
-            valuePay={valuePay} 
-            setValuePay={setValuePay}
-            reward={reward}
-            setReward={setReward}
-            isValid={isValid}
-          />}
+          {currentStep === 8 && (
+            <StepEight
+              valueDate={valueDate}
+              setValueDate={setValueDate}
+              valueRecruters={valueRecruters}
+              setValueRecruters={setValueRecruters} 
+            />
+          )}
+          {currentStep === 9 && (
+            <StepNine 
+              valuePay={valuePay} 
+              setValuePay={setValuePay}
+              reward={reward}
+              setReward={setReward}
+              isValid={isValid}
+            />
+          )}
         </div>
         <div className='main__button'>
           <ButtonPrevious

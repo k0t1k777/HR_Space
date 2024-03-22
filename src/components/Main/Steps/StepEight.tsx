@@ -3,17 +3,33 @@ import DateInput from '../../DateInput/DateInput';
 import InputSelect from '../../InputSelect/InputSelect';
 import Range from '../../Range/Range';
 import SubTitle from '../../Subtitle/Subtitle';
-import './StepEight.css';
 
-export default function StepEight() {
+interface StepEightProps {
+  valueDate: string;
+  setValueDate: (value: string ) => void;
+  valueRecruters: string;
+  setValueRecruters: (value: string) => void;
+}
+
+export default function StepEight({
+  valueDate,
+  setValueDate,
+  valueRecruters,
+  setValueRecruters
+}: StepEightProps) {
   return (
     <div className="step-eight">
       <SubTitle subtitle='Количество кандидатов для поиска' />
       <Range />
       <SubTitle subtitle='Дата выхода сотрудника' />
-      <DateInput />
+      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
       <SubTitle subtitle='Количество рекрутеров' />
-      <InputSelect multi={numbers} width='41px' />
+      <InputSelect 
+        multi={numbers.map(num => num.toString())} 
+        width='41px' 
+        selectedItem={valueRecruters} 
+        setSelectedItem={setValueRecruters}
+      />
     </div>
   )
 }

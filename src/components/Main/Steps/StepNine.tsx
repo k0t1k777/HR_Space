@@ -19,8 +19,8 @@ export default function StepNine({
   isValid
 }: StepNineProps) {
   return (
-    <div className="step-nine">
-      <SubTitle subtitle="Выплата" />
+    <div className='step-nine'>
+      <SubTitle subtitle='Выплата' clue='subtitle__clue' />
       <InputSelect 
         multi={dataStepNine} 
         height='100px' 
@@ -28,7 +28,7 @@ export default function StepNine({
         selectedItem={valuePay} 
         setSelectedItem={setValuePay} 
       />
-      <SubTitle subtitle="Вознаграждение за сотрудника" />
+      <SubTitle subtitle='Вознаграждение за сотрудника' />
       <InputSalaryMin 
         inputValueSalaryMin={reward} 
         setInputValueSalaryMin={setReward} 

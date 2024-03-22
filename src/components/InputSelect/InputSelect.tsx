@@ -6,7 +6,6 @@ interface Item  {
 }
 
 interface InputSelectProps {
-  setClick?: (value: boolean) => void;
   multi: string[] | undefined;
   width?: string;
   height?: string;
@@ -16,7 +15,6 @@ interface InputSelectProps {
 }
 
 export default function InputSelect({
-  setClick,
   multi,
   width,
   height,
@@ -30,9 +28,6 @@ export default function InputSelect({
       setSelectedItem('');
     } else {
       setSelectedItem(item);
-      if (setClick) {
-        setClick(true);
-      }
     }
   };
 
