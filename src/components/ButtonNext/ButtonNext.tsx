@@ -4,7 +4,7 @@ import { buttonsData } from '../../utils/constants';
 interface ButtonNextTextProps {
   pressed?: boolean;
   disabled?: boolean;
-  handleContinue: () => void;
+  handleContinue: (value: boolean) => void;
 }
 
 export default function ButtonNext({
@@ -13,7 +13,7 @@ export default function ButtonNext({
   return (
     <button
       className='button-next'
-      onClick={handleContinue}
+      onClick={() => handleContinue(true)}
     >
       {buttonsData.next}
     </button>
