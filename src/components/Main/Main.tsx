@@ -56,38 +56,38 @@ export default function Main() {
 
 
   const handleContinue = (isValid: boolean) => {
-    if (currentStep === 1) {
-      if (
-        inputValueSpecialty.trim() === '' ||
-        inputValueSalaryMin.trim() === '' ||
-        inputValueSalaryMax.trim() === ''
-      ) {
-        isValid = false;
-        console.error('Поля обязательны для заполнения');
-      }
-    } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() === '') {
-        console.log('inputValuesDuties: ', inputValuesDuties);
-        isValid = false;
-        console.error('Поле обязательно для заполнения');
-      }
-    } else if (currentStep === 3) {
-      if (added.length === 0 && inputValueSkill.trim() === '') {
-        isValid = false;
-        console.error('Поле обязательно для заполнения');
-      }
-    } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() === '') {
-        isValid = false;
-        console.error('Поле обязательно для заполнения');
-      }
-    }
-    else if (currentStep === 9) {
-      if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        isValid = false;
-      } 
-    }
+    // if (currentStep === 1) {
+    //   if (
+    //     inputValueSpecialty.trim() === '' ||
+    //     inputValueSalaryMin.trim() === '' ||
+    //     inputValueSalaryMax.trim() === ''
+    //   ) {
+    //     isValid = false;
+    //     console.error('Поля обязательны для заполнения');
+    //   }
+    // } else if (currentStep === 2) {
+    //   if (inputValuesDuties.trim() === '') {
+    //     console.log('inputValuesDuties: ', inputValuesDuties);
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 3) {
+    //   if (added.length === 0 && inputValueSkill.trim() === '') {
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // } else if (currentStep === 4) {
+    //   if (inputValuesLanguage.trim() === '') {
+    //     isValid = false;
+    //     console.error('Поле обязательно для заполнения');
+    //   }
+    // }
+    // else if (currentStep === 9) {
+    //   if (inputValuesLanguage.trim() !== '') {
+    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+    //     isValid = false;
+    //   } 
+    // }
     setIsValid(isValid);
     if (isValid) {
       setIsValid(true);

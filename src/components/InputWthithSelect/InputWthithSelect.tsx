@@ -1,34 +1,17 @@
 import React, { useState } from 'react';
 import './InputWthithSelect.css';
 import * as Yup from 'yup';
+import { LanguageOption } from '../../utils/constants';
 
 interface InputWthithSelectProps {
   width?: string;
   placeholder?: string;
   disableSuggestions?: boolean;
-  options: string[];
+  options: LanguageOption[];
   inputValue: string;
   setInputValue: (value: string) => void;
   isValid: boolean;
 }
-
-// export const options = [
-//   {
-//     id: 3,
-//     name: 'Русский',
-//     level: 'A1',
-//   },
-//   {
-//     id: 3,
-//     name: 'Английский',
-//     level: 'B1',
-//   },
-//   {
-//     id: 3,
-//     name: 'Немецкий',
-//     level: 'B2',
-//   },
-// ];
 
 export default function InputWthithSelect({
   options,
@@ -38,21 +21,17 @@ export default function InputWthithSelect({
   setInputValue,
   isValid,
 }: InputWthithSelectProps) {
-  // console.log('languages: ', options);
-
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
-  // console.log('options: ', options);
-  // console.log('Object: ', Object.values(options));
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
     handleValidation(value);
     setErrorText('');
-    const filteredSuggestions = options.filter((option: string) =>
-      option.toLowerCase().includes(value.toLowerCase())
+    const filteredSuggestions = options.filter((option) =>
+      option.name.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filteredSuggestions);
     const inputElement = event.target;
@@ -63,10 +42,10 @@ export default function InputWthithSelect({
     }
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setInputValue(suggestion);
+  const handleSuggestionClick = (suggestion: LanguageOption) => {
+    setInputValue(suggestion.name);
     setSuggestions([]);
-    setSelectedValue(suggestion);
+    setSelectedValue(suggestion.level);
   };
 
   const schema = Yup.object().shape({
@@ -88,23 +67,23 @@ export default function InputWthithSelect({
     }
   };
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (
-  //       !(event.target as Element).closest(
-  //         '.input-whith-select__container-item'
-  //       ) &&
-  //       !(event.target as Element).closest('.input-whith-select')
-  //     ) {
-  //       setInputValue('');
-  //       setSuggestions([]);
-  //     }
-  //   };
-  //   document.addEventListener('click', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, []);
+  //   // useEffect(() => {
+  //   //   const handleClickOutside = (event: MouseEvent) => {
+  //   //     if (
+  //   //       !(event.target as Element).closest(
+  //   //         '.input-whith-select__container-item'
+  //   //       ) &&
+  //   //       !(event.target as Element).closest('.input-whith-select')
+  //   //     ) {
+  //   //       setInputValue('');
+  //   //       setSuggestions([]);
+  //   //     }
+  //   //   };
+  //   //   document.addEventListener('click', handleClickOutside);
+  //   //   return () => {
+  //   //     document.removeEventListener('click', handleClickOutside);
+  //   //   };
+  //   // }, []);
 
   return (
     <div className='input-whith-select__container'>
@@ -125,10 +104,10 @@ export default function InputWthithSelect({
               {suggestions.map((suggestion) => (
                 <button
                   className='input-whith-select__container-item'
-                  key={suggestion}
+                  key={suggestion.id}
                   onClick={() => handleSuggestionClick(suggestion)}
                 >
-                  {suggestion}
+                  {suggestion.name}
                 </button>
               ))}
             </div>

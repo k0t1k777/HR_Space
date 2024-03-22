@@ -1,10 +1,10 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
 import InputWthithSelect from '../../InputWthithSelect/InputWthithSelect';
-import { StepFourData } from '../../../utils/constants';
+import { StepFourData, LanguageOption } from '../../../utils/constants';
 
 interface StepFourProps {
-  languages: string[];
+  languages: LanguageOption[];
   isValid: boolean;
   inputValuesRequirements: string;
   setInputValuesRequirements: (value: string) => void;
