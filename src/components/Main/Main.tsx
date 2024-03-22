@@ -9,7 +9,7 @@ import StatusBar from '../StatusBar/StatusBar';
 import StepOne from './Steps/StepOne';
 import StepTwo from './Steps/StepTwo';
 import StepFive from './Steps/StepFive';
-import StepSix from './StepSix/StepSix';
+import StepSix from './Steps/StepSix';
 import {
   expiriense,
   education,
@@ -23,9 +23,9 @@ import {
   mission,
   bonus,
 } from '../../utils/constants';
-import StepSeven from './StepSeven/StepSeven';
-import StepEight from './StepEight/StepEight';
-import StepNine from './StepNine/StepNine';
+import StepSeven from './Steps/StepSeven';
+import StepEight from './Steps/StepEight';
+import StepNine from './Steps/StepNine';
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -47,6 +47,11 @@ export default function Main() {
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
   // const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
+  const [valuePay, setValuePay] = useState('');
+  const [reward, setReward] = useState('');
+  const [valueCandidates, setValueCandidates] = useState(1)
+  const [valueDate, setValueDate] = useState('');
+  const [valueRecruters, setValueRecruters] = useState<string>('');
 
   const handleContinue = () => {
     if (currentStep === 1) {
@@ -69,14 +74,15 @@ export default function Main() {
         setIsValid(false);
         console.error('Поле обязательно для заполнения');
       }
-    } else if (currentStep === 3) {
-      if (added.length !== 0) {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-        console.error('Поле обязательно для заполнения');
-      }
+      } else if (currentStep === 3) {
+        if (added.length !== 0) {
+          setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+          setIsValid(true);
+        } else {
+          setIsValid(false);
+          console.error('Поле обязательно для заполнения');
+        }
+
     } else if (currentStep === 4) {
       if (inputValuesLanguage.trim() !== '') {
         setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
@@ -85,6 +91,15 @@ export default function Main() {
         setIsValid(false);
         console.error('Поле обязательно для заполнения');
       }
+    } else if (currentStep === 9) {
+        if (inputValuesLanguage.trim() !== '') {
+          setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+          setIsValid(true);
+        } else {
+          setIsValid(false);
+          console.error('Поле обязательно для заполнения');
+        }  
+
     } else {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       setIsValid(true);
@@ -169,17 +184,28 @@ export default function Main() {
               valuesBonus={valuesBonus}
               setValuesBonus={setValuesBonus}
               valueInputBonus={valueInputBonus}
-              setInputValuesBonus={setInputValuesBonus}
+              setInputValuesBonus={setInputValuesBonus} />
+          )}
+          {currentStep === 7 && <StepSeven />}
+          {currentStep === 8 && (
+            <StepEight
+              valueDate={valueDate}
+              setValueDate={setValueDate}
+              valueRecruters={valueRecruters}
+              setValueRecruters={setValueRecruters}
+              valueCandidats={valueCandidates}
+              setValueCandidats={setValueCandidates} 
             />
           )}
-          {currentStep === 7 && (
-            <StepSeven
-              // valuesExpectations={valuesExpectations}
-              // setValuesExpectations={setValuesExpectations}
+          {currentStep === 9 && (
+            <StepNine 
+              valuePay={valuePay} 
+              setValuePay={setValuePay}
+              reward={reward}
+              setReward={setReward}
+              isValid={isValid}
             />
           )}
-          {currentStep === 8 && <StepEight />}
-          {currentStep === 9 && <StepNine />}
         </div>
         <div className='main__button'>
           <ButtonPrevious

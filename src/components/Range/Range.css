@@ -10,12 +10,10 @@
   margin-top: 48px;
   height: 4px;
   padding: 0 4px;
+  background: rgba(238, 238, 238, 1);
   appearance: none;
   border: none;
   border-radius: 10px;
-  background-color: rgba(238, 238, 238, 1);
-  /* accent-color: linear-gradient(90deg, rgba(238, 238, 238, 1) 60%, rgba(238, 238, 238, 1) 60%); */
-  
 }
 
 .range__input::-webkit-slider-thumb {
@@ -24,6 +22,10 @@
   appearance: none;
   background-color: #1785E5;
   border-radius: 10px;
+}
+
+.range__input:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgba(191, 226, 255, 0.6);
 }
 
 .range__output {

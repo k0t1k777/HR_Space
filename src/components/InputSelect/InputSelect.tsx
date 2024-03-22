@@ -1,8 +1,12 @@
 import './InputSelect.css';
 
+interface Item  {
+  caption: string;
+  text: string;
+}
+
 interface InputSelectProps {
-  setClick?: (value: boolean) => void;
-  multi: string[] | undefined;
+  multi: string[] | { text: string; caption: string; }[] | undefined;
   width?: string;
   height?: string;
   stylize?: string;
@@ -10,13 +14,7 @@ interface InputSelectProps {
   setSelectedItem: (value: string) => void;
 }
 
-interface Item {
-  caption: string;
-  text: string;
-}
-
 export default function InputSelect({
-  setClick,
   multi,
   width,
   height,
@@ -30,9 +28,6 @@ export default function InputSelect({
       setSelectedItem('');
     } else {
       setSelectedItem(item);
-      if (setClick) {
-        setClick(true);
-      }
     }
   };
 
@@ -54,14 +49,13 @@ export default function InputSelect({
             >
               {typeof item === 'object' ? (
                 <p className='input-select__caption'>
-                  <span className='input-select__caption-text'>
+                  <span className='input-select__caption_text_bold'>
                     {(item as Item).caption}
                   </span>
                   {(item as Item).text}
                 </p>
-              ) : (
-                item
-              )}
+              )  : (item)
+              }
             </button>
           ))}
       </div>

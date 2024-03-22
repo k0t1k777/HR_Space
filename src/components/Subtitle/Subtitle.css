@@ -1,3 +1,10 @@
+.subtitle__container {
+  display: flex;
+  gap: 4px;
+  justify-content: start;
+  align-items: end;
+}
+
 .subtitle {
   margin: 0;
   padding: 24px 0 0 0;
@@ -6,6 +13,27 @@
   line-height: 20px;
 }
 
+.subtitle__clue {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url(../../assets/clue.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.subtitle__clue:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.subtitle__clue_display_none {
+  display: none;
+}
 .subtitle__text {
   margin: 0;
   padding: 4px 0 0;
