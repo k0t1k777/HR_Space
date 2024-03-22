@@ -10,6 +10,10 @@ interface StepFourProps {
   setInputValuesRequirements: (value: string) => void;
   inputValuesLanguage: string;
   setInputValuesLanguage: (value: string) => void;
+  selectedValue: string;
+  setSelectedValue: (value: string) => void;
+  suggestions: LanguageOption[];
+  setSuggestions: (value: LanguageOption[]) => void;
 }
 
 export default function StepFour({
@@ -19,6 +23,10 @@ export default function StepFour({
   setInputValuesRequirements,
   inputValuesLanguage,
   setInputValuesLanguage,
+  selectedValue,
+  setSelectedValue,
+  suggestions,
+  setSuggestions,
 }: StepFourProps) {
   return (
     <div>
@@ -28,6 +36,10 @@ export default function StepFour({
         options={languages}
         inputValue={inputValuesLanguage}
         setInputValue={setInputValuesLanguage}
+        selectedValue={selectedValue}
+        setSelectedValue={setSelectedValue}
+        suggestions={suggestions}
+        setSuggestions={setSuggestions}
         isValid={isValid}
       />
       <SubTitle subtitle={StepFourData.subTitleExtra} />

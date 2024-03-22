@@ -10,6 +10,10 @@ interface InputWthithSelectProps {
   options: LanguageOption[];
   inputValue: string;
   setInputValue: (value: string) => void;
+  selectedValue: string;
+  setSelectedValue: (value: string) => void;
+  suggestions: LanguageOption[];
+  setSuggestions: (value: LanguageOption[]) => void;
   isValid: boolean;
 }
 
@@ -19,10 +23,12 @@ export default function InputWthithSelect({
   disableSuggestions,
   inputValue,
   setInputValue,
+  selectedValue,
+  setSelectedValue,
+  suggestions,
+  setSuggestions,
   isValid,
 }: InputWthithSelectProps) {
-  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
-  const [selectedValue, setSelectedValue] = useState<string>('');
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,12 +40,6 @@ export default function InputWthithSelect({
       option.name.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filteredSuggestions);
-    const inputElement = event.target;
-    if (value.trim() !== '') {
-      inputElement.classList.remove('input-whith-select__invalid');
-    } else {
-      inputElement.classList.add('input-whith-select__invalid');
-    }
   };
 
   const handleSuggestionClick = (suggestion: LanguageOption) => {
@@ -66,24 +66,6 @@ export default function InputWthithSelect({
         });
     }
   };
-
-  //   // useEffect(() => {
-  //   //   const handleClickOutside = (event: MouseEvent) => {
-  //   //     if (
-  //   //       !(event.target as Element).closest(
-  //   //         '.input-whith-select__container-item'
-  //   //       ) &&
-  //   //       !(event.target as Element).closest('.input-whith-select')
-  //   //     ) {
-  //   //       setInputValue('');
-  //   //       setSuggestions([]);
-  //   //     }
-  //   //   };
-  //   //   document.addEventListener('click', handleClickOutside);
-  //   //   return () => {
-  //   //     document.removeEventListener('click', handleClickOutside);
-  //   //   };
-  //   // }, []);
 
   return (
     <div className='input-whith-select__container'>
@@ -118,7 +100,12 @@ export default function InputWthithSelect({
       {selectedValue && (
         <div className='selected-value'>
           <select className='input-whith-select__select'>
-            <option value={selectedValue}>{selectedValue}</option>
+            <option
+              className='input-whith-select__option'
+              value={selectedValue}
+            >
+              {selectedValue}
+            </option>
           </select>
         </div>
       )}

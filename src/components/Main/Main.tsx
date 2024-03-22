@@ -22,6 +22,7 @@ import {
   timetable,
   mission,
   bonus,
+  LanguageOption,
 } from '../../utils/constants';
 import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
@@ -35,6 +36,8 @@ export default function Main() {
   const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
+  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
+  const [selectedValue, setSelectedValue] = useState<string>('');
   const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
@@ -56,38 +59,38 @@ export default function Main() {
 
 
   const handleContinue = (isValid: boolean) => {
-    // if (currentStep === 1) {
-    //   if (
-    //     inputValueSpecialty.trim() === '' ||
-    //     inputValueSalaryMin.trim() === '' ||
-    //     inputValueSalaryMax.trim() === ''
-    //   ) {
-    //     isValid = false;
-    //     console.error('Поля обязательны для заполнения');
-    //   }
-    // } else if (currentStep === 2) {
-    //   if (inputValuesDuties.trim() === '') {
-    //     console.log('inputValuesDuties: ', inputValuesDuties);
-    //     isValid = false;
-    //     console.error('Поле обязательно для заполнения');
-    //   }
-    // } else if (currentStep === 3) {
-    //   if (added.length === 0 && inputValueSkill.trim() === '') {
-    //     isValid = false;
-    //     console.error('Поле обязательно для заполнения');
-    //   }
-    // } else if (currentStep === 4) {
-    //   if (inputValuesLanguage.trim() === '') {
-    //     isValid = false;
-    //     console.error('Поле обязательно для заполнения');
-    //   }
-    // }
-    // else if (currentStep === 9) {
-    //   if (inputValuesLanguage.trim() !== '') {
-    //     setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-    //     isValid = false;
-    //   } 
-    // }
+    if (currentStep === 1) {
+      if (
+        inputValueSpecialty.trim() === '' ||
+        inputValueSalaryMin.trim() === '' ||
+        inputValueSalaryMax.trim() === ''
+      ) {
+        isValid = false;
+        console.error('Поля обязательны для заполнения');
+      }
+    } else if (currentStep === 2) {
+      if (inputValuesDuties.trim() === '') {
+        console.log('inputValuesDuties: ', inputValuesDuties);
+        isValid = false;
+        console.error('Поле обязательно для заполнения');
+      }
+    } else if (currentStep === 3) {
+      if (added.length === 0 && inputValueSkill.trim() === '') {
+        isValid = false;
+        console.error('Поле обязательно для заполнения');
+      }
+    } else if (currentStep === 4) {
+      if (inputValuesLanguage.trim() === '') {
+        isValid = false;
+        console.error('Поле обязательно для заполнения');
+      }
+    }
+    else if (currentStep === 9) {
+      if (inputValuesLanguage.trim() !== '') {
+        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+        isValid = false;
+      } 
+    }
     setIsValid(isValid);
     if (isValid) {
       setIsValid(true);
@@ -174,6 +177,10 @@ export default function Main() {
               setInputValuesLanguage={setInputValuesLanguage}
               inputValuesRequirements={inputValuesRequirements}
               setInputValuesRequirements={setInputValuesRequirements}
+              selectedValue={selectedValue}
+              setSelectedValue={setSelectedValue}
+              suggestions={suggestions}
+              setSuggestions={setSuggestions}
             />
           )}
           {currentStep === 5 && (

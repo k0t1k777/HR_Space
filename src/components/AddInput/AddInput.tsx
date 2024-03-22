@@ -34,7 +34,7 @@ export default function AddInput({
       !event.relatedTarget ||
       !(event.relatedTarget as HTMLElement).classList.contains('add-input__container-item')
     ) {
-      if (inputValue.trim() !== '') {
+      if (inputValue.trim() !== '' && !added.includes(inputValue)) {
         setAdded([...added, inputValue]);
         setInputValue('');
       }
@@ -60,10 +60,11 @@ export default function AddInput({
   };
 
   const handleSuggestionClick = (suggestion: string) => {
-    setInputValue(suggestion);
+    if (!added.includes(suggestion)) {
+      setAdded([...added, suggestion]);
+      setInputValue('');
+    }
     setSuggestions([]);
-    setAdded([...added, suggestion]);
-    setInputValue('');
   };
 
   const handleAddDelete = (itemToDelete: string) => {
