@@ -45,7 +45,7 @@ export default function Main() {
   const [valuesMission, setValuesMission] = useState<string>('');
   const [valuesBonus, setValuesBonus] = useState<string>('');
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
-  // const [valuesTimetable, setValuesTimetable] = useState<string[]>([]);
+  // const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
   const [valuePay, setValuePay] = useState('');
   const [reward, setReward] = useState('');
