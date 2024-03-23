@@ -8,6 +8,9 @@ export interface LanguageOption {
   level: string;
 }
 
+
+export const nameError = 'Поле обязательно для заполнения'
+
 export const linksHeader = [
   'Главная',
   'Мои заявки',

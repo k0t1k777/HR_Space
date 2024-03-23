@@ -1,12 +1,12 @@
 import './InputSelect.css';
 
-interface Item  {
+interface Item {
   caption: string;
   text: string;
 }
 
 interface InputSelectProps {
-  multi: string[] | { text: string; caption: string; }[] | undefined;
+  multi: (string | Item)[];
   width?: string;
   height?: string;
   stylize?: string;
@@ -22,12 +22,19 @@ export default function InputSelect({
   selectedItem,
   setSelectedItem,
 }: InputSelectProps) {
-  
-  const toggleItem = (item: string): void => {
-    if (selectedItem === item) {
-      setSelectedItem('');
+  const toggleItem = (item: string | Item): void => {
+    if (typeof item === 'string') {
+      if (selectedItem === item) {
+        setSelectedItem('');
+      } else {
+        setSelectedItem(item);
+      }
     } else {
-      setSelectedItem(item);
+      if (selectedItem === item.text) {
+        setSelectedItem('');
+      } else {
+        setSelectedItem(item.text);
+      }
     }
   };
 
@@ -35,9 +42,9 @@ export default function InputSelect({
     <div>
       <div className={`input-select__container ${stylize ? stylize : ''}`}>
         {multi &&
-          multi.map((item) => (
+          multi.map((item, index) => (
             <button
-              key={item}
+              key={index}
               className={`input-select__container-item ${
                 selectedItem === item ? 'input-select__selected' : ''
               }`}
@@ -54,8 +61,9 @@ export default function InputSelect({
                   </span>
                   {(item as Item).text}
                 </p>
-              )  : (item)
-              }
+              ) : (
+                item
+              )}
             </button>
           ))}
       </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './InputSalary.css';
 import * as Yup from 'yup';
+import { nameError } from '../../utils/constants'
 
 interface InputSalaryProps {
   width?: string;
@@ -21,35 +22,33 @@ export default function InputSalaryMax({
   setInputValueSalaryMax,
   isValid,
 }: InputSalaryProps) {
-  const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
+  const [errorText, setErrorText] = useState(nameError);
+  const [isInputValid, setIsInputValid] = useState(false);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValueSalaryMax(value);
     handleValidation(value);
     setErrorText('');
-    const inputElement = event.target;
-    if (value.trim() !== '') {
-      inputElement.classList.remove('input-salary__invalid');
-    } else {
-      inputElement.classList.add('input-salary__invalid');
-    }
   };
 
   const schema = Yup.object().shape({
-    inputValue: Yup.string().required('Поле обязательно для заполнения'),
+    inputValue: Yup.string().required(nameError),
   });
 
   const handleValidation = (value: string) => {
     if (!isValid) {
-      setErrorText('Поле обязательно для заполнения');
+      setErrorText(nameError);
     } else {
       schema
         .validate({ inputValue: value }, { abortEarly: false })
         .then(() => {
           setErrorText('');
+          setIsInputValid(true);
         })
         .catch((error) => {
           setErrorText(error.errors[0]);
+          setIsInputValid(false);
         });
     }
   };
@@ -62,12 +61,19 @@ export default function InputSalaryMax({
         }`}
       >
         <input
-          className={`input-salary ${isValid ? '' : 'input-salary__invalid'}`}
+          className={`input-salary ${isValid ? '' : 'input-salary__invalid'} ${
+            isInputValid ? 'input__valid' : ''
+          }`}
           type='number'
           value={inputValueSalaryMax}
           onChange={handleChange}
+          onWheel={(e) => e.preventDefault()}
           placeholder={placeholder ? placeholder : '40000'}
-          style={{ width: width ? width : '247px' }}
+          style={{
+            width: width ? width : '247px',
+            WebkitAppearance: 'none',
+            MozAppearance: 'textfield',
+          }}
         />
         {!isValid && <div className='input__error'>{errorText}</div>}
       </div>

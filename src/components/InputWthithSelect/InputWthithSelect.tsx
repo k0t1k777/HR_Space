@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './InputWthithSelect.css';
 import * as Yup from 'yup';
-import { LanguageOption } from '../../utils/constants';
+import { LanguageOption, nameError } from '../../utils/constants';
 
 interface InputWthithSelectProps {
   width?: string;
@@ -29,7 +29,7 @@ export default function InputWthithSelect({
   setSuggestions,
   isValid,
 }: InputWthithSelectProps) {
-  const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
+  const [errorText, setErrorText] = useState(nameError);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -49,12 +49,12 @@ export default function InputWthithSelect({
   };
 
   const schema = Yup.object().shape({
-    inputValue: Yup.string().required('Поле обязательно для заполнения'),
+    inputValue: Yup.string().required(nameError),
   });
 
   const handleValidation = (value: string) => {
     if (!isValid) {
-      setErrorText('Поле обязательно для заполнения');
+      setErrorText(nameError);
     } else {
       schema
         .validate({ inputValue: value }, { abortEarly: false })

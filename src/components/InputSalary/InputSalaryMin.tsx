@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './InputSalary.css';
 import * as Yup from 'yup';
+import { nameError } from '../../utils/constants'
 
 interface InputSalaryProps {
   width?: string;
@@ -12,52 +13,63 @@ interface InputSalaryProps {
   inputName: string;
 }
 
-export default function InputSalaryMin({ width, placeholder, inputValueSalaryMin,
-  setInputValueSalaryMin, isValid, name, inputName }: InputSalaryProps) {
-    const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
+export default function InputSalaryMin({
+  width,
+  placeholder,
+  inputValueSalaryMin,
+  setInputValueSalaryMin,
+  isValid,
+  name,
+  inputName,
+}: InputSalaryProps) {
+  const [errorText, setErrorText] = useState(nameError);
+  const [isInputValid, setIsInputValid] = useState(false);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      setInputValueSalaryMin(value);
-      handleValidation(value);
-      setErrorText('');
-      const inputElement = event.target;
-    if (value.trim() !== '') {
-      inputElement.classList.remove('input-salary__invalid');
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValueSalaryMin(value);
+    handleValidation(value);
+    setErrorText('');
+  };
+
+  const schema = Yup.object().shape({
+    inputValue: Yup.string().required(nameError),
+  });
+
+  const handleValidation = (value: string) => {
+    if (!isValid) {
+      setErrorText(nameError);
     } else {
-      inputElement.classList.add('input-salary__invalid');
+      schema
+        .validate({ inputValue: value }, { abortEarly: false })
+        .then(() => {
+          setErrorText('');
+          setIsInputValid(true);
+        })
+        .catch((error) => {
+          setErrorText(error.errors[0]);
+          setIsInputValid(false);
+        });
     }
-    };
+  };
 
-    const schema = Yup.object().shape({
-      inputValue: Yup.string().required('Поле обязательно для заполнения'),
-    });
-  
-    const handleValidation = (value: string) => {
-      if (!isValid) {
-        setErrorText('Поле обязательно для заполнения');
-      } else {
-        schema
-          .validate({ inputValue: value }, { abortEarly: false })
-          .then(() => {
-            setErrorText('');
-          })
-          .catch((error) => {
-            setErrorText(error.errors[0]);
-          });
-      }
-    };
-    
   return (
     <div className='input-salary__container'>
       <div className={`input-salary__wrapper ${name ? name : ''}`}>
         <input
-          className={`input-salary ${isValid ? '' : 'input-salary__invalid'} ${inputName ? inputName : ''}`}
+          className={`input-salary ${isValid ? '' : 'input-salary__invalid'} ${
+            inputName ? inputName : ''
+          }  ${isInputValid ? 'input__valid' : ''}`}
           type='number'
           value={inputValueSalaryMin}
           onChange={handleChange}
+          onWheel={(e) => e.preventDefault()}
           placeholder={placeholder ? placeholder : '30000'}
-          style={{width: width ? width : '247px'}}
+          style={{
+            width: width ? width : '247px',
+            WebkitAppearance: 'none',
+            MozAppearance: 'textfield',
+          }}
         />
         {!isValid && <div className='input__error'>{errorText}</div>}
       </div>
