@@ -30,7 +30,7 @@ export default function StepSix({
 }: StepSixProps) {
 
   const [showBlock, setShowBlock] = useState(false);
-  console.log(showBlock)
+  console.log(valueInputBonus)
 
   useEffect(() => {
     if (valuesBonus === 'Да') {
