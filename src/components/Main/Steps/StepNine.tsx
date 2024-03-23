@@ -2,13 +2,15 @@ import { dataStepNine } from "../../../utils/constants";
 import InputSalaryMin from "../../InputSalary/InputSalaryMin";
 import InputSelect from "../../InputSelect/InputSelect";
 import SubTitle from "../../Subtitle/Subtitle";
+import { ShowContent } from '../Main';
 
 interface StepNineProps {
   valuePay: string;
   setValuePay: (value: string) => void;
-  reward: string;
-  setReward: (value: string) => void;
+  reward: number;
+  setReward: (value: number) => void;
   isValid: boolean;
+  showContent: ShowContent;
 }
 
 export default function StepNine({
@@ -17,6 +19,7 @@ export default function StepNine({
   reward,
   setReward,
   isValid
+
 }: StepNineProps) {
   return (
     <div className='step-nine'>
@@ -35,6 +38,7 @@ export default function StepNine({
         isValid={isValid}
         name={'input-salary__wrapper_before_none'}
         inputName={'input-salary_padding_left'}
+        sdsdsdsd={showContent.timetable}
         />
     </div>
   );

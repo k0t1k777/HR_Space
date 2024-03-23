@@ -2,29 +2,28 @@ import SubTitle from '../../Subtitle/Subtitle';
 import MultiInputSelect from '../../MultiInputSelect/MultiInputSelect';
 import { StepFiveData } from '../../../utils/constants';
 import InputSelect from '../../InputSelect/InputSelect';
+import { ShowContent } from '../Main';
 
 interface StepFiveProps {
   decoration: string[];
-  occupation: string[];
-  timetable: string[];
   valuesDecoration: string;
   setValuesDecoration: (value: string) => void;
   valuesOccupation: string[];
   setValuesOccupation: (value: string[]) => void;
   valuesTimetable: string[];
   setValuesTimetable: (value: string[]) => void;
+  showContent: ShowContent;
 }
 
 export default function StepFive({
   decoration,
-  occupation,
-  timetable,
   valuesDecoration,
   setValuesDecoration,
   valuesOccupation,
   setValuesOccupation,
   valuesTimetable,
   setValuesTimetable,
+  showContent,
 }: StepFiveProps) {
   return (
     <div>
@@ -36,13 +35,13 @@ export default function StepFive({
       />
       <SubTitle subtitle={StepFiveData.subTitleOccupation} />
       <MultiInputSelect
-        multi={occupation}
+        multi={showContent.occupation}
         selectedItems={valuesOccupation}
         setSelectedItems={setValuesOccupation}
       />{' '}
       <SubTitle subtitle={StepFiveData.subTitlTimetable} />
       <MultiInputSelect
-        multi={timetable}
+        multi={showContent.timetable}
         selectedItems={valuesTimetable}
         setSelectedItems={setValuesTimetable}
       />

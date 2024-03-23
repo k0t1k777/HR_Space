@@ -1,6 +1,6 @@
 import './Main.css';
 import Sidebar from '../Sidbar/Sidbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StepThree from './Steps/StepThree';
 import StepFour from './Steps/StepFour';
 import ButtonNext from '../ButtonNext/ButtonNext';
@@ -14,26 +14,43 @@ import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
 import {
-  expiriense,
-  education,
-  options,
-  towns,
-  skills,
   languages,
   decoration,
-  occupation,
-  timetable,
   mission,
   bonus,
   LanguageOption,
 } from '../../utils/constants';
 
-export default function Main() {
+export interface MainContent {
+  content: ShowContent[];
+  specialization: string[];
+  towns: string[];
+  skills: string[];
+  experience: string[];
+  education: string[];
+  occupation: string[];
+  timetable: string[];
+  expectations: string[];
+}
+
+
+export interface ShowContent {
+  specialization: string[];
+  towns: string[];
+  skills: string[];
+  experience: string[];
+  education: string[];
+  occupation: string[];
+  timetable: string[];
+  expectations: string[];
+}
+
+export default function Main({ content }: { content: MainContent }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
-  const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
-  const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
+  const [inputValueSalaryMin, setInputValueSalaryMin] = useState<number>(0);
+  const [inputValueSalaryMax, setInputValueSalaryMax] = useState<number>(0);
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
   const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
@@ -57,33 +74,39 @@ export default function Main() {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
 
+  const [showContent, setShowContent] = useState(content);
+  console.log('showContent: ', showContent);
+
+  useEffect(() => {
+    setShowContent(content);
+  }, [content]);
+
   const handleContinue = (isValid: boolean) => {
-    if (currentStep === 1) {
-      if (
-        inputValueSpecialty.trim() === '' ||
-        inputValueSalaryMin.trim() === '' ||
-        inputValueSalaryMax.trim() === ''
-      ) {
-        isValid = false;
-      }
-    } else if (currentStep === 2) {
-      if (inputValuesDuties.trim() === '') {
-        isValid = false;
-      }
-    } else if (currentStep === 3) {
-      if (added.length === 0 && inputValueSkill.trim() === '') {
-        isValid = false;
-      }
-    } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() === '') {
-        isValid = false;
-      }
-    } else if (currentStep === 9) {
-      if (inputValuesLanguage.trim() !== '') {
-        isValid = false;
-      }
-      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-    }
+    // if (currentStep === 1) {
+    //   if (
+    //     inputValueSpecialty.trim() === '' ||
+    //     inputValueSalaryMin.trim() === '' ||
+    //     inputValueSalaryMax.trim() === ''
+    //   ) {
+    //     isValid = false;
+    //   }
+    // } else if (currentStep === 2) {
+    //   if (inputValuesDuties.trim() === '') {
+    //     isValid = false;
+    //   }
+    // } else if (currentStep === 3) {
+    //   if (added.length === 0 && inputValueSkill.trim() === '') {
+    //     isValid = false;
+    //   }
+    // } else if (currentStep === 4) {
+    //   if (inputValuesLanguage.trim() === '') {
+    //     isValid = false;
+    //   }
+    // } else if (currentStep === 9) {
+    //   if (inputValuesLanguage.trim() !== '') {
+    //     isValid = false;
+    //   }
+    // }
     setIsValid(isValid);
     if (isValid) {
       setIsValid(true);
@@ -126,8 +149,6 @@ export default function Main() {
           <StatusBar currentStep={currentStep} />
           {currentStep === 1 && (
             <StepOne
-              options={options}
-              towns={towns}
               inputValueSpecialty={inputValueSpecialty}
               inputValueCity={inputValueCity}
               setInputValueSpecialty={setInputValueSpecialty}
@@ -137,6 +158,7 @@ export default function Main() {
               inputValueSalaryMax={inputValueSalaryMax}
               setInputValueSalaryMax={setInputValueSalaryMax}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
           {currentStep === 2 && (
@@ -148,9 +170,6 @@ export default function Main() {
           )}
           {currentStep === 3 && (
             <StepThree
-              expiriense={expiriense}
-              education={education}
-              skills={skills}
               added={added}
               inputValueSkill={inputValueSkill}
               setInputValueSkill={setInputValueSkill}
@@ -160,6 +179,7 @@ export default function Main() {
               valuesSalary={valuesSalary}
               setValuesSalary={setValuesSalary}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
           {currentStep === 4 && (
@@ -179,14 +199,13 @@ export default function Main() {
           {currentStep === 5 && (
             <StepFive
               decoration={decoration}
-              occupation={occupation}
-              timetable={timetable}
               valuesDecoration={valuesDecoration}
               setValuesDecoration={setValuesDecoration}
               valuesOccupation={valuesOccupation}
               setValuesOccupation={setValuesOccupation}
               valuesTimetable={valuesTimetable}
               setValuesTimetable={setValuesTimetable}
+              showContent={showContent}
             />
           )}
           {currentStep === 6 && (
@@ -205,6 +224,7 @@ export default function Main() {
             <StepSeven
               valuesExpectations={valuesExpectations}
               setValuesExpectations={setValuesExpectations}
+              showContent={showContent}
             />
           )}
           {currentStep === 8 && (
@@ -225,6 +245,7 @@ export default function Main() {
               reward={reward}
               setReward={setReward}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
         </div>

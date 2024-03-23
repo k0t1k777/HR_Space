@@ -1,8 +1,10 @@
 .input-select__container {
   gap: 8px;
   display: flex;
-  flex-wrap: wrap;
-  margin: 12px 0 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 506px;  margin: 12px 0 0;
 }
 
 .input-select__container-item {
@@ -21,6 +23,7 @@
   background-color: white;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
+  flex-shrink: 0;
 }
 
 .input-select__selected {

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './InputSalary.css';
 import * as Yup from 'yup';
-import { nameError } from '../../utils/constants'
+import { nameError } from '../../utils/constants';
 
 interface InputSalaryProps {
   width?: string;
   placeholder?: string;
-  inputValueSalaryMin: string;
-  setInputValueSalaryMin: (value: string) => void;
+  inputValueSalaryMin: number;
+  setInputValueSalaryMin: (value: number) => void;
   isValid: boolean;
   name: string;
   inputName: string;
@@ -26,7 +26,7 @@ export default function InputSalaryMin({
   const [isInputValid, setIsInputValid] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+    const value = Number(event.target.value);
     setInputValueSalaryMin(value);
     handleValidation(value);
     setErrorText('');
@@ -36,12 +36,12 @@ export default function InputSalaryMin({
     inputValue: Yup.string().required(nameError),
   });
 
-  const handleValidation = (value: string) => {
+  const handleValidation = (value: number) => {
     if (!isValid) {
       setErrorText(nameError);
     } else {
       schema
-        .validate({ inputValue: value }, { abortEarly: false })
+        .validate({ inputValue: value.toString() }, { abortEarly: false })
         .then(() => {
           setErrorText('');
           setIsInputValid(true);
