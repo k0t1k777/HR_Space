@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
+import { nameError } from '../../utils/constants'
 
 interface InputProps {
   width?: string;
@@ -23,7 +24,8 @@ export default function Input({
   isValid,
 }: InputProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
+  const [errorText, setErrorText] = useState(nameError);
+  const [isInputValid, setIsInputValid] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -37,8 +39,12 @@ export default function Input({
     const inputElement = event.target;
     if (value.trim() !== '') {
       inputElement.classList.remove('input__invalid');
+      inputElement.classList.add('input__valid');
+
     } else {
       inputElement.classList.add('input__invalid');
+      inputElement.classList.remove('input__valid');
+
     }
   };
 
@@ -49,48 +55,32 @@ export default function Input({
   };
 
   const schema = Yup.object().shape({
-    inputValue: Yup.string().required('Поле обязательно для заполнения'),
+    inputValue: Yup.string().required(nameError),
   });
 
   const handleValidation = (value: string) => {
     if (!isValid) {
-      setErrorText('Поле обязательно для заполнения');
+      setErrorText(nameError);
     } else {
       schema
         .validate({ inputValue: value }, { abortEarly: false })
         .then(() => {
           setErrorText('');
+          setIsInputValid(true);
         })
         .catch((error) => {
           setErrorText(error.errors[0]);
+          setIsInputValid(false);
         });
     }
   };
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (
-  //       !(event.target as Element).closest(
-  //         '.input__container-item'
-  //       ) &&
-  //       !(event.target as Element).closest('.input')
-  //       &&
-  //       !(event.target as Element).closest('.button-next')
-  //     ) {
-  //       setInputValue('');
-  //       setSuggestions([]);
-  //     }
-  //   };
-  //   document.addEventListener('click', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, []);
-
   return (
     <>
       <input
-        className={`input ${isValid ? '' : 'input__invalid'}`}
+        className={`input ${isValid ? '' : 'input__invalid'} ${
+          isInputValid ? 'input__valid' : ''
+        }`}
         type='text'
         value={inputValue}
         onChange={handleChange}

@@ -10,6 +10,9 @@ import StepOne from './Steps/StepOne';
 import StepTwo from './Steps/StepTwo';
 import StepFive from './Steps/StepFive';
 import StepSix from './Steps/StepSix';
+import StepSeven from './Steps/StepSeven';
+import StepEight from './Steps/StepEight';
+import StepNine from './Steps/StepNine';
 import {
   expiriense,
   education,
@@ -24,9 +27,6 @@ import {
   bonus,
   LanguageOption,
 } from '../../utils/constants';
-import StepSeven from './Steps/StepSeven';
-import StepEight from './Steps/StepEight';
-import StepNine from './Steps/StepNine';
 
 export default function Main() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -57,7 +57,6 @@ export default function Main() {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
 
-
   const handleContinue = (isValid: boolean) => {
     if (currentStep === 1) {
       if (
@@ -66,30 +65,24 @@ export default function Main() {
         inputValueSalaryMax.trim() === ''
       ) {
         isValid = false;
-        console.error('Поля обязательны для заполнения');
       }
     } else if (currentStep === 2) {
       if (inputValuesDuties.trim() === '') {
-        console.log('inputValuesDuties: ', inputValuesDuties);
         isValid = false;
-        console.error('Поле обязательно для заполнения');
       }
     } else if (currentStep === 3) {
       if (added.length === 0 && inputValueSkill.trim() === '') {
         isValid = false;
-        console.error('Поле обязательно для заполнения');
       }
     } else if (currentStep === 4) {
       if (inputValuesLanguage.trim() === '') {
         isValid = false;
-        console.error('Поле обязательно для заполнения');
       }
-    }
-    else if (currentStep === 9) {
+    } else if (currentStep === 9) {
       if (inputValuesLanguage.trim() !== '') {
-        setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
         isValid = false;
-      } 
+      }
+      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
     }
     setIsValid(isValid);
     if (isValid) {
