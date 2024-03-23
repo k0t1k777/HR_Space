@@ -5,7 +5,7 @@ interface RangeProps {
   min?: string;
   max?: string;
   step?: string;
-  selectedItem?: number;
+  selectedItem?: number | undefined;
   setSelectedItem?: (value: number) => void;
 }
 
@@ -23,35 +23,35 @@ export default function Range({ min, max, step, selectedItem, setSelectedItem }:
   }, [selectedItem]);
   
   const outputMove = () => {
-    if(selectedItem == '1') {
+    if(selectedItem == 1) {
       setMoveOutput(-3);
     }
-    if(selectedItem == '2') {
-      setMoveOutput(Number(selectedItem) + 20)
+    if(selectedItem == 2) {
+      setMoveOutput(selectedItem + 20)
     }
-    if(selectedItem == '3') {
-      setMoveOutput(Number(selectedItem) * 16)
+    if(selectedItem == 3) {
+      setMoveOutput(selectedItem * 16)
     }
-    if(selectedItem == '4') {
-      setMoveOutput(Number(selectedItem) * 18)
+    if(selectedItem == 4) {
+      setMoveOutput(selectedItem * 18)
     }
-    if(selectedItem == '5') {
-      setMoveOutput(Number(selectedItem) * 19.7)
+    if(selectedItem == 5) {
+      setMoveOutput(selectedItem * 19.7)
     }
-    if(selectedItem == '6') {
-      setMoveOutput(Number(selectedItem) * 20.5)
+    if(selectedItem == 6) {
+      setMoveOutput(selectedItem * 20.5)
     }
-    if(selectedItem == '7') {
-      setMoveOutput(Number(selectedItem) * 21)
+    if(selectedItem == 7) {
+      setMoveOutput(selectedItem * 21)
     }
-    if(selectedItem == '8') {
-      setMoveOutput(Number(selectedItem) * 21.5)
+    if(selectedItem == 8) {
+      setMoveOutput(selectedItem * 21.5)
     }
-    if(selectedItem == '9') {
-      setMoveOutput(Number(selectedItem) * 22)
+    if(selectedItem == 9) {
+      setMoveOutput(selectedItem * 22)
     }
-    if(selectedItem == '10') {
-      setMoveOutput(Number(selectedItem) * 22.2)
+    if(selectedItem == 10) {
+      setMoveOutput(selectedItem * 22.2)
     }
   }
 
@@ -84,7 +84,7 @@ export default function Range({ min, max, step, selectedItem, setSelectedItem }:
       step={step ? step : '1'} 
       value={selectedItem}
       onChange={(e) => {
-        setSelectedItem(e.target.value)
+        setSelectedItem(Number(e.target.value))
       }}
       // onMouseMove={() => mouseMove()}
       style={{
