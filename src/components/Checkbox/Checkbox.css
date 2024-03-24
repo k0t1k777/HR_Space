@@ -43,4 +43,7 @@
   font-weight: 400;
   line-height: 19.6px;
   color: #303233;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,6 +1,6 @@
 import './Main.css';
 import Sidebar from '../Sidbar/Sidbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StepThree from './Steps/StepThree';
 import StepFour from './Steps/StepFour';
 import ButtonNext from '../ButtonNext/ButtonNext';
@@ -13,31 +13,39 @@ import StepSix from './Steps/StepSix';
 import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
+import { ShowContent } from '../../types/types';
 import {
-  expiriense,
-  education,
-  options,
-  towns,
-  skills,
-  languages,
-  decoration,
-  occupation,
-  timetable,
   mission,
   bonus,
-  LanguageOption,
 } from '../../utils/constants';
 
-export default function Main() {
+export interface MainContent {
+  content: ShowContent[];
+  specialization: string[];
+  towns: string[];
+  skills: string[];
+  experience: string[];
+  education: string[];
+  occupation: string[];
+  timetable: string[];
+  expectations: string[];
+  registration: string[];
+  languages: string[];
+  languages_levels: string[];
+  payments: string[];
+}
+
+export default function Main({ content }: { content: MainContent }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
-  const [inputValueSalaryMin, setInputValueSalaryMin] = useState('');
-  const [inputValueSalaryMax, setInputValueSalaryMax] = useState('');
+  const [inputValueSalaryMin, setInputValueSalaryMin] = useState<string>('');
+  const [inputValueSalaryMax, setInputValueSalaryMax] = useState<string>('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
-  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [selectedValue, setSelectedValue] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState<string>('');
   const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
@@ -51,17 +59,23 @@ export default function Main() {
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
   const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [valuePay, setValuePay] = useState('');
-  const [reward, setReward] = useState('');
+  const [reward, setReward] = useState<string>('');
   const [valueCandidates, setValueCandidates] = useState(1);
   const [valueDate, setValueDate] = useState('');
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
+  const [showContent, setShowContent] = useState(content);
+  // console.log('showContent: ', showContent);
+
+  useEffect(() => {
+    setShowContent(content);
+  }, [content]);
 
   const handleContinue = (isValid: boolean) => {
     if (currentStep === 1) {
       if (
         inputValueSpecialty.trim() === '' ||
-        inputValueSalaryMin.trim() === '' ||
+        inputValueSalaryMin .trim() === '' ||
         inputValueSalaryMax.trim() === ''
       ) {
         isValid = false;
@@ -82,7 +96,6 @@ export default function Main() {
       if (inputValuesLanguage.trim() !== '') {
         isValid = false;
       }
-      setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
     }
     setIsValid(isValid);
     if (isValid) {
@@ -126,8 +139,6 @@ export default function Main() {
           <StatusBar currentStep={currentStep} />
           {currentStep === 1 && (
             <StepOne
-              options={options}
-              towns={towns}
               inputValueSpecialty={inputValueSpecialty}
               inputValueCity={inputValueCity}
               setInputValueSpecialty={setInputValueSpecialty}
@@ -137,6 +148,7 @@ export default function Main() {
               inputValueSalaryMax={inputValueSalaryMax}
               setInputValueSalaryMax={setInputValueSalaryMax}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
           {currentStep === 2 && (
@@ -148,9 +160,6 @@ export default function Main() {
           )}
           {currentStep === 3 && (
             <StepThree
-              expiriense={expiriense}
-              education={education}
-              skills={skills}
               added={added}
               inputValueSkill={inputValueSkill}
               setInputValueSkill={setInputValueSkill}
@@ -160,11 +169,11 @@ export default function Main() {
               valuesSalary={valuesSalary}
               setValuesSalary={setValuesSalary}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
           {currentStep === 4 && (
             <StepFour
-              languages={languages}
               isValid={isValid}
               inputValuesLanguage={inputValuesLanguage}
               setInputValuesLanguage={setInputValuesLanguage}
@@ -174,19 +183,20 @@ export default function Main() {
               setSelectedValue={setSelectedValue}
               suggestions={suggestions}
               setSuggestions={setSuggestions}
+              selectedLevel={selectedLevel}
+              setSelectedLevel={setSelectedLevel}
+              showContent={showContent}
             />
           )}
           {currentStep === 5 && (
             <StepFive
-              decoration={decoration}
-              occupation={occupation}
-              timetable={timetable}
               valuesDecoration={valuesDecoration}
               setValuesDecoration={setValuesDecoration}
               valuesOccupation={valuesOccupation}
               setValuesOccupation={setValuesOccupation}
               valuesTimetable={valuesTimetable}
               setValuesTimetable={setValuesTimetable}
+              showContent={showContent}
             />
           )}
           {currentStep === 6 && (
@@ -205,6 +215,7 @@ export default function Main() {
             <StepSeven
               valuesExpectations={valuesExpectations}
               setValuesExpectations={setValuesExpectations}
+              showContent={showContent}
             />
           )}
           {currentStep === 8 && (
@@ -225,6 +236,7 @@ export default function Main() {
               reward={reward}
               setReward={setReward}
               isValid={isValid}
+              showContent={showContent}
             />
           )}
         </div>

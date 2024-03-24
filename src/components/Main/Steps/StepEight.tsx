@@ -1,4 +1,4 @@
-import { numbers } from '../../../utils/constants';
+import { numbers, StepEightData } from '../../../utils/constants';
 import DateInput from '../../DateInput/DateInput';
 import InputSelect from '../../InputSelect/InputSelect';
 import Range from '../../Range/Range';
@@ -23,11 +23,11 @@ export default function StepEight({
 }: StepEightProps) {
   return (
     <div className="step-eight">
-      <SubTitle subtitle='Количество кандидатов для поиска' />
+      <SubTitle subtitle={StepEightData.subTitleRange}/>
       <Range selectedItem={valueCandidats} setSelectedItem={setValueCandidats} />
-      <SubTitle subtitle='Дата выхода сотрудника' />
+      <SubTitle subtitle={StepEightData.subTitleDate} />
       <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
-      <SubTitle subtitle='Количество рекрутеров' />
+      <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
       <InputSelect 
         multi={numbers.map(num => num.toString())} 
         width='41px' 

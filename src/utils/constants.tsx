@@ -2,13 +2,6 @@ import ImgFill from '../assets/imgFill.svg';
 import ImgPay from '../assets/imgPay.svg';
 import ImgPublish from '../assets/imgPublish.svg';
 
-export interface LanguageOption {
-  id: number;
-  name: string;
-  level: string;
-}
-
-
 export const nameError = 'Поле обязательно для заполнения'
 
 export const linksHeader = [
@@ -41,84 +34,7 @@ export const names = [
   'Сотрудничество',
 ];
 
-export const options: string[] = [
-  'Инженер',
-  'Механник',
-  'Специальность',
-  'Профессия',
-];
-
-export const checkCaption = [
-  'Найдёт и предоставит релевантное резюме',
-  'Проведёт с кандидатом интервью',
-  'Организует собеседование с заказчиком',
-  'Запросит рекомендации с предыдущих мест работы',
-  'Отправит кандидату тестовое задание',
-  'Отправит кандидату анкету службы безопасности',
-  'Отправит финалисту приглашение на работу',
-];
-
-export const expiriense: string[] = [
-  '1–3 года',
-  '3–6 лет',
-  'более 6 лет',
-  'Нет опыта',
-  'Не важно',
-];
-
-export const education: string[] = [
-  'Без образования',
-  'Среднее',
-  'Среднее специальное',
-  'Высшее',
-];
-
-export const towns: string[] = ['Москва', 'Санкт-Петербург'];
-
-export const skills: string[] = [
-  'JTBD',
-  'Wireframe',
-  'CJM',
-  'Figma',
-  'Интервью',
-  'Исследования',
-];
-
-export const languages: LanguageOption[] = [
-  {
-    id: 1,
-    name: 'Русский',
-    level: 'A1',
-  },
-  {
-    id: 2,
-    name: 'Английский',
-    level: 'B1',
-  },
-  {
-    id: 3,
-    name: 'Немецкий',
-    level: 'B2',
-  },
-];
-
 export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
-
-export const occupation: string[] = [
-  'Полная занятость',
-  'Частичная занятость',
-  'Проектная работа',
-  'Стажировка',
-  'Волонтерство',
-];
-
-export const timetable: string[] = [
-  'Полный день',
-  'Удалённая работа',
-  'Гибкий график',
-  'Сменный график',
-  'Вахтовый метод',
-];
 
 export const mission: string[] = ['Да', 'Нет'];
 
@@ -182,17 +98,18 @@ export const StepSixData = {
   placeholderBonus: 'ДМС, транспорт, спортзал и тд.',
 };
 
-export const dataStepNine = [
-  {
-    text: 'после выхода сотрудника',
-    caption: '100%',
-  },
-  {
-    text: 'после выхода сотрудника после гарантийного срока',
-    caption: '50/50',
-  },
-  {
-    text: 'после гарантийного срока',
-    caption: '100%',
-  },
-];
+export const StepSevenData = {
+  subTitleExpectations: 'Вы ожидаете, что рекрутер',
+};
+
+export const StepEightData = {
+  subTitleRange: 'Количество кандидатов для поиска',
+  subTitleDate: 'Дата выхода сотрудника',
+  subTitleCountCandidates: 'Количество рекрутеров',
+
+};
+
+export const StepSixNine = {
+  subTitlePayments: 'Выплата',
+  subTitleAward: 'Вознаграждение за сотрудника',
+}

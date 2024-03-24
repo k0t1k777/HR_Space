@@ -1,14 +1,15 @@
 import './Checkbox.css';
-import { checkCaption } from '../../utils/constants';
 
 interface CheckboxProps {
   valuesExpectations: string[];
   setValuesExpectations: (value: string[]) => void;
+  checkCaption: string[];
 }
 
 export default function Checkbox({
   valuesExpectations,
   setValuesExpectations,
+  checkCaption,
 }: CheckboxProps) {
   const handleCheckboxChange = (index: number) => {
     let updatedValues = [...valuesExpectations];

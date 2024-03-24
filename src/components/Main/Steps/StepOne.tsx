@@ -3,10 +3,9 @@ import SubTitle from '../../Subtitle/Subtitle';
 import InputSalaryMin from '../../InputSalary/InputSalaryMin';
 import InputSalaryMax from '../../InputSalary/InputSalaryMax';
 import { stepOneData } from '../../../utils/constants';
+import { ShowContent } from '../../../types/types';
 
-interface StepOneProps {
-  options: string[];
-  towns: string[];
+export interface StepOneProps {
   inputValueCity: string;
   setInputValueCity: (value: string) => void;
   setInputValueSpecialty: (value: string) => void;
@@ -16,11 +15,10 @@ interface StepOneProps {
   inputValueSalaryMin: string;
   inputValueSalaryMax: string;
   isValid: boolean;
+  showContent: ShowContent;
 }
 
 export default function StepOne({
-  options,
-  towns,
   inputValueCity,
   setInputValueCity,
   inputValueSpecialty,
@@ -30,13 +28,14 @@ export default function StepOne({
   inputValueSalaryMax,
   setInputValueSalaryMax,
   isValid,
+  showContent,
 }: StepOneProps) {
   return (
     <div>
       <SubTitle subtitle={stepOneData.subTitleSpeciality} paddingTop='32px' />
       <Input
         placeholder={stepOneData.subTitleSpeciality}
-        options={options}
+        options={showContent.specialization}
         inputValue={inputValueSpecialty}
         setInputValue={setInputValueSpecialty}
         isValid={isValid}
@@ -44,7 +43,7 @@ export default function StepOne({
       <SubTitle subtitle={stepOneData.subTitleTown} />
       <Input
         placeholder={stepOneData.placeholderTown}
-        options={towns}
+        options={showContent.towns}
         inputValue={inputValueCity}
         setInputValue={setInputValueCity}
         isValid={true}
@@ -57,7 +56,10 @@ export default function StepOne({
         <InputSalaryMin
           inputValueSalaryMin={inputValueSalaryMin}
           setInputValueSalaryMin={setInputValueSalaryMin}
-          isValid={isValid} name={''} inputName={''}        />
+          isValid={isValid}
+          name={''}
+          inputName={''}
+        />
         <InputSalaryMax
           inputValueSalaryMax={inputValueSalaryMax}
           setInputValueSalaryMax={setInputValueSalaryMax}
