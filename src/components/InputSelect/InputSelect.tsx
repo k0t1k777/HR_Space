@@ -1,12 +1,7 @@
 import './InputSelect.css';
 
-interface Item {
-  caption: string;
-  text: string;
-}
-
 interface InputSelectProps {
-  multi: (string | Item)[];
+  multi: string[];
   width?: string;
   height?: string;
   stylize?: string;
@@ -22,20 +17,12 @@ export default function InputSelect({
   selectedItem,
   setSelectedItem,
 }: InputSelectProps) {
-  const toggleItem = (item: string | Item): void => {
-    if (typeof item === 'string') {
+  const toggleItem = (item: string ): void => {
       if (selectedItem === item) {
         setSelectedItem('');
       } else {
         setSelectedItem(item);
       }
-    } else {
-      if (selectedItem === item.text) {
-        setSelectedItem('');
-      } else {
-        setSelectedItem(item.text);
-      }
-    }
   };
 
   return (
@@ -54,12 +41,12 @@ export default function InputSelect({
                 height: height ? height : '',
               }}
             >
-              {typeof item === 'object' ? (
+              {height === '100px' ? (
                 <p className='input-select__caption'>
                   <span className='input-select__caption_text_bold'>
-                    {(item as Item).caption}
+                    {item.slice(0, item.lastIndexOf('%') + 1)}
                   </span>
-                  {(item as Item).text}
+                  {item.slice(item.lastIndexOf('%') + 1)}
                 </p>
               ) : (
                 item

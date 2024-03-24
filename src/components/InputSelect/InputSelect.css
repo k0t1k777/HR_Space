@@ -25,6 +25,7 @@
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
   flex-shrink: 0;
+  white-space: pre-wrap;
 }
 
 .input-select__selected {
@@ -34,14 +35,16 @@
 
 .input-select__type_wrap {
   flex-wrap: nowrap;
+  overflow: visible;
 }
 
 .input-select__caption {
-  min-width: 200px;
+  max-width: 214px;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .input-select__container-item:first-of-type > .input-select__caption,
