@@ -14,7 +14,10 @@ import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
 import { ShowContent } from '../../types/types';
-import { mission, bonus } from '../../utils/constants';
+import { mission, bonus, statusBarData } from '../../utils/constants';
+import * as Api from '../../utils/utils';
+import InfoTooltipDone from '../InfoTooltipDone/InfoTooltipDone';
+
 
 export interface MainContent {
   content: ShowContent[];
@@ -35,6 +38,7 @@ export interface MainContent {
 
 export default function Main({ content }: { content: MainContent }) {
   const [currentStep, setCurrentStep] = useState(1);
+  const [infoTooltipSaveIsOpen, setInfoTooltipSaveIsOpen] = useState(false);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
   const [inputValueSalaryMin, setInputValueSalaryMin] = useState<string>('');
@@ -63,11 +67,69 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
   const [showContent, setShowContent] = useState(content);
-  console.log('showContent: ', showContent);
+  // console.log('showContent: ', showContent);
 
   useEffect(() => {
     setShowContent(content);
   }, [content]);
+
+  // const [newContent, setNewContent] = useState<object>({});
+
+  // const addNewContent = () => {
+  //   Api.addNewContent(newContent);
+  //   console.log('newContent: ', newContent);
+  // };
+
+  // useEffect(() => {
+  //   setNewContent({
+  //     employer_id: employer_id,
+  //     mission: nameValue,
+  //     bonus: countryValue,
+  //     salary_min: cityValue,
+  //     salary_max: addressValue,
+  //     responsibilities: indexValue,
+  //     other_requirements: emailValue,
+  //     recruiter_count: phoneValue,
+  //     award: currentWorkValue,
+  //     name: educationValue,
+  //     specialization: blogLinkValue,
+  //     towns: footSizeValue,
+  //     experience: commentValue,
+  //     education: showCourse[0]?.id,
+  //     payments: sexShowValue,
+  //     skills: statusShowValue,
+  //     languages: showPromo,
+  //     language_level: clothingSize,
+  //     occupation: clothingSize,
+  //     registration: clothingSize,
+  //     timetable: clothingSize,
+  //     expectations: clothingSize,
+  //   });
+  // }, [
+  //   employer_id,
+  //     mission,
+  //     bonus,
+  //     salary_min,
+  //     salary_max,
+  //     responsibilities,
+  //     other_requirements,
+  //     candidates_count,
+  //     recruiter_count,
+  //     award,
+  //     name,
+  //     specialization,
+  //     towns,
+  //     experience,
+  //     education,
+  //     payments,
+  //     skills,
+  //     languages,
+  //     language_level,
+  //     registration,
+  //     occupation,
+  //     timetable,
+  //     expectations,
+  // ]);
 
   const handleContinue = (isValid: boolean) => {
     if (currentStep === 1) {
@@ -128,6 +190,10 @@ export default function Main({ content }: { content: MainContent }) {
         })
       );
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
+      setInfoTooltipSaveIsOpen(true);
+      setTimeout(() => {
+        setInfoTooltipSaveIsOpen(false);
+      }, 1000);
     }
   };
 
@@ -225,12 +291,12 @@ export default function Main({ content }: { content: MainContent }) {
           )}
           {currentStep === 8 && (
             <StepEight
-              valueDate={valueDate}
               setValueDate={setValueDate}
               valueRecruters={valueRecruters}
               setValueRecruters={setValueRecruters}
               valueCandidats={valueCandidates}
               setValueCandidats={setValueCandidates}
+              showContent={showContent}
             />
           )}
 
@@ -256,6 +322,10 @@ export default function Main({ content }: { content: MainContent }) {
           />
         </div>
       </div>
+      <InfoTooltipDone
+        isVisible={infoTooltipSaveIsOpen}
+        messageTitle={statusBarData.save}
+      />
     </main>
   );
 }

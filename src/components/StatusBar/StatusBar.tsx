@@ -2,16 +2,21 @@ import { useState } from 'react';
 import Title from '../Title/Title';
 import './StatusBar.css';
 import { names, statusBarData } from '../../utils/constants';
+import InfoTooltipDone from '../InfoTooltipDone/InfoTooltipDone';
 
 export default function StatusBar({ currentStep }: { currentStep: number }) {
   const [newTitle, setNewTitle] = useState(statusBarData.task);
+  const [infoTooltipSaveIsOpen, setInfoTooltipSaveIsOpen] = useState(false);
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
   };
 
   const handleSaveDraft = () => {
     localStorage.setItem('draftTitle', newTitle);
-    alert(statusBarData.save);
+    setInfoTooltipSaveIsOpen(true);
+    setTimeout(() => {
+      setInfoTooltipSaveIsOpen(false);
+    }, 1000);
   };
 
   return (
@@ -47,6 +52,10 @@ export default function StatusBar({ currentStep }: { currentStep: number }) {
           {statusBarData.button}
         </button>{' '}
       </div>
+      <InfoTooltipDone
+        isVisible={infoTooltipSaveIsOpen}
+        messageTitle={statusBarData.save}
+      />
     </div>
   );
 }
