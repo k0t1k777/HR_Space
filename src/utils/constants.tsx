@@ -114,4 +114,3 @@ export const StepSixNine = {
   subTitlePayments: 'Выплата',
   subTitleAward: 'Вознаграждение за сотрудника',
 };
-

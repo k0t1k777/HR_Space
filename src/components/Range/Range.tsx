@@ -27,7 +27,6 @@ export default function Range({
     }
   }, [selectedItem]);
 
-
   const outputMove = () => {
     if (selectedItem == 1) {
       setMoveOutput(-3);
@@ -98,7 +97,8 @@ export default function Range({
             setSelectedItem(Number(e.target.value));
         }}
         style={{
-          background: `linear-gradient(90deg, rgba(191, 226, 255, 1) ${bgColor}%, rgba(238, 238, 238, 1) ${bgColor}%)`,
+          background: `linear-gradient(90deg, rgba(191, 226, 255, 1)
+          ${bgColor}%, rgba(238, 238, 238, 1) ${bgColor}%)`,
         }}
       />
       <output
