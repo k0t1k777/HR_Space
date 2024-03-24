@@ -13,12 +13,10 @@ import StepSix from './Steps/StepSix';
 import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
+import { ShowContent } from '../../types/types';
 import {
-  languages,
-  decoration,
   mission,
   bonus,
-  LanguageOption,
 } from '../../utils/constants';
 
 export interface MainContent {
@@ -31,30 +29,23 @@ export interface MainContent {
   occupation: string[];
   timetable: string[];
   expectations: string[];
-}
-
-
-export interface ShowContent {
-  specialization: string[];
-  towns: string[];
-  skills: string[];
-  experience: string[];
-  education: string[];
-  occupation: string[];
-  timetable: string[];
-  expectations: string[];
+  registration: string[];
+  languages: string[];
+  languages_levels: string[];
+  payments: string[];
 }
 
 export default function Main({ content }: { content: MainContent }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
-  const [inputValueSalaryMin, setInputValueSalaryMin] = useState<number>(0);
-  const [inputValueSalaryMax, setInputValueSalaryMax] = useState<number>(0);
+  const [inputValueSalaryMin, setInputValueSalaryMin] = useState<string>('');
+  const [inputValueSalaryMax, setInputValueSalaryMax] = useState<string>('');
   const [inputValuesDuties, setInputValuesDuties] = useState('');
   const [inputValuesLanguage, setInputValuesLanguage] = useState('');
-  const [suggestions, setSuggestions] = useState<LanguageOption[]>([]);
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [selectedValue, setSelectedValue] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState<string>('');
   const [inputValueSkill, setInputValueSkill] = useState('');
   const [added, setAdded] = useState<string[]>([]);
   const [inputValuesRequirements, setInputValuesRequirements] = useState('');
@@ -68,45 +59,44 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueInputBonus, setInputValuesBonus] = useState<string>('');
   const [valuesExpectations, setValuesExpectations] = useState<string[]>([]);
   const [valuePay, setValuePay] = useState('');
-  const [reward, setReward] = useState('');
+  const [reward, setReward] = useState<string>('');
   const [valueCandidates, setValueCandidates] = useState(1);
   const [valueDate, setValueDate] = useState('');
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
-
   const [showContent, setShowContent] = useState(content);
-  console.log('showContent: ', showContent);
+  // console.log('showContent: ', showContent);
 
   useEffect(() => {
     setShowContent(content);
   }, [content]);
 
   const handleContinue = (isValid: boolean) => {
-    // if (currentStep === 1) {
-    //   if (
-    //     inputValueSpecialty.trim() === '' ||
-    //     inputValueSalaryMin.trim() === '' ||
-    //     inputValueSalaryMax.trim() === ''
-    //   ) {
-    //     isValid = false;
-    //   }
-    // } else if (currentStep === 2) {
-    //   if (inputValuesDuties.trim() === '') {
-    //     isValid = false;
-    //   }
-    // } else if (currentStep === 3) {
-    //   if (added.length === 0 && inputValueSkill.trim() === '') {
-    //     isValid = false;
-    //   }
-    // } else if (currentStep === 4) {
-    //   if (inputValuesLanguage.trim() === '') {
-    //     isValid = false;
-    //   }
-    // } else if (currentStep === 9) {
-    //   if (inputValuesLanguage.trim() !== '') {
-    //     isValid = false;
-    //   }
-    // }
+    if (currentStep === 1) {
+      if (
+        inputValueSpecialty.trim() === '' ||
+        inputValueSalaryMin .trim() === '' ||
+        inputValueSalaryMax.trim() === ''
+      ) {
+        isValid = false;
+      }
+    } else if (currentStep === 2) {
+      if (inputValuesDuties.trim() === '') {
+        isValid = false;
+      }
+    } else if (currentStep === 3) {
+      if (added.length === 0 && inputValueSkill.trim() === '') {
+        isValid = false;
+      }
+    } else if (currentStep === 4) {
+      if (inputValuesLanguage.trim() === '') {
+        isValid = false;
+      }
+    } else if (currentStep === 9) {
+      if (inputValuesLanguage.trim() !== '') {
+        isValid = false;
+      }
+    }
     setIsValid(isValid);
     if (isValid) {
       setIsValid(true);
@@ -184,7 +174,6 @@ export default function Main({ content }: { content: MainContent }) {
           )}
           {currentStep === 4 && (
             <StepFour
-              languages={languages}
               isValid={isValid}
               inputValuesLanguage={inputValuesLanguage}
               setInputValuesLanguage={setInputValuesLanguage}
@@ -194,11 +183,13 @@ export default function Main({ content }: { content: MainContent }) {
               setSelectedValue={setSelectedValue}
               suggestions={suggestions}
               setSuggestions={setSuggestions}
+              selectedLevel={selectedLevel}
+              setSelectedLevel={setSelectedLevel}
+              showContent={showContent}
             />
           )}
           {currentStep === 5 && (
             <StepFive
-              decoration={decoration}
               valuesDecoration={valuesDecoration}
               setValuesDecoration={setValuesDecoration}
               valuesOccupation={valuesOccupation}

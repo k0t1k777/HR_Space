@@ -9,8 +9,8 @@ interface InputSalaryProps {
   step?: string;
   wrap?: string;
   pad?: string;
-  inputValueSalaryMax: number;
-  setInputValueSalaryMax: (value: number) => void;
+  inputValueSalaryMax: string;
+  setInputValueSalaryMax: (value: string) => void;
   isValid: boolean;
 }
 
@@ -26,7 +26,7 @@ export default function InputSalaryMax({
   const [isInputValid, setIsInputValid] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(event.target.value);
+    const value = event.target.value;
     setInputValueSalaryMax(value);
     handleValidation(value);
     setErrorText('');
@@ -36,7 +36,7 @@ export default function InputSalaryMax({
     inputValue: Yup.string().required(nameError),
   });
 
-  const handleValidation = (value: number) => {
+  const handleValidation = (value: string) => {
     if (!isValid) {
       setErrorText(nameError);
     } else {

@@ -6,8 +6,8 @@ import { nameError } from '../../utils/constants';
 interface InputSalaryProps {
   width?: string;
   placeholder?: string;
-  inputValueSalaryMin: number;
-  setInputValueSalaryMin: (value: number) => void;
+  inputValueSalaryMin: string;
+  setInputValueSalaryMin: (value: string) => void;
   isValid: boolean;
   name: string;
   inputName: string;
@@ -26,7 +26,7 @@ export default function InputSalaryMin({
   const [isInputValid, setIsInputValid] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(event.target.value);
+    const value = event.target.value;
     setInputValueSalaryMin(value);
     handleValidation(value);
     setErrorText('');
@@ -36,7 +36,7 @@ export default function InputSalaryMin({
     inputValue: Yup.string().required(nameError),
   });
 
-  const handleValidation = (value: number) => {
+  const handleValidation = (value: string) => {
     if (!isValid) {
       setErrorText(nameError);
     } else {

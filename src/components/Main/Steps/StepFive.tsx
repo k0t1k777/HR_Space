@@ -2,10 +2,9 @@ import SubTitle from '../../Subtitle/Subtitle';
 import MultiInputSelect from '../../MultiInputSelect/MultiInputSelect';
 import { StepFiveData } from '../../../utils/constants';
 import InputSelect from '../../InputSelect/InputSelect';
-import { ShowContent } from '../Main';
+import { ShowContent } from '../../../types/types';
 
 interface StepFiveProps {
-  decoration: string[];
   valuesDecoration: string;
   setValuesDecoration: (value: string) => void;
   valuesOccupation: string[];
@@ -16,7 +15,6 @@ interface StepFiveProps {
 }
 
 export default function StepFive({
-  decoration,
   valuesDecoration,
   setValuesDecoration,
   valuesOccupation,
@@ -29,7 +27,7 @@ export default function StepFive({
     <div>
       <SubTitle subtitle={StepFiveData.subTitleDecoration} />
       <InputSelect
-        multi={decoration}
+        multi={showContent.registration}
         selectedItem={valuesDecoration}
         setSelectedItem={setValuesDecoration}
       />

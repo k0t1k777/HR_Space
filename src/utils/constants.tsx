@@ -2,12 +2,6 @@ import ImgFill from '../assets/imgFill.svg';
 import ImgPay from '../assets/imgPay.svg';
 import ImgPublish from '../assets/imgPublish.svg';
 
-export interface LanguageOption {
-  id: number;
-  name: string;
-  level: string;
-}
-
 export const nameError = 'Поле обязательно для заполнения'
 
 export const linksHeader = [
@@ -38,24 +32,6 @@ export const names = [
   'Требования',
   'Условия',
   'Сотрудничество',
-];
-
-export const languages: LanguageOption[] = [
-  {
-    id: 1,
-    name: 'Китайский',
-    level: 'A1',
-  },
-  {
-    id: 2,
-    name: 'Английский',
-    level: 'B1',
-  },
-  {
-    id: 3,
-    name: 'Немецкий',
-    level: 'B2',
-  },
 ];
 
 export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
@@ -122,17 +98,18 @@ export const StepSixData = {
   placeholderBonus: 'ДМС, транспорт, спортзал и тд.',
 };
 
-export const dataStepNine = [
-  {
-    text: 'после выхода сотрудника',
-    caption: '100%',
-  },
-  {
-    text: 'после выхода сотрудника после гарантийного срока',
-    caption: '50/50',
-  },
-  {
-    text: 'после гарантийного срока',
-    caption: '100%',
-  },
-];
+export const StepSevenData = {
+  subTitleExpectations: 'Вы ожидаете, что рекрутер',
+};
+
+export const StepEightData = {
+  subTitleRange: 'Количество кандидатов для поиска',
+  subTitleDate: 'Дата выхода сотрудника',
+  subTitleCountCandidates: 'Количество рекрутеров',
+
+};
+
+export const StepSixNine = {
+  subTitlePayments: 'Выплата',
+  subTitleAward: 'Вознаграждение за сотрудника',
+}

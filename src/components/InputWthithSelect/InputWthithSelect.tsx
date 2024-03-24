@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import './InputWthithSelect.css';
 import * as Yup from 'yup';
-import { LanguageOption, nameError } from '../../utils/constants';
+import { nameError } from '../../utils/constants';
 
 interface InputWthithSelectProps {
   width?: string;
   placeholder?: string;
   disableSuggestions?: boolean;
-  options: LanguageOption[];
+  options: string[];
   inputValue: string;
   setInputValue: (value: string) => void;
-  selectedValue: string;
-  setSelectedValue: (value: string) => void;
-  suggestions: LanguageOption[];
-  setSuggestions: (value: LanguageOption[]) => void;
+  selectedValue: boolean;
+  setSelectedValue: (value: boolean) => void;
+  suggestions: string[];
+  levels: string[];
+  setSuggestions: (value: string[]) => void;
   isValid: boolean;
+  selectedLevel: string;
+  setSelectedLevel: (value: string) => void;
 }
 
 export default function InputWthithSelect({
@@ -23,29 +26,32 @@ export default function InputWthithSelect({
   disableSuggestions,
   inputValue,
   setInputValue,
-  selectedValue,
   setSelectedValue,
   suggestions,
   setSuggestions,
+  levels,
   isValid,
+  selectedValue,
+  selectedLevel,
+  setSelectedLevel,
 }: InputWthithSelectProps) {
   const [errorText, setErrorText] = useState(nameError);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
     handleValidation(value);
     setErrorText('');
     const filteredSuggestions = options.filter((option) =>
-      option.name.toLowerCase().includes(value.toLowerCase())
+      option.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filteredSuggestions);
   };
 
-  const handleSuggestionClick = (suggestion: LanguageOption) => {
-    setInputValue(suggestion.name);
+  const handleSuggestionClick = (option: string) => {
+    setInputValue(option);
     setSuggestions([]);
-    setSelectedValue(suggestion.level);
+    setSelectedLevel(option);
+    setSelectedValue(true);
   };
 
   const schema = Yup.object().shape({
@@ -67,6 +73,11 @@ export default function InputWthithSelect({
     }
   };
 
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLevel = event.target.value;
+    setSelectedLevel(selectedLevel);
+  };
+
   return (
     <div className='input-whith-select__container'>
       <div className='input-whith-select__container-line'>
@@ -83,13 +94,13 @@ export default function InputWthithSelect({
           {!isValid && <div className='input__error'>{errorText}</div>}
           {!disableSuggestions && suggestions.length > 0 && (
             <div className='input-whith-select__container-suggestion'>
-              {suggestions.map((suggestion) => (
+              {suggestions.map((suggestion, index) => (
                 <button
                   className='input-whith-select__container-item'
-                  key={suggestion.id}
+                  key={index}
                   onClick={() => handleSuggestionClick(suggestion)}
                 >
-                  {suggestion.name}
+                  {suggestion}
                 </button>
               ))}
             </div>
@@ -99,13 +110,20 @@ export default function InputWthithSelect({
 
       {selectedValue && (
         <div className='selected-value'>
-          <select className='input-whith-select__select'>
-            <option
-              className='input-whith-select__option'
-              value={selectedValue}
-            >
-              {selectedValue}
-            </option>
+          <select
+            className='input-whith-select__select'
+            value={selectedLevel}
+            onChange={handleSelectChange}
+          >
+            {levels.map((level, index) => (
+              <option
+                className='input-whith-select__option'
+                value={level}
+                key={index}
+              >
+                {level}
+              </option>
+            ))}
           </select>
         </div>
       )}

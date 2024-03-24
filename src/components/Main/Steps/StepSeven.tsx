@@ -1,6 +1,7 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import Checkbox from '../../Checkbox/Checkbox';
-import { ShowContent } from '../Main';
+import { StepSevenData } from '../../../utils/constants';
+import { ShowContent } from '../../../types/types';
 
 interface StepSevenProps {
   valuesExpectations: string[];
@@ -15,7 +16,7 @@ export default function StepSeven({
 }: StepSevenProps) {
   return (
     <div>
-      <SubTitle subtitle='Вы ожидаете, что рекрутер' />
+      <SubTitle subtitle={StepSevenData.subTitleExpectations} />
       <Checkbox
         valuesExpectations={valuesExpectations}
         setValuesExpectations={setValuesExpectations}

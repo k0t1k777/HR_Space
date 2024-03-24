@@ -1,14 +1,14 @@
-import { dataStepNine } from "../../../utils/constants";
+import { StepSixNine } from "../../../utils/constants";
 import InputSalaryMin from "../../InputSalary/InputSalaryMin";
 import InputSelect from "../../InputSelect/InputSelect";
 import SubTitle from "../../Subtitle/Subtitle";
-import { ShowContent } from '../Main';
+import { ShowContent } from '../../../types/types';
 
 interface StepNineProps {
   valuePay: string;
   setValuePay: (value: string) => void;
-  reward: number;
-  setReward: (value: number) => void;
+  reward: string;
+  setReward: (value: string) => void;
   isValid: boolean;
   showContent: ShowContent;
 }
@@ -18,27 +18,26 @@ export default function StepNine({
   setValuePay,
   reward,
   setReward,
-  isValid
-
+  isValid,
+  showContent,
 }: StepNineProps) {
   return (
     <div className='step-nine'>
-      <SubTitle subtitle='Выплата' clue='subtitle__clue' />
+      <SubTitle subtitle={StepSixNine.subTitlePayments} clue='subtitle__clue' />
       <InputSelect 
-        multi={dataStepNine} 
+        multi={showContent.payments} 
         height='100px' 
         stylize='input-select__type_wrap' 
         selectedItem={valuePay} 
         setSelectedItem={setValuePay} 
       />
-      <SubTitle subtitle='Вознаграждение за сотрудника' />
+      <SubTitle subtitle={StepSixNine.subTitleAward} />
       <InputSalaryMin 
         inputValueSalaryMin={reward} 
         setInputValueSalaryMin={setReward} 
         isValid={isValid}
         name={'input-salary__wrapper_before_none'}
         inputName={'input-salary_padding_left'}
-        sdsdsdsd={showContent.timetable}
         />
     </div>
   );

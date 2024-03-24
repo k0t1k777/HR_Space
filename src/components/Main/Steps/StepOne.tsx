@@ -3,17 +3,17 @@ import SubTitle from '../../Subtitle/Subtitle';
 import InputSalaryMin from '../../InputSalary/InputSalaryMin';
 import InputSalaryMax from '../../InputSalary/InputSalaryMax';
 import { stepOneData } from '../../../utils/constants';
-import { ShowContent } from '../Main';
+import { ShowContent } from '../../../types/types';
 
 export interface StepOneProps {
   inputValueCity: string;
   setInputValueCity: (value: string) => void;
   setInputValueSpecialty: (value: string) => void;
-  setInputValueSalaryMin: (value: number) => void;
-  setInputValueSalaryMax: (value: number) => void;
+  setInputValueSalaryMin: (value: string) => void;
+  setInputValueSalaryMax: (value: string) => void;
   inputValueSpecialty: string;
-  inputValueSalaryMin: number;
-  inputValueSalaryMax: number;
+  inputValueSalaryMin: string;
+  inputValueSalaryMax: string;
   isValid: boolean;
   showContent: ShowContent;
 }

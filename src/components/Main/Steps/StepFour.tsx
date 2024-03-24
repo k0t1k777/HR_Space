@@ -1,23 +1,25 @@
 import SubTitle from '../../Subtitle/Subtitle';
 import TextArea from '../../TextArea/TextArea';
 import InputWthithSelect from '../../InputWthithSelect/InputWthithSelect';
-import { StepFourData, LanguageOption } from '../../../utils/constants';
+import { StepFourData, } from '../../../utils/constants';
+import { ShowContent } from '../../../types/types';
 
 interface StepFourProps {
-  languages: LanguageOption[];
   isValid: boolean;
   inputValuesRequirements: string;
   setInputValuesRequirements: (value: string) => void;
   inputValuesLanguage: string;
   setInputValuesLanguage: (value: string) => void;
-  selectedValue: string;
-  setSelectedValue: (value: string) => void;
-  suggestions: LanguageOption[];
-  setSuggestions: (value: LanguageOption[]) => void;
+  selectedLevel: string;
+  setSelectedLevel: (value: string) => void;
+  selectedValue: boolean;
+  setSelectedValue: (value: boolean) => void;
+  suggestions: string[];
+  setSuggestions: (value: string[]) => void;
+  showContent: ShowContent;
 }
 
 export default function StepFour({
-  languages,
   isValid,
   inputValuesRequirements,
   setInputValuesRequirements,
@@ -27,19 +29,25 @@ export default function StepFour({
   setSelectedValue,
   suggestions,
   setSuggestions,
+  selectedLevel,
+  setSelectedLevel,
+  showContent,
 }: StepFourProps) {
   return (
     <div>
       <SubTitle subtitle={StepFourData.subTitleLanguages} />
       <InputWthithSelect
         placeholder={StepFourData.placeholderLanguages}
-        options={languages}
+        levels={showContent.languages_levels}
+        options={showContent.languages}
         inputValue={inputValuesLanguage}
         setInputValue={setInputValuesLanguage}
         selectedValue={selectedValue}
         setSelectedValue={setSelectedValue}
         suggestions={suggestions}
         setSuggestions={setSuggestions}
+        selectedLevel={selectedLevel}
+        setSelectedLevel={setSelectedLevel}
         isValid={isValid}
       />
       <SubTitle subtitle={StepFourData.subTitleExtra} />
