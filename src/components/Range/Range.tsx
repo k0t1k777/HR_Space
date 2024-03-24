@@ -88,7 +88,6 @@ export default function Range({
           if (selectedItem !== undefined && setSelectedItem)
             setSelectedItem(Number(e.target.value));
         }}
-        // onMouseMove={() => mouseMove()}
         style={{
           background: `linear-gradient(90deg, rgba(191, 226, 255, 1) ${bgColor}%, rgba(238, 238, 238, 1) ${bgColor}%)`,
         }}
