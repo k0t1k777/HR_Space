@@ -34,8 +34,6 @@ export const names = [
   'Сотрудничество',
 ];
 
-export const decoration: string[] = ['ТК РФ', 'ГПХ или совместительству'];
-
 export const mission: string[] = ['Да', 'Нет'];
 
 export const bonus: string[] = ['Да', 'Нет'];
