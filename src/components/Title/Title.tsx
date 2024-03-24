@@ -3,8 +3,8 @@ import './Title.css';
 import Edit from '../../assets/edit.svg?react';
 
 interface TitleProps {
-  title?: string | undefined;
-  onSave: (newTitle: string | undefined) => void;
+  title: string;
+  onSave: (newTitle: string ) => void;
 }
 
 export default function Title({ title, onSave }: TitleProps) {

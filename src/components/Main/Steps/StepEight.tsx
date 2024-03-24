@@ -6,7 +6,7 @@ import SubTitle from '../../Subtitle/Subtitle';
 
 interface StepEightProps {
   valueDate: string;
-  setValueDate: (value: string ) => void;
+  setValueDate: (value: string) => void;
   valueRecruters: string;
   setValueRecruters: (value: string) => void;
   valueCandidats: number;
@@ -19,21 +19,27 @@ export default function StepEight({
   valueRecruters,
   setValueRecruters,
   valueCandidats,
-  setValueCandidats
+  setValueCandidats,
 }: StepEightProps) {
   return (
-    <div className="step-eight">
-      <SubTitle subtitle={StepEightData.subTitleRange}/>
-      <Range selectedItem={valueCandidats} setSelectedItem={setValueCandidats} />
+    <div className='step-eight'>
+      <SubTitle subtitle={StepEightData.subTitleRange} />
+      <Range
+        selectedItem={valueCandidats}
+        setSelectedItem={setValueCandidats}
+      />
       <SubTitle subtitle={StepEightData.subTitleDate} />
-      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
+      <DateInput
+        selectedItem={valueDate}
+        setSelectedItem={setValueDate}
+      />
       <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
-      <InputSelect 
-        multi={numbers.map(num => num.toString())} 
-        width='41px' 
-        selectedItem={valueRecruters} 
+      <InputSelect
+        multi={numbers.map((num) => num.toString())}
+        width='41px'
+        selectedItem={valueRecruters}
         setSelectedItem={setValueRecruters}
       />
     </div>
-  )
+  );
 }

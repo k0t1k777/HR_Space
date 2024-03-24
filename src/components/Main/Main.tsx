@@ -30,6 +30,7 @@ export interface MainContent {
   languages: string[];
   languages_levels: string[];
   payments: string[];
+  date: string;
 }
 
 export default function Main({ content }: { content: MainContent }) {
@@ -249,7 +250,10 @@ export default function Main({ content }: { content: MainContent }) {
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          <ButtonNext handleContinue={handleContinue} />
+          <ButtonNext
+            handleContinue={handleContinue}
+            currentStep={currentStep}
+          />
         </div>
       </div>
     </main>

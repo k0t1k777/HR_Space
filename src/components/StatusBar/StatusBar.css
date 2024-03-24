@@ -15,7 +15,6 @@
   gap: 8px;
 }
 
-
 .status-bar__container {
   display: flex;
   gap: 4px;
@@ -29,7 +28,7 @@
 .statusBar__subtitle-item {
   width: 124px;
   height: 16px;
-  border-right: 1px solid #BABDBF;
+  border-right: 1px solid #babdbf;
 }
 
 .statusBar__subtitle-item:last-of-type {
@@ -45,7 +44,6 @@
   text-align: center;
 }
 
-// проверить
 .status-bar__container-status {
   width: 506px;
   display: flex;
@@ -57,10 +55,10 @@
   width: 60px;
   height: 8px;
   background-color: #eeeeee;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
 }
 .currentStep_type_active {
-  background-color: #4BB24E
+  background-color: #4bb24e;
 }
 
 .statusBar__item:first-of-type {
@@ -93,7 +91,7 @@
   width: 146px;
   border-radius: 8px;
   padding: 26px 12px 0 12px;
-  margin:0;
+  margin: 0;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;

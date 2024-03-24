@@ -4,22 +4,15 @@ import './StatusBar.css';
 import { names, statusBarData } from '../../utils/constants';
 
 export default function StatusBar({ currentStep }: { currentStep: number }) {
-  
-  const [newTitle, setNewTitle] = useState('Новая заявка');
+  const [newTitle, setNewTitle] = useState(statusBarData.task);
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);
   };
 
   const handleSaveDraft = () => {
     localStorage.setItem('draftTitle', newTitle);
-    alert('Данные сохранены в черновик');
+    alert(statusBarData.save);
   };
-
-  // const [newTitle, setNewTitle] = useState(() => {
-  //   return localStorage.getItem('draftTitle') || 'Новая заявка';
-  // });  useEffect(() => {
-  //   localStorage.setItem('draftTitle', newTitle);
-  // }, [newTitle]);
 
   return (
     <div className='status-bar'>

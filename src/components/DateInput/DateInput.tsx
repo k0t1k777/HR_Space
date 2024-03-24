@@ -3,29 +3,32 @@ import './DateInput.css';
 interface DateInputProps {
   selectedItem: string;
   setSelectedItem: (value: string) => void;
+  // inputDate: string;
 }
 
 export default function DateInput({
   selectedItem,
-  setSelectedItem
+  setSelectedItem,
+  // inputDate,
 }: DateInputProps) {
-
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedItem(e.target.value);
   };
+  // console.log('inputDate: ', inputDate);
+
+  // const formattedDate = inputDate.split('T')[0];
+  // console.log('formattedDate: ', formattedDate);
 
   return (
-    <div className="date-input">
-      <input 
-        className='date-input__item' 
-        id='date' 
-        type="date"
+    <div className='date-input'>
+      <input
+        className='date-input__item'
+        id='date'
+        type='date'
         value={selectedItem}
-        onChange={handleDateChange} 
+        onChange={handleDateChange}
       />
-      <div className="date-input__fake"></div>
+      <div className='date-input__fake'></div>
     </div>
   );
 }
-
-

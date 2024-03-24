@@ -42,6 +42,7 @@ export const bonus: string[] = ['Да', 'Нет'];
 
 export const buttonsData = {
   next: 'Продолжить',
+  send: 'Отправить',
   back: 'Назад',
 };
 
@@ -52,6 +53,8 @@ export const userData = {
 
 export const statusBarData = {
   button: 'Сохранить черновик',
+  save: 'Данные сохранены в черновик',
+  task: 'Новая заявка',
 };
 
 export const numbers = [1, 2, 3];
