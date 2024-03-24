@@ -77,8 +77,7 @@ export const StepThreeData = {
   subTitleSkills: 'Ключевые навыки',
   placeholderName: 'Введите название',
   subTitleExperiense: 'Опыт работы',
-  placeholderTown: 'Образование',
-  subTitleEducation: 'Заработная плата сотрудника',
+  subTitleEducation: 'Образование',
 };
 
 export const StepFourData = {
