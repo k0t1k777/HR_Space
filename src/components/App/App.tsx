@@ -1,14 +1,15 @@
 import './App.css';
-import Main from '../Main/Main';
+import Main, { MainContent } from '../Main/Main';
 import Header from '../Header/Header';
 import * as Api from '../../utils/utils';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
-
+  const [content, setContent] = useState<MainContent | null>(null);
   useEffect(() => {
     Api.getContent()
       .then(data => {
+        setContent(data)
         console.log(data);
       })
       .catch(error => {
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <Main />
+      {content && <Main content={content}/>}
     </>
   );
 }

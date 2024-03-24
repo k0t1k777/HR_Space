@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './InputSalary.css';
 import * as Yup from 'yup';
-import { nameError } from '../../utils/constants'
+import { nameError } from '../../utils/constants';
 
 interface InputSalaryProps {
   width?: string;
@@ -41,7 +41,7 @@ export default function InputSalaryMin({
       setErrorText(nameError);
     } else {
       schema
-        .validate({ inputValue: value }, { abortEarly: false })
+        .validate({ inputValue: value.toString() }, { abortEarly: false })
         .then(() => {
           setErrorText('');
           setIsInputValid(true);

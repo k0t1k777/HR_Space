@@ -16,18 +16,22 @@
 }
 
 .input:hover {
-  border: 1px solid #BABDBF;
+  border: 1px solid #babdbf;
 }
 
 .input:focus {
-  outline: #1785E5;
-  border: 1px solid #1785E5;
+  outline: #1785e5;
+  border: 1px solid #1785e5;
 }
 
 .input__container-suggestion {
   display: flex;
+  flex-wrap: nowrap;
   gap: 4px;
   margin: 17px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 506px;
 }
 
 .input__container-item {
@@ -45,20 +49,21 @@
   box-sizing: border-box;
   cursor: pointer;
   background-color: white;
+  flex-shrink: 0;
 }
 
 .input__error {
   margin: 8px 0 0 0;
-  color: #D92121;
+  color: #d92121;
   font-size: 14px;
   font-weight: 400;
   line-height: 19.6px;
 }
 
 .input__invalid {
-  border: 1px solid #D92121;
+  border: 1px solid #d92121;
 }
 
 .input__valid {
-  border: 1px solid #BABDBF;
+  border: 1px solid #babdbf;
 }

@@ -2,11 +2,9 @@ import SubTitle from '../../Subtitle/Subtitle';
 import AddInput from '../../AddInput/AddInput';
 import InputSelect from '../../InputSelect/InputSelect';
 import { StepThreeData } from '../../../utils/constants';
+import { ShowContent } from '../Main';
 
 interface StepThreeProps {
-  expiriense: string[];
-  education: string[];
-  skills: string[];
   added: string[];
   setAdded: (value: string[]) => void;
   valuesExperiense: string;
@@ -16,12 +14,10 @@ interface StepThreeProps {
   inputValueSkill: string;
   setInputValueSkill: (value: string ) => void;
   isValid: boolean;
+  showContent: ShowContent;
 }
 
 export default function StepThree({
-  expiriense,
-  education,
-  skills,
   added,
   setAdded,
   valuesExperiense,
@@ -31,13 +27,14 @@ export default function StepThree({
   inputValueSkill,
   setInputValueSkill,
   isValid,
+  showContent,
 }: StepThreeProps) {
   return (
     <div>
       <SubTitle subtitle={StepThreeData.subTitleSkills} />
       <AddInput
         placeholder={StepThreeData.placeholderName}
-        options={skills}
+        options={showContent.skills}
         added={added}
         setAdded={setAdded}
         inputValue={inputValueSkill}
@@ -46,13 +43,13 @@ export default function StepThree({
       />
       <SubTitle subtitle={StepThreeData.subTitleExperiense} />
       <InputSelect
-        multi={expiriense}
+        multi={showContent.experience}
         selectedItem={valuesExperiense}
         setSelectedItem={setValuesExperiense}
       />
       <SubTitle subtitle={StepThreeData.subTitleEducation} />
       <InputSelect
-        multi={education}
+        multi={showContent.education}
         selectedItem={valuesSalary}
         setSelectedItem={setValuesSalary}
       />

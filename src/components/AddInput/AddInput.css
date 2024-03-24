@@ -29,7 +29,10 @@
   border-radius: 8px;
   gap: 8px;
   margin: 17px 0 0 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 506px;
 }
 
 .add-input__container-item {
@@ -47,6 +50,7 @@
   box-sizing: border-box;
   cursor: pointer;
   background-color: #EEEEEE;
+  flex-shrink: 0;
 }
 
 .add-input__container-added {

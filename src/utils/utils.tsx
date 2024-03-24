@@ -21,6 +21,15 @@ export const getContent = () => {
   }).then(getResponseData);
 };
 
+
+// export const getContentSpecialization = () => {
+//   return fetch(`${BASE_URL}/api/v1/specializations/`, {
+//     method: 'GET',
+//     headers,
+//   }).then(getResponseData);
+// };
+
+
 export const addNewContent = (content: object) => {
   return fetch(`${BASE_URL}/api/v1/spaces/`, {
     method: 'POST',
@@ -29,14 +38,6 @@ export const addNewContent = (content: object) => {
   }).then(getResponseData);
 };
 
-// // 1 Экран
-// specialization
-// towns
-// Min-salary, маx-salary
-// // 3 Экран
-// expiriense (здесь есть Delete запрос, если останется время можно попробовать и его реализовать)
-// education
-// skills
 // // 4 Экран
 // languages {[],[],[]}
 // // 5 Экран
