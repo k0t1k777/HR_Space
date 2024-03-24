@@ -1,9 +1,8 @@
- .range {
+.range {
   width: 249px;
   height: 58px;
   margin-top: 12px;
-
- }
+}
 
 .range__input {
   width: 96.8%;
@@ -20,7 +19,7 @@
   width: 16px;
   height: 16px;
   appearance: none;
-  background-color: #1785E5;
+  background-color: #1785e5;
   border-radius: 10px;
 }
 
@@ -41,7 +40,7 @@
   text-align: center;
   color: #303233;
   border-radius: 4px;
-  background-color: #E8F4FF;
+  background-color: #e8f4ff;
 }
 
 .range__output::after {
@@ -51,5 +50,5 @@
   top: 31px;
   left: 7px;
   border: 8px solid transparent;
-  border-top: 6px solid #E8F4FF;
+  border-top: 6px solid #e8f4ff;
 }

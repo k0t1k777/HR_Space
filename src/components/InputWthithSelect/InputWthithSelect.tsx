@@ -35,6 +35,7 @@ export default function InputWthithSelect({
   selectedLevel,
   setSelectedLevel,
 }: InputWthithSelectProps) {
+  const [isInputValid, setIsInputValid] = useState(false);
   const [errorText, setErrorText] = useState(nameError);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -47,11 +48,23 @@ export default function InputWthithSelect({
     setSuggestions(filteredSuggestions);
   };
 
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLevel = event.target.value;
+    setSelectedLevel(selectedLevel);
+
+  };
+
   const handleSuggestionClick = (option: string) => {
     setInputValue(option);
     setSuggestions([]);
     setSelectedLevel(option);
     setSelectedValue(true);
+    setIsInputValid(true);
+    setErrorText('');
+    const errorElement = document.querySelector('.input__error');
+    if (errorElement) {
+      errorElement.classList.add('input__error_display_none');
+    }
   };
 
   const schema = Yup.object().shape({
@@ -61,21 +74,19 @@ export default function InputWthithSelect({
   const handleValidation = (value: string) => {
     if (!isValid) {
       setErrorText(nameError);
+      setIsInputValid(false);
     } else {
       schema
         .validate({ inputValue: value }, { abortEarly: false })
         .then(() => {
           setErrorText('');
+          setIsInputValid(true);
         })
         .catch((error) => {
           setErrorText(error.errors[0]);
+          setIsInputValid(false);
         });
     }
-  };
-
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLevel = event.target.value;
-    setSelectedLevel(selectedLevel);
   };
 
   return (
@@ -85,7 +96,7 @@ export default function InputWthithSelect({
           <input
             className={`input-whith-select ${
               isValid ? '' : 'input-whith-select__invalid'
-            }`}
+            } ${isInputValid ? 'input-whith-select__valid' : ''} `}
             type='text'
             value={inputValue}
             onChange={handleChange}

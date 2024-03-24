@@ -2,7 +2,7 @@ import ImgFill from '../assets/imgFill.svg';
 import ImgPay from '../assets/imgPay.svg';
 import ImgPublish from '../assets/imgPublish.svg';
 
-export const nameError = 'Поле обязательно для заполнения'
+export const nameError = 'Поле обязательно для заполнения';
 
 export const linksHeader = [
   'Главная',
@@ -106,10 +106,10 @@ export const StepEightData = {
   subTitleRange: 'Количество кандидатов для поиска',
   subTitleDate: 'Дата выхода сотрудника',
   subTitleCountCandidates: 'Количество рекрутеров',
-
 };
 
 export const StepSixNine = {
   subTitlePayments: 'Выплата',
   subTitleAward: 'Вознаграждение за сотрудника',
-}
+};
+

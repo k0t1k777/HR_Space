@@ -14,10 +14,7 @@ import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
 import { ShowContent } from '../../types/types';
-import {
-  mission,
-  bonus,
-} from '../../utils/constants';
+import { mission, bonus } from '../../utils/constants';
 
 export interface MainContent {
   content: ShowContent[];
@@ -65,7 +62,7 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
   const [showContent, setShowContent] = useState(content);
-  // console.log('showContent: ', showContent);
+  console.log('showContent: ', showContent);
 
   useEffect(() => {
     setShowContent(content);
@@ -75,7 +72,7 @@ export default function Main({ content }: { content: MainContent }) {
     if (currentStep === 1) {
       if (
         inputValueSpecialty.trim() === '' ||
-        inputValueSalaryMin .trim() === '' ||
+        inputValueSalaryMin.trim() === '' ||
         inputValueSalaryMax.trim() === ''
       ) {
         isValid = false;
@@ -89,11 +86,11 @@ export default function Main({ content }: { content: MainContent }) {
         isValid = false;
       }
     } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() === '') {
+      if (selectedValue !== true) {
         isValid = false;
       }
     } else if (currentStep === 9) {
-      if (inputValuesLanguage.trim() !== '') {
+      if (inputValueSalaryMin.trim() !== '') {
         isValid = false;
       }
     }
@@ -108,6 +105,8 @@ export default function Main({ content }: { content: MainContent }) {
           inputValueSalaryMin,
           inputValueSalaryMax,
           inputValuesDuties,
+          inputValuesLanguage,
+          selectedLevel,
           inputValueSkill,
           added,
           inputValuesRequirements,
@@ -120,6 +119,11 @@ export default function Main({ content }: { content: MainContent }) {
           valuesBonus,
           valueInputBonus,
           valuesExpectations,
+          valueCandidates,
+          valueDate,
+          valueRecruters,
+          valuePay,
+          reward,
         })
       );
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));

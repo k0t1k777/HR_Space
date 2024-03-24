@@ -2,6 +2,7 @@ import React, { FocusEvent, useState } from 'react';
 import './AddInput.css';
 import Trash from '../../assets/trash.svg?react';
 import * as Yup from 'yup';
+import { nameError } from '../../utils/constants';
 
 interface InputProps {
   width?: string;
@@ -11,7 +12,7 @@ interface InputProps {
   added: string[];
   setAdded: (value: string[]) => void;
   inputValue: string;
-  setInputValue: (value: string ) => void;
+  setInputValue: (value: string) => void;
   isValid: boolean;
 }
 
@@ -27,12 +28,15 @@ export default function AddInput({
   isValid,
 }: InputProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
+  const [errorText, setErrorText] = useState(nameError);
+  const [isInputValid, setIsInputValid] = useState(false);
 
   const handleFocusOut = (event: FocusEvent<HTMLInputElement>) => {
     if (
       !event.relatedTarget ||
-      !(event.relatedTarget as HTMLElement).classList.contains('add-input__container-item')
+      !(event.relatedTarget as HTMLElement).classList.contains(
+        'add-input__container-item'
+      )
     ) {
       if (inputValue.trim() !== '' && !added.includes(inputValue)) {
         setAdded([...added, inputValue]);
@@ -73,20 +77,22 @@ export default function AddInput({
   };
 
   const schema = Yup.object().shape({
-    inputValue: Yup.string().required('Поле обязательно для заполнения'),
+    inputValue: Yup.string().required(nameError),
   });
 
   const handleValidation = (value: string) => {
     if (!isValid) {
-      setErrorText('Поле обязательно для заполнения');
+      setErrorText(nameError);
     } else {
       schema
         .validate({ inputValue: value }, { abortEarly: false })
         .then(() => {
           setErrorText('');
+          setIsInputValid(true);
         })
         .catch((error) => {
           setErrorText(error.errors[0]);
+          setIsInputValid(false);
         });
     }
   };
@@ -105,7 +111,9 @@ export default function AddInput({
         ))}
       </div>
       <input
-        className={`add-input ${isValid ? '' : 'add-input__invalid'}`}
+        className={`add-input ${isValid ? '' : 'add-input__invalid'} ${
+          isInputValid ? 'add-input__valid' : ''
+        } `}
         type='text'
         value={inputValue}
         onChange={handleChange}
