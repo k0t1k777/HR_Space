@@ -14,10 +14,9 @@ import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
 import { ShowContent } from '../../types/types';
-import { mission, bonus, statusBarData } from '../../utils/constants';
+import { statusBarData } from '../../utils/constants';
 import * as Api from '../../utils/utils';
 import InfoTooltipDone from '../InfoTooltipDone/InfoTooltipDone';
-
 
 export interface MainContent {
   content: ShowContent[];
@@ -34,10 +33,15 @@ export interface MainContent {
   languages_levels: string[];
   payments: string[];
   date: string;
+  bonus: string[];
+  recruiter_count: string[];
+  candidates_count: number[];
+  mission: string[];
 }
 
 export default function Main({ content }: { content: MainContent }) {
   const [currentStep, setCurrentStep] = useState(1);
+  const [newTitle, setNewTitle] = useState(statusBarData.task);
   const [infoTooltipSaveIsOpen, setInfoTooltipSaveIsOpen] = useState(false);
   const [inputValueSpecialty, setInputValueSpecialty] = useState('');
   const [inputValueCity, setInputValueCity] = useState('');
@@ -67,69 +71,69 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
   const [showContent, setShowContent] = useState(content);
-  // console.log('showContent: ', showContent);
 
   useEffect(() => {
     setShowContent(content);
   }, [content]);
 
-  // const [newContent, setNewContent] = useState<object>({});
+  const [newContent, setNewContent] = useState<object>({});
 
-  // const addNewContent = () => {
-  //   Api.addNewContent(newContent);
-  //   console.log('newContent: ', newContent);
-  // };
+  const addNewContent = () => {
+    Api.addNewContent(newContent);
+    console.log('newContent: ', newContent);
+  };
 
-  // useEffect(() => {
-  //   setNewContent({
-  //     employer_id: employer_id,
-  //     mission: nameValue,
-  //     bonus: countryValue,
-  //     salary_min: cityValue,
-  //     salary_max: addressValue,
-  //     responsibilities: indexValue,
-  //     other_requirements: emailValue,
-  //     recruiter_count: phoneValue,
-  //     award: currentWorkValue,
-  //     name: educationValue,
-  //     specialization: blogLinkValue,
-  //     towns: footSizeValue,
-  //     experience: commentValue,
-  //     education: showCourse[0]?.id,
-  //     payments: sexShowValue,
-  //     skills: statusShowValue,
-  //     languages: showPromo,
-  //     language_level: clothingSize,
-  //     occupation: clothingSize,
-  //     registration: clothingSize,
-  //     timetable: clothingSize,
-  //     expectations: clothingSize,
-  //   });
-  // }, [
-  //   employer_id,
-  //     mission,
-  //     bonus,
-  //     salary_min,
-  //     salary_max,
-  //     responsibilities,
-  //     other_requirements,
-  //     candidates_count,
-  //     recruiter_count,
-  //     award,
-  //     name,
-  //     specialization,
-  //     towns,
-  //     experience,
-  //     education,
-  //     payments,
-  //     skills,
-  //     languages,
-  //     language_level,
-  //     registration,
-  //     occupation,
-  //     timetable,
-  //     expectations,
-  // ]);
+  useEffect(() => {
+    setNewContent({
+      mission: valuesMission,
+      bonus: valuesBonus,
+      salary_min: inputValueSalaryMin,
+      salary_max: inputValueSalaryMax,
+      responsibilities: inputValuesDuties,
+      other_requirements: inputValuesRequirements,
+      candidates_count: valueCandidates,
+      recruiter_count: valueRecruters,
+      award: reward,
+      name: newTitle,
+      specialization: inputValueSpecialty,
+      towns: inputValueCity,
+      experience: valuesExperiense,
+      education: valuesSalary,
+      payments: valuePay,
+      skills: inputValueSkill,
+      languages: {
+        name: inputValuesLanguage,
+        language_level: selectedLevel,
+      },
+      occupation: valuesOccupation,
+      registration: valuesDecoration,
+      timetable: valuesTimetable,
+      expectations: valuesExpectations,
+    });
+  }, [
+    valuesMission,
+    valuesBonus,
+    inputValueSalaryMin,
+    inputValueSalaryMax,
+    inputValuesDuties,
+    inputValuesRequirements,
+    valueCandidates,
+    valueRecruters,
+    reward,
+    newTitle,
+    inputValueSpecialty,
+    inputValueCity,
+    valuesExperiense,
+    valuesSalary,
+    valuePay,
+    inputValueSkill,
+    inputValuesLanguage,
+    selectedLevel,
+    valuesOccupation,
+    valuesDecoration,
+    valuesTimetable,
+    valuesExpectations,
+  ]);
 
   const handleContinue = (isValid: boolean) => {
     if (currentStep === 1) {
@@ -197,6 +201,14 @@ export default function Main({ content }: { content: MainContent }) {
     }
   };
 
+  const handleSend = () => {
+    if (currentStep === 9) {
+      addNewContent();
+    } else {
+      setCurrentStep((prevStep) => prevStep + 1);
+    }
+  };
+
   const handleBack = () => {
     setIsValid(true);
     setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
@@ -207,7 +219,11 @@ export default function Main({ content }: { content: MainContent }) {
       <Sidebar />
       <div className='main__container'>
         <div style={{ height: '484px' }}>
-          <StatusBar currentStep={currentStep} />
+          <StatusBar
+            currentStep={currentStep}
+            newTitle={newTitle}
+            setNewTitle={setNewTitle}
+          />
           {currentStep === 1 && (
             <StepOne
               inputValueSpecialty={inputValueSpecialty}
@@ -272,14 +288,13 @@ export default function Main({ content }: { content: MainContent }) {
           )}
           {currentStep === 6 && (
             <StepSix
-              mission={mission}
-              bonus={bonus}
               valuesMission={valuesMission}
               setValuesMission={setValuesMission}
               valuesBonus={valuesBonus}
               setValuesBonus={setValuesBonus}
               valueInputBonus={valueInputBonus}
               setInputValuesBonus={setInputValuesBonus}
+              showContent={showContent}
             />
           )}
           {currentStep === 7 && (
@@ -316,10 +331,15 @@ export default function Main({ content }: { content: MainContent }) {
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          <ButtonNext
-            handleContinue={handleContinue}
-            currentStep={currentStep}
-          />
+          {currentStep < 9 && (
+            <ButtonNext
+              handleContinue={handleContinue}
+              currentStep={currentStep}
+            />
+          )}
+          {currentStep === 9 && (
+            <ButtonNext handleContinue={handleSend} currentStep={currentStep} />
+          )}
         </div>
       </div>
       <InfoTooltipDone

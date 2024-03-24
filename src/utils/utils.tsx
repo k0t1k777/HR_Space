@@ -21,11 +21,11 @@ export const getContent = () => {
   }).then(getResponseData);
 };
 
-export const addNewContent = () => {
+export const addNewContent = (content: object) => {
   return fetch(`${BASE_URL}/api/v1/spaces/`, {
     method: 'POST',
     headers,
-    body: JSON.stringify({}),
+    body: JSON.stringify(content),
   }).then(getResponseData);
 };
 

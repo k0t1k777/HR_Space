@@ -7,6 +7,7 @@ interface RangeProps {
   step?: string;
   selectedItem: number;
   setSelectedItem: (value: number) => void;
+  multi: number[];
 }
 
 export default function Range({
@@ -15,6 +16,7 @@ export default function Range({
   step,
   selectedItem,
   setSelectedItem,
+  multi,
 }: RangeProps) {
   const [moveOutput, setMoveOutput] = useState<number>(0);
   const [bgColor, setBgColor] = useState<number>(0);
@@ -28,48 +30,14 @@ export default function Range({
   }, [selectedItem]);
 
   const outputMove = () => {
-    if (selectedItem == 1) {
-      setMoveOutput(-3);
-    }
-    if (selectedItem == 2) {
-      setMoveOutput(selectedItem + 20);
-    }
-    if (selectedItem == 3) {
-      setMoveOutput(selectedItem * 16);
-    }
-    if (selectedItem == 4) {
-      setMoveOutput(selectedItem * 18);
-    }
-    if (selectedItem == 5) {
-      setMoveOutput(selectedItem * 19.7);
-    }
-    if (selectedItem == 6) {
-      setMoveOutput(selectedItem * 20.5);
-    }
-    if (selectedItem == 7) {
-      setMoveOutput(selectedItem * 21);
-    }
-    if (selectedItem == 8) {
-      setMoveOutput(selectedItem * 21.5);
-    }
-    if (selectedItem == 9) {
-      setMoveOutput(selectedItem * 22);
-    }
-    if (selectedItem == 10) {
-      setMoveOutput(selectedItem * 22.2);
+    if (selectedItem >= 1 && selectedItem <= multi.length) {
+      setMoveOutput(selectedItem * multi[selectedItem - 1]);
     }
   };
 
   const changeColor = () => {
-    const numericValue = Number(selectedItem);
-    if (numericValue === 1) {
-      setBgColor(numericValue * 8);
-    } else if (numericValue <= 8) {
-      setBgColor(numericValue * 9);
-    } else if (numericValue === 9) {
-      setBgColor(numericValue * 9.5);
-    } else if (numericValue === 10) {
-      setBgColor(100);
+    if (selectedItem >= 1 && selectedItem <= multi.length) {
+      setBgColor(selectedItem * multi[selectedItem - 1]);
     }
   };
 
@@ -89,7 +57,7 @@ export default function Range({
         id='range'
         type='range'
         min={min ? min : '1'}
-        max={max ? max : '10'}
+        max={max ? max : multi.length.toString()}
         step={step ? step : '1'}
         value={selectedItem}
         onChange={(e) => {
