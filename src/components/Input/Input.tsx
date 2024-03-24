@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
 import { nameError } from '../../utils/constants'
@@ -12,6 +12,7 @@ interface InputProps {
   setInputValue: (value: string) => void;
   isRequired?: boolean;
   isValid: boolean;
+  idStep?: string;
 }
 
 export default function Input({
@@ -22,10 +23,12 @@ export default function Input({
   placeholder,
   disableSuggestions,
   isValid,
+  idStep,
 }: InputProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [errorText, setErrorText] = useState(nameError);
   const [isInputValid, setIsInputValid] = useState(false);
+  const [displayCount, setDisplayCount] = useState(0);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -75,6 +78,15 @@ export default function Input({
     }
   };
 
+  useEffect(() => {
+    if(idStep === 'specialization') {
+      setDisplayCount(3);
+    }
+    if(idStep === 'towns') {
+      setDisplayCount(4)
+    }
+  }, [idStep])
+
   return (
     <>
       <input
@@ -90,7 +102,7 @@ export default function Input({
       {!isValid && <div className='input__error'>{errorText}</div>}
       {!disableSuggestions && suggestions.length > 0 && (
         <div className='input__container-suggestion'>
-          {suggestions.map((suggestion) => (
+          {suggestions.slice(0, displayCount).map((suggestion) => (
             <button
               className='input__container-item'
               key={suggestion}

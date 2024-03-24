@@ -14,7 +14,9 @@ export default function Checkbox({
   const handleCheckboxChange = (index: number) => {
     let updatedValues = [...valuesExpectations];
     if (updatedValues.includes(checkCaption[index])) {
-      updatedValues = updatedValues.filter((value) => value !== checkCaption[index]);
+      updatedValues = updatedValues.filter(
+        (value) => value !== checkCaption[index]
+      );
     } else {
       updatedValues.push(checkCaption[index]);
     }

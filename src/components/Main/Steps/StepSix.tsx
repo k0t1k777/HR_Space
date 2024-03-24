@@ -28,9 +28,8 @@ export default function StepSix({
   valueInputBonus,
   setInputValuesBonus,
 }: StepSixProps) {
-
   const [showBlock, setShowBlock] = useState(false);
-  console.log(valueInputBonus)
+  console.log(valueInputBonus);
 
   useEffect(() => {
     if (valuesBonus === 'Да') {
@@ -39,7 +38,7 @@ export default function StepSix({
       setShowBlock(false);
     }
   }, [valuesMission, valuesBonus]);
-  
+
   return (
     <div className='step-six'>
       <SubTitle subtitle={StepSixData.subTitleMission} />
