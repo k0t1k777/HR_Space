@@ -2,7 +2,7 @@
   width: 274px;
   height: 40px;
   margin-top: 12px;
-  padding:0 16px;
+  padding: 0 16px;
   position: relative;
   display: flex;
 }
@@ -19,7 +19,7 @@
   line-height: 19.6px;
   color: #959799;
   border-radius: 8px;
-  border: 1px solid #BABDBF;
+  border: 1px solid #babdbf;
 }
 
 .date-input__item:hover {
@@ -28,8 +28,8 @@
 }
 
 .date-input__item:focus {
-  outline: #1785E5;
-  border: 1px solid #1785E5;
+  outline: #1785e5;
+  border: 1px solid #1785e5;
 }
 
 .date-input__item::-webkit-calendar-picker-indicator {
@@ -46,9 +46,8 @@
   left: 261px;
   border: none;
   background-image: url(../../assets/date.svg);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
-

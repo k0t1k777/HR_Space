@@ -8,11 +8,11 @@ export default function App() {
   const [content, setContent] = useState<MainContent | null>(null);
   useEffect(() => {
     Api.getContent()
-      .then(data => {
-        setContent(data)
+      .then((data) => {
+        setContent(data);
         console.log(data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }, []);
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <>
       <Header />
-      {content && <Main content={content}/>}
+      {content && <Main content={content} />}
     </>
   );
 }

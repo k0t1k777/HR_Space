@@ -14,10 +14,7 @@ import StepSeven from './Steps/StepSeven';
 import StepEight from './Steps/StepEight';
 import StepNine from './Steps/StepNine';
 import { ShowContent } from '../../types/types';
-import {
-  mission,
-  bonus,
-} from '../../utils/constants';
+import { mission, bonus } from '../../utils/constants';
 
 export interface MainContent {
   content: ShowContent[];
@@ -75,7 +72,7 @@ export default function Main({ content }: { content: MainContent }) {
     if (currentStep === 1) {
       if (
         inputValueSpecialty.trim() === '' ||
-        inputValueSalaryMin .trim() === '' ||
+        inputValueSalaryMin.trim() === '' ||
         inputValueSalaryMax.trim() === ''
       ) {
         isValid = false;
