@@ -11,5 +11,9 @@ export interface ShowContent {
   languages: string[];
   languages_levels: string[];
   payments: string[];
+  bonus: string[];
   date: string;
+  recruiter_count: string[];
+  candidates_count: number[];
+  mission: string[];
 }

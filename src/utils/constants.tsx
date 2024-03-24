@@ -34,10 +34,6 @@ export const names = [
   'Сотрудничество',
 ];
 
-export const mission: string[] = ['Да', 'Нет'];
-
-export const bonus: string[] = ['Да', 'Нет'];
-
 export const buttonsData = {
   next: 'Продолжить',
   send: 'Отправить',
@@ -54,8 +50,6 @@ export const statusBarData = {
   save: 'Данные сохранены в черновик',
   task: 'Новая заявка',
 };
-
-export const numbers = [1, 2, 3];
 
 export const stepOneData = {
   subTitleSpeciality: 'Специальность',

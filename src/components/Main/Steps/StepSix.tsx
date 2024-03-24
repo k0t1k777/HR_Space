@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import './Step.css';
 import { StepSixData } from '../../../utils/constants';
 import InputSelect from '../../InputSelect/InputSelect';
+import { ShowContent } from '../../../types/types';
 
 interface StepSixProps {
-  mission: string[];
-  bonus: string[];
   valuesMission: string;
   setValuesMission: (value: string) => void;
   valuesBonus: string;
@@ -16,17 +15,17 @@ interface StepSixProps {
   setValuesTimetable?: (value: string) => void;
   valueInputBonus: string;
   setInputValuesBonus: (value: string) => void;
+  showContent: ShowContent
 }
 
 export default function StepSix({
-  mission,
-  bonus,
   valuesMission,
   setValuesMission,
   valuesBonus,
   setValuesBonus,
   valueInputBonus,
   setInputValuesBonus,
+  showContent,
 }: StepSixProps) {
   const [showBlock, setShowBlock] = useState(false);
 
@@ -42,13 +41,13 @@ export default function StepSix({
     <div className='step-six'>
       <SubTitle subtitle={StepSixData.subTitleMission} />
       <InputSelect
-        multi={mission}
+        multi={showContent.mission}
         selectedItem={valuesMission}
         setSelectedItem={setValuesMission}
       />
       <SubTitle subtitle={StepSixData.subTitleBonus} />
       <InputSelect
-        multi={bonus}
+        multi={showContent.bonus}
         selectedItem={valuesBonus}
         setSelectedItem={setValuesBonus}
       />
