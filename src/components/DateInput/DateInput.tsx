@@ -9,7 +9,6 @@ interface DateInputProps {
 export default function DateInput({
   selectedItem,
   setSelectedItem,
-  // inputDate,
 }: DateInputProps) {
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedItem(e.target.value);

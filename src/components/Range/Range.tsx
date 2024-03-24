@@ -27,6 +27,7 @@ export default function Range({
     }
   }, [selectedItem]);
 
+
   const outputMove = () => {
     if (selectedItem == 1) {
       setMoveOutput(-3);
@@ -73,10 +74,14 @@ export default function Range({
     }
   };
 
-  // function mouseMove() {
-  //   outputMove();
-  //   changeColor();
-  // }
+  useEffect(() => {
+    if (selectedItem !== undefined && setSelectedItem) {
+      setSelectedItem(selectedItem);
+      outputMove();
+      changeColor();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedItem]);
 
   return (
     <div className='range'>
@@ -89,9 +94,9 @@ export default function Range({
         step={step ? step : '1'}
         value={selectedItem}
         onChange={(e) => {
-          setSelectedItem(Number(e.target.value));
+          if (selectedItem !== undefined && setSelectedItem)
+            setSelectedItem(Number(e.target.value));
         }}
-        // onMouseMove={() => mouseMove()}
         style={{
           background: `linear-gradient(90deg, rgba(191, 226, 255, 1) ${bgColor}%, rgba(238, 238, 238, 1) ${bgColor}%)`,
         }}

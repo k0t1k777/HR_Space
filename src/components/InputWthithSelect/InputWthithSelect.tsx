@@ -105,7 +105,7 @@ export default function InputWthithSelect({
           {!isValid && <div className='input__error'>{errorText}</div>}
           {!disableSuggestions && suggestions.length > 0 && (
             <div className='input-whith-select__container-suggestion'>
-              {suggestions.map((suggestion, index) => (
+              {suggestions.slice(0, 5).map((suggestion, index) => (
                 <button
                   className='input-whith-select__container-item'
                   key={index}
