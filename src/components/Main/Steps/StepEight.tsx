@@ -29,7 +29,10 @@ export default function StepEight({
         setSelectedItem={setValueCandidats}
       />
       <SubTitle subtitle={StepEightData.subTitleDate} />
-      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
+      <DateInput
+        selectedItem={valueDate}
+        setSelectedItem={setValueDate}
+      />
       <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
       <InputSelect
         multi={numbers.map((num) => num.toString())}

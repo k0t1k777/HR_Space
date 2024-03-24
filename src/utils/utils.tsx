@@ -21,15 +21,6 @@ export const getContent = () => {
   }).then(getResponseData);
 };
 
-
-// export const getContentSpecialization = () => {
-//   return fetch(`${BASE_URL}/api/v1/specializations/`, {
-//     method: 'GET',
-//     headers,
-//   }).then(getResponseData);
-// };
-
-
 export const addNewContent = (content: object) => {
   return fetch(`${BASE_URL}/api/v1/spaces/`, {
     method: 'POST',
@@ -38,21 +29,3 @@ export const addNewContent = (content: object) => {
   }).then(getResponseData);
 };
 
-// // 4 Экран
-// languages {[],[],[]}
-// // 5 Экран
-// decoration
-// occupation
-// timetable
-// // 6 Экран
-// mission
-// bonus
-// // 7 Экран
-// expectations
-// // 8 Экран
-// countCandidates
-// date
-// countRecruiter
-// // 9 Экран
-// payments
-// award

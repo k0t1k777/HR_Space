@@ -5,8 +5,8 @@ interface RangeProps {
   min?: string;
   max?: string;
   step?: string;
-  selectedItem?: number | undefined;
-  setSelectedItem?: (value: number) => void;
+  selectedItem: number;
+  setSelectedItem: (value: number) => void;
 }
 
 export default function Range({
@@ -18,6 +18,15 @@ export default function Range({
 }: RangeProps) {
   const [moveOutput, setMoveOutput] = useState<number>(0);
   const [bgColor, setBgColor] = useState<number>(0);
+
+  useEffect(() => {
+    if (selectedItem) {
+      setSelectedItem(selectedItem);
+      outputMove();
+      changeColor();
+    }
+  }, [selectedItem]);
+
 
   const outputMove = () => {
     if (selectedItem == 1) {

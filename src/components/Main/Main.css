@@ -7,6 +7,7 @@
 
 .main__container {
   width: 506px;
+  transition: background-color 0.9s ease;
 }
 
 .main__button {

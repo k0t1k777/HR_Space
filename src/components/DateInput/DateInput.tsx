@@ -3,6 +3,7 @@ import './DateInput.css';
 interface DateInputProps {
   selectedItem: string;
   setSelectedItem: (value: string) => void;
+  // inputDate: string;
 }
 
 export default function DateInput({
@@ -12,6 +13,10 @@ export default function DateInput({
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedItem(e.target.value);
   };
+  // console.log('inputDate: ', inputDate);
+
+  // const formattedDate = inputDate.split('T')[0];
+  // console.log('formattedDate: ', formattedDate);
 
   return (
     <div className='date-input'>

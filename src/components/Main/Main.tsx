@@ -30,6 +30,7 @@ export interface MainContent {
   languages: string[];
   languages_levels: string[];
   payments: string[];
+  date: string;
 }
 
 export default function Main({ content }: { content: MainContent }) {
@@ -62,7 +63,7 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
   const [showContent, setShowContent] = useState(content);
-  // console.log('showContent: ', showContent);
+  console.log('showContent: ', showContent);
 
   useEffect(() => {
     setShowContent(content);
@@ -86,11 +87,11 @@ export default function Main({ content }: { content: MainContent }) {
         isValid = false;
       }
     } else if (currentStep === 4) {
-      if (inputValuesLanguage.trim() === '') {
+      if (selectedValue !== true) {
         isValid = false;
       }
     } else if (currentStep === 9) {
-      if (inputValuesLanguage.trim() !== '') {
+      if (inputValueSalaryMin.trim() !== '') {
         isValid = false;
       }
     }
@@ -105,6 +106,8 @@ export default function Main({ content }: { content: MainContent }) {
           inputValueSalaryMin,
           inputValueSalaryMax,
           inputValuesDuties,
+          inputValuesLanguage,
+          selectedLevel,
           inputValueSkill,
           added,
           inputValuesRequirements,
@@ -117,6 +120,11 @@ export default function Main({ content }: { content: MainContent }) {
           valuesBonus,
           valueInputBonus,
           valuesExpectations,
+          valueCandidates,
+          valueDate,
+          valueRecruters,
+          valuePay,
+          reward,
         })
       );
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
@@ -242,7 +250,10 @@ export default function Main({ content }: { content: MainContent }) {
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          <ButtonNext handleContinue={handleContinue} />
+          <ButtonNext
+            handleContinue={handleContinue}
+            currentStep={currentStep}
+          />
         </div>
       </div>
     </main>

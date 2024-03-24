@@ -17,7 +17,7 @@ export default function TextArea({
 }: TextAreaProps) {
   const [errorText, setErrorText] = useState('Поле обязательно для заполнения');
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>)  => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = event.target.value;
     setInputValues(value);
     handleValidation(value);

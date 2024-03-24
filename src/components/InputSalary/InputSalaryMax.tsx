@@ -30,6 +30,14 @@ export default function InputSalaryMax({
     setInputValueSalaryMax(value);
     handleValidation(value);
     setErrorText('');
+    const inputElement = event.target;
+    if (value.trim() !== '') {
+      inputElement.classList.remove('input-salary__invalid');
+      inputElement.classList.add('input-salary__valid');
+    } else {
+      inputElement.classList.add('input-salary__invalid');
+      inputElement.classList.remove('input-salary__valid');
+    }
   };
 
   const schema = Yup.object().shape({
@@ -62,7 +70,7 @@ export default function InputSalaryMax({
       >
         <input
           className={`input-salary ${isValid ? '' : 'input-salary__invalid'} ${
-            isInputValid ? 'input__valid' : ''
+            isInputValid ? 'input-salary__valid' : ''
           }`}
           type='number'
           value={inputValueSalaryMax}

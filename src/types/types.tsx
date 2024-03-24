@@ -11,4 +11,5 @@ export interface ShowContent {
   languages: string[];
   languages_levels: string[];
   payments: string[];
+  date: string;
 }

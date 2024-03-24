@@ -79,6 +79,10 @@
   line-height: 19.6px;
 }
 
+.add-input__valid {
+  border: 1px solid #babdbf;
+}
+
 .add-input__invalid {
   border: 1px solid #D92121;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Input.css';
 import * as Yup from 'yup';
-import { nameError } from '../../utils/constants'
+import { nameError } from '../../utils/constants';
 
 interface InputProps {
   width?: string;
@@ -43,11 +43,9 @@ export default function Input({
     if (value.trim() !== '') {
       inputElement.classList.remove('input__invalid');
       inputElement.classList.add('input__valid');
-
     } else {
       inputElement.classList.add('input__invalid');
       inputElement.classList.remove('input__valid');
-
     }
   };
 
@@ -55,6 +53,7 @@ export default function Input({
     setSuggestions([]);
     setInputValue(suggestion);
     setErrorText('');
+    setIsInputValid(true);
   };
 
   const schema = Yup.object().shape({
