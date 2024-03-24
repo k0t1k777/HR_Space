@@ -116,7 +116,7 @@ export default function AddInput({
       {!isValid && <div className='input__error'>{errorText}</div>}
       {!disableSuggestions && suggestions.length > 0 && (
         <div className='add-input__container-suggestion'>
-          {suggestions.map(
+          {suggestions.slice(0, 5).map(
             (suggestion) =>
               !added.includes(suggestion) && (
                 <button

@@ -2,7 +2,8 @@ import SubTitle from '../../Subtitle/Subtitle';
 import AddInput from '../../AddInput/AddInput';
 import InputSelect from '../../InputSelect/InputSelect';
 import { StepThreeData } from '../../../utils/constants';
-import { ShowContent } from '../Main';
+import { ShowContent } from '../../../types/types';
+
 
 interface StepThreeProps {
   added: string[];

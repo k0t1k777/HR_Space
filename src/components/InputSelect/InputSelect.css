@@ -49,7 +49,7 @@
 
 .input-select__container-item:first-of-type > .input-select__caption,
 .input-select__container-item:last-of-type > .input-select__caption {
-  min-width: 140px;
+  max-width: 140px;
 }
 
 .input-select__caption_text_bold {

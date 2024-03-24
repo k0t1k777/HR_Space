@@ -44,9 +44,9 @@ export default function InputSelect({
               {height === '100px' ? (
                 <p className='input-select__caption'>
                   <span className='input-select__caption_text_bold'>
-                    {item.slice(0, item.lastIndexOf('%') + 1)}
+                    {item.slice(0, item.lastIndexOf('0') + 2)}
                   </span>
-                  {item.slice(item.lastIndexOf('%') + 1)}
+                  {item.slice(item.lastIndexOf('0') + 2)}
                 </p>
               ) : (
                 item

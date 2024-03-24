@@ -39,6 +39,7 @@ export default function StepOne({
         inputValue={inputValueSpecialty}
         setInputValue={setInputValueSpecialty}
         isValid={isValid}
+        idStep='specialization'
       />
       <SubTitle subtitle={stepOneData.subTitleTown} />
       <Input
@@ -47,6 +48,7 @@ export default function StepOne({
         inputValue={inputValueCity}
         setInputValue={setInputValueCity}
         isValid={true}
+        idStep='towns'
       />
       <SubTitle
         subtitle={stepOneData.subTitleSalary}
