@@ -137,30 +137,29 @@ export default function Main({ content }: { content: MainContent }) {
   ]);
 
   const handleContinue = (isValid: boolean) => {
-    if (
-      // (currentStep === 1) {
-      //   if (
-      //     inputValueSpecialty.trim() === '' ||
-      //     inputValueSalaryMin.trim() === '' ||
-      //     inputValueSalaryMax.trim() === ''
-      //   ) {
-      //     isValid = false;
-      //   }
-      // } else if (currentStep === 2) {
-      //   if (inputValuesDuties.trim() === '') {
-      //     isValid = false;
-      //   }
-      // } else if (currentStep === 3) {
-      //   if (added.length === 0 && inputValueSkill.trim() === '') {
-      //     isValid = false;
-      //   }
-      // } else if (currentStep === 4) {
-      //   if (selectedValue !== true) {
-      //     isValid = false;
-      //   }
-      // } else if
-      currentStep === 9
-    ) {
+    if 
+      (currentStep === 1) {
+        if (
+          inputValueSpecialty.trim() === '' ||
+          inputValueSalaryMin.trim() === '' ||
+          inputValueSalaryMax.trim() === ''
+        ) {
+          isValid = false;
+        }
+      } else if (currentStep === 2) {
+        if (inputValuesDuties.trim() === '') {
+          isValid = false;
+        }
+      } else if (currentStep === 3) {
+        if (added.length === 0 && inputValueSkill.trim() === '') {
+          isValid = false;
+        }
+      } else if (currentStep === 4) {
+        if (selectedValue !== true) {
+          isValid = false;
+        }
+      } else if(currentStep === 9)
+     {
       if (reward.trim() === '') {
         isValid = false;
       }
