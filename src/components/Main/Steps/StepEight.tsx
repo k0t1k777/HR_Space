@@ -12,10 +12,12 @@ interface StepEightProps {
   valueCandidats: number;
   setValueCandidats: (value: number) => void;
   showContent: ShowContent;
+  valueDate: any;
 }
 
 export default function StepEight({
   setValueDate,
+  valueDate,
   valueRecruters,
   setValueRecruters,
   valueCandidats,
@@ -31,7 +33,11 @@ export default function StepEight({
         setSelectedItem={setValueCandidats}
       />
       <SubTitle subtitle={StepEightData.subTitleDate} />
-      <DateInput setSelectedItem={setValueDate} inputDate={showContent.date} />
+      <DateInput
+        setValueDate={setValueDate}
+        inputDate={showContent.date}
+        valueDate={valueDate}
+      />
       <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
       <InputSelect
         multi={showContent.recruiter_count}

@@ -1,16 +1,25 @@
+import { useEffect, useState } from 'react';
 import './DateInput.css';
 
 interface DateInputProps {
-  setSelectedItem: (value: string) => void;
+  setValueDate: (value: string) => void;
   inputDate: string;
 }
 
 export default function DateInput({
-  setSelectedItem,
+  // setValueDate,
   inputDate,
+  // valueDate,
 }: DateInputProps) {
+  const [valueDate, setValueDate] = useState('');
+
+  useEffect(() => {
+    setValueDate(inputDate);
+  }, [inputDate]);
+
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedItem(e.target.value);
+    const newDate = e.target.value;
+    setValueDate(newDate);
   };
 
   return (
@@ -19,7 +28,7 @@ export default function DateInput({
         className='date-input__item'
         id='date'
         type='date'
-        value={inputDate}
+        value={valueDate}
         onChange={handleDateChange}
       />
       <div className='date-input__fake'></div>
