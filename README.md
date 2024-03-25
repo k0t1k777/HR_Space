@@ -18,7 +18,7 @@
 2. Ким Се-Ун - Профиль на GitHub [https://github.com/Se-Un](https://github.com/Se-Un)
 
 ## ссылка на Github Pages
-[Кликай тут](https://k0t1k777.github.io/HR_Space)
+[Ссылка: https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
 
 ## Инструкции по установке и запуску
 
@@ -48,11 +48,10 @@
 5. yup
 
 ## Ключевые точки для медиа min,max-width: 1440px
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
-
+![alt text](./src/assets/image.png)
+![alt text](./src/assets/image-1.png)
+![alt text](./src/assets/image-2.png)
+![alt text](./src/assets/image-3.png)
+![alt text](./src/assets/image-4.png)
+![alt text](./src/assets/image-5.png)
+![alt text](./src/assets/image-6.png)
