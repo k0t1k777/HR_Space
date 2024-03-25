@@ -53,7 +53,5 @@
 ![alt text](./src/assets/image-2.png)
 ![alt text](./src/assets/image-3.png)
 ![alt text](./src/assets/image-4.png)
+![alt text](./src/assets/image-5.png)
 ![alt text](./src/assets/image-6.png)
-![alt text](image.png)
-
-
