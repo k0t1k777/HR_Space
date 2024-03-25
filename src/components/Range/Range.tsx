@@ -30,14 +30,21 @@ export default function Range({
   }, [selectedItem]);
 
   const outputMove = () => {
-    if (selectedItem >= 1 && selectedItem <= multi.length) {
-      setMoveOutput(selectedItem * multi[selectedItem - 1]);
+    if(selectedItem <= 1) {
+      setMoveOutput(-3)
+    }
+    else if (selectedItem > 1 && selectedItem <= multi.length) {
+      setMoveOutput(selectedItem + 40)
+      console.log(selectedItem)
+      console.log(moveOutput)
+        // multi[selectedItem - 1]);
     }
   };
 
   const changeColor = () => {
     if (selectedItem >= 1 && selectedItem <= multi.length) {
-      setBgColor(selectedItem * multi[selectedItem - 1]);
+      setBgColor(selectedItem * 9)
+        // multi[selectedItem - 1]);
     }
   };
 

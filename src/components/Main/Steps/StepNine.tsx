@@ -24,7 +24,7 @@ export default function StepNine({
 
   return (
     <div className='step-nine'>
-      <SubTitle subtitle={StepSixNine.subTitlePayments} clue='subtitle__clue' />
+      <SubTitle subtitle={StepSixNine.subTitlePayments} />
       <InputSelect
         multi={showContent.payments}
         height='100px'
