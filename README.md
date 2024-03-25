@@ -14,11 +14,11 @@
 
 ## Сведения о команде:
 
-3. Сидорчук Николай - https://github.com/k0t1k777
+1. Сидорчук Николай - Профиль на GitHub [https://github.com/k0t1k777](https://github.com/k0t1k777) 
+2. Ким Се-Ун - Профиль на GitHub [https://github.com/Se-Un](https://github.com/Se-Un)
 
 ## ссылка на Github Pages
-
-`https://k0t1k777.github.io/HR_Space`
+[Кликай тут](https://k0t1k777.github.io/HR_Space)
 
 ## Инструкции по установке и запуску
 
@@ -48,6 +48,11 @@
 5. yup
 
 ## Ключевые точки для медиа min,max-width: 1440px
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
 
 <!-- ![Screenshot 1](./src/assets/image%20(wecompress.com).png)
 ![Screenshot 2](./src/assets/image121%20(wecompress.com).png)

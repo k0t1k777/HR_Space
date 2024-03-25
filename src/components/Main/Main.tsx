@@ -81,7 +81,7 @@ export default function Main({ content }: { content: MainContent }) {
   const addNewContent = () => {
     Api.addNewContent(newContent);
   };
-  console.log('newContent: ', newContent);
+  // console.log('newContent: ', newContent);
 
   useEffect(() => {
     setNewContent({
@@ -307,6 +307,7 @@ export default function Main({ content }: { content: MainContent }) {
           )}
           {currentStep === 8 && (
             <StepEight
+              valueDate={valueDate}
               setValueDate={setValueDate}
               valueRecruters={valueRecruters}
               setValueRecruters={setValueRecruters}

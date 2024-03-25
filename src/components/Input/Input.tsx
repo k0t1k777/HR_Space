@@ -79,7 +79,7 @@ export default function Input({
 
   useEffect(() => {
     if(idStep === 'specialization') {
-      setDisplayCount(3);
+      setDisplayCount(5);
     }
     if(idStep === 'towns') {
       setDisplayCount(4)

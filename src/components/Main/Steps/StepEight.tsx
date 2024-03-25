@@ -6,6 +6,7 @@ import Range from '../../Range/Range';
 import SubTitle from '../../Subtitle/Subtitle';
 
 interface StepEightProps {
+  valueDate: string;
   setValueDate: (value: string) => void;
   valueRecruters: string;
   setValueRecruters: (value: string) => void;
@@ -15,6 +16,7 @@ interface StepEightProps {
 }
 
 export default function StepEight({
+  valueDate,
   setValueDate,
   valueRecruters,
   setValueRecruters,
@@ -31,7 +33,7 @@ export default function StepEight({
         setSelectedItem={setValueCandidats}
       />
       <SubTitle subtitle={StepEightData.subTitleDate} />
-      <DateInput setSelectedItem={setValueDate} inputDate={showContent.date} />
+      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} inputDate={showContent.date} />
       <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
       <InputSelect
         multi={showContent.recruiter_count}
