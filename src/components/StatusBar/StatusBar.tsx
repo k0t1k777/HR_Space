@@ -62,6 +62,7 @@ export default function StatusBar({
         </button>{' '}
       </div>
       <InfoTooltipDone
+        currentStep={currentStep}
         isVisible={infoTooltipSaveIsOpen}
         messageTitle={statusBarData.save}
       />
