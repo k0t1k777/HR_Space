@@ -1,0 +1,37 @@
+.big-picture {
+  width: 159px;
+  align-self: flex-end;
+  margin: 27.5px 54px 27.5px 0;
+}
+
+.big-picture__image {
+  width: 159px;
+  height: 88px;
+}
+
+.big-picture:first-of-type,
+.big-picture:last-of-type {
+  align-self: flex-start;
+  justify-self: center;
+}
+
+.big-picture:first-of-type {
+  margin: 52px 0 0 44px;
+}
+
+.big-picture:last-of-type {
+  margin: 20px 0 54px 47px;
+}
+
+.big-picture__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.6px;
+  text-align: center;
+  color: #888686;
+}
+
+.big-picture:first-of-type > .big-picture__title {
+  color: #252525;
+}

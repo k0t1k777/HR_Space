@@ -1,0 +1,50 @@
+.title {
+  max-width: 253px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-container {
+  display: flex;
+  gap: 14px;
+  padding-top: 16px;
+  width: 506px;
+}
+
+.title__input {
+  border-radius: 8px;
+  margin: 0;
+  max-height: 40px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #BABDBF;
+  margin: 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.title__name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27.84px;
+  max-width: 253px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-container-edit {
+  display: flex;
+  height: 32px;
+  gap: 16px;
+}
+
+.title__img {
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+

@@ -1,0 +1,124 @@
+.input-whith-select__container {
+  display: flex;
+  max-width: 506px;
+  gap: 12px;
+}
+
+.input-whith-select__container-level {
+  width: 100%;
+  display: flex;
+  max-width: 506px;
+}
+
+.input-whith-select {
+  width: 100%;
+  min-width: 294px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #babdbf;
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #303233;
+}
+
+.input-whith-select:hover {
+  border: 1px solid #959799;
+}
+
+.input-whith-select:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
+
+.input-whith-select__container-suggestion {
+  display: flex;
+  gap: 4px;
+  margin: 17px 0 0 0;
+}
+
+.input-whith-select__container-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  padding: 8px 12px;
+  border: 1px solid #babdbf;
+  height: 36px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.selected-value {
+  min-width: 200px;
+  display: flex;
+  margin-left: 12px ;
+}
+
+.input-whith-select__select {
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #babdbf;
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #959799;
+  cursor: pointer;
+  appearance: none;
+  background-image: url('../../assets/arrow_down.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center; 
+}
+
+.input-whith-select__select:hover {
+  border: 1px solid #959799;
+}
+
+.input-whith-select__select:focus {
+  outline: #1785E5;
+  border: 1px solid #1785E5;
+}
+
+  .input__error {
+  margin: 8px 0 0 0;
+  color: #D92121;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+}
+
+.input-whith-select__option {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+}
+
+.input-whith-select__invalid {
+  border: 1px solid #d92121;
+}
+
+.input-whith-select__valid {
+  border: 1px solid #babdbf;
+}
+
+.input__error_display_none {
+  display: none;
+}

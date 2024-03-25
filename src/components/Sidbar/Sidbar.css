@@ -1,0 +1,24 @@
+.big-picture-container__items {
+  width: 470px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #E9F0FF;
+  height: 532px;
+}
+
+.big-picture-container__line {
+  width: 116.28px;
+  height: 61px;
+  position: absolute;
+  top: 139.47px;
+  right: 108.67px;
+}
+
+.line_position_bottom {
+  width: 128px;
+  height: 80px;
+  top: 348px;
+  right: 102.07px;
+}

@@ -1,0 +1,49 @@
+.heck__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.check__container {
+  height: 18px;
+  position: relative;
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.check__custom {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.check__fake {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  z-index: -1;
+  border: 1px solid #959799;
+  border-radius: 4px;
+}
+
+.check__custom:checked + .check__fake {
+  border: none;
+  background-image: url(../../assets/daw.svg);
+  background-position: 50% 48%;
+  background-repeat: no-repeat;
+  background-color: #1785e5;
+}
+
+.check__caption {
+  max-width: 506px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  color: #303233;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

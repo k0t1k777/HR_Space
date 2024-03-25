@@ -1,0 +1,57 @@
+.input-select__container {
+  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 506px;
+  margin: 12px 0 0;
+}
+
+.input-select__container-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  padding: 8px 12px;
+  border: 1px solid #babdbf;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: white;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  flex-shrink: 0;
+  white-space: pre-wrap;
+}
+
+.input-select__selected {
+  border: none;
+  background-color: #eeeeee;
+}
+
+.input-select__type_wrap {
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+
+.input-select__caption {
+  max-width: 214px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.input-select__container-item:first-of-type > .input-select__caption,
+.input-select__container-item:last-of-type > .input-select__caption {
+  max-width: 140px;
+}
+
+.input-select__caption_text_bold {
+  font-weight: bold;
+}

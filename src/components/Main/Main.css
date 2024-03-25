@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px 0 0 0;
+}
+
+.main__container {
+  width: 506px;
+  transition: background-color 0.9s ease;
+}
+
+.main__button {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+}
