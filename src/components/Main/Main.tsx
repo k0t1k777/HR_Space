@@ -80,8 +80,8 @@ export default function Main({ content }: { content: MainContent }) {
 
   const addNewContent = () => {
     Api.addNewContent(newContent);
-    console.log('newContent: ', newContent);
   };
+  console.log('newContent: ', newContent);
 
   useEffect(() => {
     setNewContent({
@@ -100,7 +100,7 @@ export default function Main({ content }: { content: MainContent }) {
       experience: valuesExperiense,
       education: valuesSalary,
       payments: valuePay,
-      skills: inputValueSkill,
+      skills: added,
       languages: {
         name: inputValuesLanguage,
         language_level: selectedLevel,
@@ -126,7 +126,7 @@ export default function Main({ content }: { content: MainContent }) {
     valuesExperiense,
     valuesSalary,
     valuePay,
-    inputValueSkill,
+    added,
     inputValuesLanguage,
     selectedLevel,
     valuesOccupation,
@@ -136,7 +136,8 @@ export default function Main({ content }: { content: MainContent }) {
   ]);
 
   const handleContinue = (isValid: boolean) => {
-    if (currentStep === 1) {
+    if 
+    (currentStep === 1) {
       if (
         inputValueSpecialty.trim() === '' ||
         inputValueSalaryMin.trim() === '' ||
@@ -156,8 +157,9 @@ export default function Main({ content }: { content: MainContent }) {
       if (selectedValue !== true) {
         isValid = false;
       }
-    } else if (currentStep === 9) {
-      if (inputValueSalaryMin.trim() !== '') {
+    } else if 
+    (currentStep === 9) {
+      if (reward.trim() === '') {
         isValid = false;
       }
     }
@@ -194,19 +196,18 @@ export default function Main({ content }: { content: MainContent }) {
         })
       );
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
-      setInfoTooltipSaveIsOpen(true);
-      setTimeout(() => {
-        setInfoTooltipSaveIsOpen(false);
-      }, 1000);
+      if (currentStep === 9 && isValid) {
+        handleSend();
+      }
     }
   };
 
   const handleSend = () => {
-    if (currentStep === 9) {
-      addNewContent();
-    } else {
-      setCurrentStep((prevStep) => prevStep + 1);
-    }
+    addNewContent()
+    setInfoTooltipSaveIsOpen(true);
+    setTimeout(() => {
+      setInfoTooltipSaveIsOpen(false);
+    }, 1000);
   };
 
   const handleBack = () => {
@@ -331,20 +332,27 @@ export default function Main({ content }: { content: MainContent }) {
             handleBack={handleBack}
             disabled={currentStep === 1}
           />
-          {currentStep < 9 && (
+            <ButtonNext
+              handleContinue={handleContinue}
+              currentStep={currentStep}
+            />
+          {/* {currentStep < 9 && (
             <ButtonNext
               handleContinue={handleContinue}
               currentStep={currentStep}
             />
           )}
           {currentStep === 9 && (
-            <ButtonNext handleContinue={handleSend} currentStep={currentStep} />
-          )}
+            <ButtonNext
+              handleContinue={handleContinue}
+              currentStep={currentStep}
+            />
+          )} */}
         </div>
       </div>
       <InfoTooltipDone
         isVisible={infoTooltipSaveIsOpen}
-        messageTitle={statusBarData.save}
+        currentStep={currentStep}
       />
     </main>
   );

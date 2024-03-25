@@ -4,13 +4,17 @@ import './StatusBar.css';
 import { names, statusBarData } from '../../utils/constants';
 import InfoTooltipDone from '../InfoTooltipDone/InfoTooltipDone';
 
+interface StatusBarProps {
+  currentStep: number;
+  newTitle: string;
+  setNewTitle: (value: string) => void;
+}
+
 export default function StatusBar({
   currentStep,
   newTitle,
-  setNewTitle
-}: {
-  currentStep: number;
-}) {
+  setNewTitle,
+} : StatusBarProps ) {
   const [infoTooltipSaveIsOpen, setInfoTooltipSaveIsOpen] = useState(false);
   const handleSaveTitle = (title: string) => {
     setNewTitle(title);

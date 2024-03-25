@@ -18,7 +18,7 @@
 
 ## ссылка на Github Pages
 
-<!-- https://k0t1k777.github.io/ambassadors_front -->
+`https://k0t1k777.github.io/HR_Space`
 
 ## Инструкции по установке и запуску
 

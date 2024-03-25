@@ -40,6 +40,11 @@ export const buttonsData = {
   back: 'Назад',
 };
 
+export const InfoToolTipData = {
+  send: 'Резюме отправлено',
+  save: 'Сохранено в черновике',
+}
+
 export const userData = {
   name: 'Виталий Крымов',
   id: '#45732',
@@ -105,4 +110,5 @@ export const StepEightData = {
 export const StepSixNine = {
   subTitlePayments: 'Выплата',
   subTitleAward: 'Вознаграждение за сотрудника',
+  placeholderAward: '50000',
 };

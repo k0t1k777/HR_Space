@@ -10,7 +10,6 @@ export default function App() {
     Api.getContent()
       .then((data) => {
         setContent(data);
-        console.log(data);
       })
       .catch((error) => {
         console.error(error);

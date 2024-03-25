@@ -21,6 +21,7 @@ export default function StepNine({
   isValid,
   showContent,
 }: StepNineProps) {
+
   return (
     <div className='step-nine'>
       <SubTitle subtitle={StepSixNine.subTitlePayments} clue='subtitle__clue' />
@@ -33,6 +34,7 @@ export default function StepNine({
       />
       <SubTitle subtitle={StepSixNine.subTitleAward} />
       <InputSalaryMin
+        placeholder={StepSixNine.placeholderAward}
         inputValueSalaryMin={reward}
         setInputValueSalaryMin={setReward}
         isValid={isValid}

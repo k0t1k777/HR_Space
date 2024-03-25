@@ -22,65 +22,9 @@ export const getContent = () => {
 };
 
 export const addNewContent = (content: object) => {
-  return fetch(`${BASE_URL}/api/v1/spaces/`, {
+  return fetch(`${BASE_URL}/api/v1/app/`, {
     method: 'POST',
     headers,
     body: JSON.stringify(content),
   }).then(getResponseData);
 };
-
-// export const addNewContent = (
-//   employer_id: string,
-//   mission: string,
-//   bonus: string,
-//   salary_min: string,
-//   salary_max: string,
-//   responsibilities: string,
-//   other_requirements: string,
-//   candidates_count: string,
-//   recruiter_count: string,
-//   award: string,
-//   name: string,
-//   specialization: string,
-//   towns: string,
-//   experience: string,
-//   education: string,
-//   payments: string,
-//   skills: string,
-//   languages: string,
-//   language_level: string,
-//   occupation: string,
-//   registration: string,
-//   timetable: string,
-//   expectations: string
-// ) => {
-//   return fetch(`${BASE_URL}/api/v1/spaces/`, {
-//     method: 'POST',
-//     headers,
-//     body: JSON.stringify({
-//       employer_id,
-//       mission,
-//       bonus,
-//       salary_min,
-//       salary_max,
-//       responsibilities,
-//       other_requirements,
-//       candidates_count,
-//       recruiter_count,
-//       award,
-//       name,
-//       specialization,
-//       towns,
-//       experience,
-//       education,
-//       payments,
-//       skills,
-//       languages,
-//       language_level,
-//       registration,
-//       occupation,
-//       timetable,
-//       expectations,
-//     }),
-//   }).then(getResponseData);
-// };
