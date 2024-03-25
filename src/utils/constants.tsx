@@ -41,9 +41,9 @@ export const buttonsData = {
 };
 
 export const InfoToolTipData = {
-  send: 'Резюме отправлено',
+  send: 'Заявка отправлена',
   save: 'Сохранено в черновике',
-}
+};
 
 export const userData = {
   name: 'Виталий Крымов',
