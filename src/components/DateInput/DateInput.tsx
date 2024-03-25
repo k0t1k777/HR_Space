@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import './DateInput.css';
 
 interface DateInputProps {
-  setValueDate: (value: string) => void;
+  selectedItem: string;
+  setSelectedItem: (value: string) => void;
   inputDate: string;
 }
 
 export default function DateInput({
-  // setValueDate,
+  selectedItem,
+  setSelectedItem,
   inputDate,
   // valueDate,
 }: DateInputProps) {
@@ -28,7 +30,7 @@ export default function DateInput({
         className='date-input__item'
         id='date'
         type='date'
-        value={valueDate}
+        value={selectedItem === '' ? inputDate : selectedItem}
         onChange={handleDateChange}
       />
       <div className='date-input__fake'></div>
