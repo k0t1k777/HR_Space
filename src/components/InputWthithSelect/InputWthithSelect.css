@@ -4,10 +4,10 @@
   gap: 12px;
 }
 
-.input-whith-select__container-line {
+.input-whith-select__container-level {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  max-width: 506px;
 }
 
 .input-whith-select {
@@ -27,7 +27,6 @@
   font-weight: 400;
   line-height: 19.6px;
   color: #303233;
-  flex: 1;
 }
 
 .input-whith-select:hover {
@@ -44,7 +43,6 @@
   display: flex;
   gap: 4px;
   margin: 17px 0 0 0;
-  /* flex: 1; */
 }
 
 .input-whith-select__container-item {
@@ -66,6 +64,7 @@
 .selected-value {
   min-width: 200px;
   display: flex;
+  margin-left: 12px ;
 }
 
 .input-whith-select__select {

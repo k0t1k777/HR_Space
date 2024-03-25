@@ -51,7 +51,6 @@ export default function InputWthithSelect({
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLevel = event.target.value;
     setSelectedLevel(selectedLevel);
-
   };
 
   const handleSuggestionClick = (option: string) => {
@@ -92,17 +91,40 @@ export default function InputWthithSelect({
   return (
     <div className='input-whith-select__container'>
       <div className='input-whith-select__container-line'>
-        <div>
-          <input
-            className={`input-whith-select ${
-              isValid ? '' : 'input-whith-select__invalid'
-            } ${isInputValid ? 'input-whith-select__valid' : ''} `}
-            type='text'
-            value={inputValue}
-            onChange={handleChange}
-            placeholder={placeholder ? placeholder : 'Выберите из списка'}
-          />
-          {!isValid && <div className='input__error'>{errorText}</div>}
+          <div className='input-whith-select__container-level'>
+            <div style={{  maxWidth: '506px', width: '506px' }}>
+              <input
+                className={`input-whith-select ${
+                  isValid ? '' : 'input-whith-select__invalid'
+                } ${isInputValid ? 'input-whith-select__valid' : ''} `}
+                type='text'
+                value={inputValue}
+                onChange={handleChange}
+                placeholder={placeholder ? placeholder : 'Выберите из списка'}
+              />
+              {!isValid && <div className='input__error'>{errorText}</div>}
+            </div>
+            {selectedValue && (
+              <div className='selected-value'>
+                <select
+                  className='input-whith-select__select'
+                  value={selectedLevel}
+                  onChange={handleSelectChange}
+                >
+                  {levels.map((level, index) => (
+                    <option
+                      className='input-whith-select__option'
+                      value={level}
+                      key={index}
+                    >
+                      {level}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+          </div>
+
           {!disableSuggestions && suggestions.length > 0 && (
             <div className='input-whith-select__container-suggestion'>
               {suggestions.slice(0, 5).map((suggestion, index) => (
@@ -116,28 +138,7 @@ export default function InputWthithSelect({
               ))}
             </div>
           )}
-        </div>
       </div>
-
-      {selectedValue && (
-        <div className='selected-value'>
-          <select
-            className='input-whith-select__select'
-            value={selectedLevel}
-            onChange={handleSelectChange}
-          >
-            {levels.map((level, index) => (
-              <option
-                className='input-whith-select__option'
-                value={level}
-                key={index}
-              >
-                {level}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
     </div>
   );
 }
