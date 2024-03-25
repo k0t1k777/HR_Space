@@ -18,7 +18,7 @@
 2. Ким Се-Ун - Профиль на GitHub [https://github.com/Se-Un](https://github.com/Se-Un)
 
 ## ссылка на Github Pages
-[https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
+[Ссылка: https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
 
 ## Инструкции по установке и запуску
 
