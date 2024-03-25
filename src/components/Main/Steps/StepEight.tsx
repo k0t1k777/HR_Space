@@ -13,13 +13,11 @@ interface StepEightProps {
   valueCandidats: number;
   setValueCandidats: (value: number) => void;
   showContent: ShowContent;
-  valueDate: any;
 }
 
 export default function StepEight({
   valueDate,
   setValueDate,
-  valueDate,
   valueRecruters,
   setValueRecruters,
   valueCandidats,
