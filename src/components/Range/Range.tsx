@@ -16,7 +16,6 @@ export default function Range({
   step,
   selectedItem,
   setSelectedItem,
-  multi,
 }: RangeProps) {
   const [moveOutput, setMoveOutput] = useState<number>(0);
   const [bgColor, setBgColor] = useState<number>(0);
@@ -95,7 +94,7 @@ export default function Range({
         id='range'
         type='range'
         min={min ? min : '1'}
-        max={max ? max : multi.length.toString()}
+        max={max ? max : '10'}
         step={step ? step : '1'}
         value={selectedItem}
         onChange={(e) => {
