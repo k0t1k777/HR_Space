@@ -154,10 +154,6 @@ export default function Main({ content }: { content: MainContent }) {
         if (added.length === 0 && inputValueSkill.trim() === '') {
           isValid = false;
         }
-      } else if (currentStep === 4) {
-        if (selectedValue !== true) {
-          isValid = false;
-        }
       } else if(currentStep === 9)
      {
       if (reward.trim() === '') {
