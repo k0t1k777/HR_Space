@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://51.250.27.201';
+export const BASE_URL = 'http://51.250.27.201';
 export const TOKEN = 'eb5412dde4a745df4b30b39ccff457978b1b5902';
 
 const headers = {
