@@ -33,7 +33,7 @@ export default function StepEight({
         setSelectedItem={setValueCandidats}
       />
       <SubTitle subtitle={StepEightData.subTitleDate} />
-      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} inputDate={showContent.date} />
+      <DateInput selectedItem={valueDate} setSelectedItem={setValueDate} />
       <SubTitle subtitle={StepEightData.subTitleCountCandidates} />
       <InputSelect
         multi={showContent.recruiter_count}

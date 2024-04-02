@@ -19,7 +19,7 @@ import * as Api from '../../utils/utils';
 import InfoTooltipDone from '../InfoTooltipDone/InfoTooltipDone';
 
 export interface MainContent {
-  content: ShowContent[];
+  content?: ShowContent[];
   specialization: string[];
   towns: string[];
   skills: string[];
@@ -32,7 +32,7 @@ export interface MainContent {
   languages: string[];
   languages_levels: string[];
   payments: string[];
-  date: string;
+  // date: string;
   bonus: string[];
   recruiter_count: string[];
   candidates_count: number[];

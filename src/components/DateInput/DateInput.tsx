@@ -1,16 +1,24 @@
 import './DateInput.css';
+import { defaultDate } from '../../utils/constants';
+import { useEffect, useState } from 'react';
 
 interface DateInputProps {
   selectedItem: string;
   setSelectedItem: (value: string) => void;
-  inputDate: string;
 }
 
 export default function DateInput({
   selectedItem,
   setSelectedItem,
-  inputDate,
 }: DateInputProps) {
+
+  const [currentDate, setCurrentDate ] = useState('');
+  
+
+  useEffect(() => {
+    setCurrentDate(defaultDate)
+  }, [])
+
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedItem(e.target.value);
   };
@@ -21,7 +29,7 @@ export default function DateInput({
         className='date-input__item'
         id='date'
         type='date'
-        value={selectedItem === '' ? inputDate : selectedItem}
+        value={selectedItem === '' ? currentDate : selectedItem}
         
         onChange={handleDateChange}
       />
