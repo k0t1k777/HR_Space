@@ -12,7 +12,7 @@ export interface ShowContent {
   languages_levels: string[];
   payments: string[];
   bonus: string[];
-  date: string;
+  //date: string;
   recruiter_count: string[];
   candidates_count: number[];
   mission: string[];

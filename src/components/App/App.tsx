@@ -1,20 +1,25 @@
 import './App.css';
-import Main, { MainContent } from '../Main/Main';
+import Main, { MainContent} from '../Main/Main';
 import Header from '../Header/Header';
-import * as Api from '../../utils/utils';
+import { data } from '../../utils/constants';
+//import * as Api from '../../utils/utils';
 import { useEffect, useState } from 'react';
 
 export default function App() {
+  // <MainContent | null>
   const [content, setContent] = useState<MainContent | null>(null);
   useEffect(() => {
-    Api.getContent()
-      .then((data) => {
-        setContent(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    setContent(data);
+  }, [])
+  // useEffect(() => {
+  //   Api.getContent()
+  //     .then((data) => {
+  //       setContent(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   return (
     <>
