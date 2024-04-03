@@ -19,6 +19,10 @@
   opacity: 0;
 }
 
+.check__custom:hover {
+  cursor: pointer;
+}
+
 .check__fake {
   width: 16px;
   height: 16px;

@@ -7,15 +7,17 @@ interface InfoTooltipProps {
   isVisible?: boolean;
   messageTitle?: string;
   currentStep: number;
+  draft?: boolean;
 }
 
 export default function InfoTooltipDone({
   isVisible,
   currentStep,
+  draft,
 }: InfoTooltipProps) {
   const [visible, setVisible] = useState(isVisible);
   const messageTitle =
-    currentStep === 9 ? InfoToolTipData.send : InfoToolTipData.save;
+    currentStep === 9 && draft ? InfoToolTipData.send : InfoToolTipData.save;
   useEffect(() => {
     setVisible(isVisible);
   }, [isVisible]);

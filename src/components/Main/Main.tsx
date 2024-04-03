@@ -71,6 +71,7 @@ export default function Main({ content }: { content: MainContent }) {
   const [valueRecruters, setValueRecruters] = useState<string>('');
   const [isValid, setIsValid] = useState(true);
   const [showContent, setShowContent] = useState(content);
+  const [draft, setDraft] = useState(false)
 
   useEffect(() => {
     setShowContent(content);
@@ -195,6 +196,7 @@ export default function Main({ content }: { content: MainContent }) {
       setCurrentStep((prevStep) => (prevStep < 9 ? prevStep + 1 : prevStep));
       if (currentStep === 9 && isValid) {
         handleSend();
+        setDraft(true);
       }
     }
   };
@@ -339,6 +341,7 @@ export default function Main({ content }: { content: MainContent }) {
       <InfoTooltipDone
         isVisible={infoTooltipSaveIsOpen}
         currentStep={currentStep}
+        draft={draft}
       />
     </main>
   );

@@ -44,8 +44,8 @@
 ## Библиотеки,которые использовалис
 
 1. mui/x-date-pickers-pro
-4. @hookform/resolvers
-5. yup
+2. @hookform/resolvers
+3. yup
 
 ## Ключевые точки для медиа min,max-width: 1440px
 ![alt text](./src/assets/image.png)
