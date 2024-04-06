@@ -11,6 +11,7 @@ export default function App() {
   useEffect(() => {
     setContent(data);
   }, [])
+  
   // useEffect(() => {
   //   Api.getContent()
   //     .then((data) => {
