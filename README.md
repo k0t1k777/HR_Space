@@ -48,7 +48,7 @@
 3. yup
 
 ## Ключевые точки для медиа min,max-width: 1440px
-![alt text](./src/assets/image.png)
+  (./src/assets/image.png)
 ![alt text](./src/assets/image-1.png)
 ![alt text](./src/assets/image-2.png)
 ![alt text](./src/assets/image-3.png)

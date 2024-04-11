@@ -12,6 +12,7 @@ export default function App() {
     setContent(data);
   }, [])
   
+  // код для БД
   // useEffect(() => {
   //   Api.getContent()
   //     .then((data) => {
